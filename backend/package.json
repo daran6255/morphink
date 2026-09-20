@@ -1,7 +1,7 @@
 {
-  "name": "wvis-backend",
+  "name": "morphink-backend",
   "version": "1.0.0",
-  "description": "Enterprise Express + TypeScript + Prisma Backend for WinVinaya Infosystems",
+  "description": "Enterprise Express + TypeScript + Prisma Backend for Morphink Architecture",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -16,13 +16,13 @@
     "test": "vitest run"
   },
   "keywords": [
-    "winvinaya",
+    "morphink",
+    "architecture",
     "express",
     "typescript",
-    "prisma",
-    "accessibility"
+    "prisma"
   ],
-  "author": "WinVinaya Infosystems",
+  "author": "Morphink Architecture",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.4.1",
