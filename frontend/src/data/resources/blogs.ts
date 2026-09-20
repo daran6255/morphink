@@ -57,7 +57,7 @@ export const featuredBlogPost: BlogPostItem = {
   aliases: ['sustainable-architecture-india-future', 'net-zero-buildings-india'],
   title: 'The Future of Sustainable Architecture in India: Building for Net-Zero by 2047',
   excerpt:
-    'India's construction boom is accelerating — but so is its energy consumption. How do architects design buildings that are ambitious, beautiful, and genuinely responsible? Here is what the path to net-zero looks like in the Indian context.',
+    "India's construction boom is accelerating — but so is its energy consumption. How do architects design buildings that are ambitious, beautiful, and genuinely responsible? Here is what the path to net-zero looks like in the Indian context.",
   category: 'sustainable-design',
   categoryLabel: 'Sustainable Design',
   author: 'Morphink Architecture Editorial',
@@ -74,9 +74,9 @@ export const featuredBlogPost: BlogPostItem = {
   coverCaption: 'The intersection of parametric design and sustainable energy strategies in Indian architecture.',
   sections: [
     {
-      heading: 'The Scale of India's Built Environment Challenge',
+      heading: "The Scale of India's Built Environment Challenge",
       paragraphs: [
-        'India is in the midst of an unprecedented urbanization surge. By 2047, it is projected that nearly 50% of India's population will live in cities — meaning that the equivalent of an entire new urban India must be built over the next two decades. The buildings constructed in this window will determine India's carbon trajectory for the rest of the century.',
+        "India is in the midst of an unprecedented urbanization surge. By 2047, it is projected that nearly 50% of India's population will live in cities — meaning that the equivalent of an entire new urban India must be built over the next two decades. The buildings constructed in this window will determine India's carbon trajectory for the rest of the century.",
         'Yet the majority of construction today — both residential and commercial — still prioritizes cost and speed over energy performance, material lifecycle, or occupant health. Conventional brick-and-mortar structures with inadequate insulation and poor natural light access are being replicated at scale, locking in decades of inefficiency.',
       ],
       quoteCallout: {
@@ -98,11 +98,11 @@ export const featuredBlogPost: BlogPostItem = {
       ],
     },
     {
-      heading: 'Morphink's Approach to Sustainable Design',
+      heading: "Morphink's Approach to Sustainable Design",
       paragraphs: [
         'At Morphink Architecture, we begin every project with an energy model. Before a single wall is drawn, we simulate building performance across seasonal conditions using parametric energy analysis. This allows us to test dozens of design configurations — roof pitch, window-to-wall ratio, material choices, ventilation paths — and optimize for both energy performance and spatial quality simultaneously.',
         'Our residential projects consistently achieve 40–60% reductions in operational energy compared to conventional construction. Our institutional projects incorporate rainwater harvesting, greywater recycling, and biophilic landscaping systems that reduce both energy and water consumption significantly.',
-        'The result is buildings that are not just sustainably certified on paper, but genuinely comfortable, low-cost to operate, and resilient to the climate variability that is already reshaping India's built environment.',
+        "The result is buildings that are not just sustainably certified on paper, but genuinely comfortable, low-cost to operate, and resilient to the climate variability that is already reshaping India's built environment.",
       ],
     },
   ],
@@ -118,34 +118,35 @@ export const blogPosts: BlogPostItem[] = [
       'From the swooping curves of the Sydney Opera House to the faceted towers of contemporary skylines, parametric design has moved from avant-garde experiment to mainstream practice. Here is what it means for Indian architecture.',
     category: 'parametric-architecture',
     categoryLabel: 'Parametric Architecture',
-    author: 'Morphink Design Studio',
-    authorRole: 'Parametric Design Research',
+    author: 'Morphink Parametric Lab',
+    authorRole: 'Computation & Computational Design',
     publishedDate: '02 Aug 2026',
-    readTime: '4 min read',
+    readTime: '7 min read',
     tileImage:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
     bannerImage:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80',
     isFeatured: false,
-    tags: ['Parametric Design', 'Computational Architecture', 'BIM', 'Grasshopper', 'Rhino'],
+    tags: ['Parametric Design', 'Grasshopper', 'Rhino 3D', 'Façade Engineering', 'Computational Architecture'],
     sections: [
       {
-        heading: 'What Parametric Design Actually Is',
+        heading: 'Beyond Fixed Geometry: What Is Parametric Design?',
         paragraphs: [
-          'Parametric design is the practice of building architectural forms using algorithms and variable inputs rather than fixed geometric shapes. Instead of drawing a wall, a parametric designer defines a rule: "The wall follows this curve, and the openings are spaced at intervals determined by solar angle and privacy requirements." Change an input, and the entire system responds coherently.',
-          'Tools like Rhino with Grasshopper, Autodesk Dynamo, and emerging AI-assisted platforms have made parametric design accessible to studios of all sizes — not just the experimental boutiques with computational specialists on staff.',
+          'Parametric design is not a style — it is a methodology. Rather than drawing fixed geometric shapes, parametric architects define geometric relationships and rules governed by parameters — such as solar angles, wind loads, view corridors, or material constraints. Change a parameter, and the software recalculates the entire model.',
+          'In practice, this means we can design a building skin that dynamically responds to sunlight: denser shading where heat gain is highest, wider openings where views and daylight are needed most, all derived from local solar data rather than guesswork.',
         ],
       },
       {
-        heading: 'Applications in Indian Architecture',
+        heading: 'Real-World Applications at Morphink',
         paragraphs: [
-          'In the Indian context, parametric design is proving particularly powerful for three applications: façade optimization for solar shading, structural efficiency in irregular site conditions, and master planning of complex mixed-use developments where pedestrian flow, solar access, and service routing must all be balanced simultaneously.',
-          'Morphink Architecture has used parametric tools on commercial façade design, residential massing studies, and institutional roof structures — achieving both formal richness and measurable performance improvements that would have been impossible through conventional drafting.',
+          'In our commercial tower projects, parametric modeling has enabled us to reduce cooling loads by 35% purely through optimized solar shading fins that vary in angle and depth across the building façade.',
+          'On residential projects, parametric brickwork algorithms generate bespoke, undulating brick patterns that masonry teams can execute using simple coordinate-based templates — marrying high-tech computation with local craftsmanship.',
         ],
         takeaways: [
-          'Façade Design: Algorithmically optimized shading fins that respond to specific solar angles for each façade orientation.',
-          'Structural Form-Finding: Parametric tools that identify minimum-material structural configurations for complex roof spans.',
-          'Site Massing: Rapid generation and evaluation of dozens of massing options optimized for solar access, views, and density.',
+          'Algorithmic Form-Finding: Designing structures that distribute loads naturally with minimal material.',
+          'Solar-Responsive Façades: Automatically generating louvers and screens tailored to site-specific sun paths.',
+          'Digital Fabrication: Exporting fabrication-ready geometry directly to CNC and waterjet machines.',
+          'Craft Integration: Translating complex digital patterns into intuitive on-site construction guides.',
         ],
       },
     ],
@@ -154,7 +155,7 @@ export const blogPosts: BlogPostItem[] = [
     id: 'urban-density-human-scale',
     slug: 'urban-density-at-human-scale-the-design-challenge-of-indias-cities',
     aliases: ['urban-density-human-scale-india'],
-    title: 'Urban Density at Human Scale: The Design Challenge of India's Cities',
+    title: "Urban Density at Human Scale: The Design Challenge of India's Cities",
     excerpt:
       'Indian cities are dense — and getting denser. The question is not whether to build vertically, but how to do so while preserving the street-level vitality, social texture, and environmental comfort that make cities worth living in.',
     category: 'urban-planning',
@@ -174,7 +175,7 @@ export const blogPosts: BlogPostItem[] = [
         heading: 'The Density Paradox',
         paragraphs: [
           'High-density urban development gets a bad reputation. The instinctive image is of cramped, poorly-lit apartments stacked behind blank concrete podiums, with no connection to street life, community, or greenery. This is the result not of density itself, but of poorly-designed density.',
-          'The evidence from the world's most livable dense cities — Tokyo, Amsterdam, Singapore, Barcelona — shows that density can produce vibrant, walkable, environmentally responsible urban environments when designed with care. The challenge for Indian architects and planners is learning from these precedents while adapting to Indian social patterns, climate, and urban structure.',
+          "The evidence from the world's most livable dense cities — Tokyo, Amsterdam, Singapore, Barcelona — shows that density can produce vibrant, walkable, environmentally responsible urban environments when designed with care. The challenge for Indian architects and planners is learning from these precedents while adapting to Indian social patterns, climate, and urban structure.",
         ],
       },
       {
@@ -260,3 +261,41 @@ export const blogPosts: BlogPostItem[] = [
     ],
   },
 ]
+
+export const getAdjacentPosts = (
+  identifier: string
+): { prevPost?: BlogPostItem; nextPost?: BlogPostItem } => {
+  const allPosts = [featuredBlogPost, ...blogPosts]
+  const index = allPosts.findIndex(
+    (p) => p.slug === identifier || p.id === identifier || (p.aliases && p.aliases.includes(identifier))
+  )
+  if (index === -1) return {}
+  return {
+    prevPost: index > 0 ? allPosts[index - 1] : undefined,
+    nextPost: index < allPosts.length - 1 ? allPosts[index + 1] : undefined,
+  }
+}
+
+export const blogNewsletterData = {
+  heading: 'Stay Updated with Morphink Insights',
+  description:
+    'Subscribe to our monthly journal covering architectural innovation, sustainable design principles, and built environment research.',
+  buttonLabel: 'Subscribe',
+  privacyNote: 'No spam. You can unsubscribe at any time.',
+}
+
+export const blogsCtaData = {
+  heading: 'Have an Architectural Vision in Mind?',
+  body: 'Collaborate with our multi-disciplinary design studio on sustainable residential, commercial, or urban planning projects.',
+  primaryCta: { label: 'Start a Conversation', href: '/contact-us' },
+  secondaryCta: { label: 'View Case Studies', href: '/impact/success-stories' },
+}
+
+export const blogPostsData = blogPosts
+
+export const getBlogPostBySlug = (slug: string): BlogPostItem | undefined => {
+  const all = [featuredBlogPost, ...blogPosts]
+  return all.find((p) => p.slug === slug || p.id === slug || (p.aliases && p.aliases.includes(slug)))
+}
+
+

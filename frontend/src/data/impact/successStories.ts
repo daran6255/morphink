@@ -55,7 +55,7 @@ export const successStoriesData: SuccessStoryItem[] = [
     challenge:
       'A leading commercial real estate developer wanted a flagship 18-story office tower that would meet India Green Building Council (IGBC) Platinum rating standards — without sacrificing the premium aesthetic required to attract Fortune 500 tenants.',
     approach:
-      'Morphink developed a parametric façade system that responds dynamically to the building's solar exposure: south-facing fins are angled to block peak summer sun while admitting winter daylight, while north-facing glazing maximizes diffuse natural light. A passive stack-effect atrium at the building core reduces mechanical ventilation loads by 35%. Rooftop solar arrays were integrated architecturally rather than bolted on.',
+      "Morphink developed a parametric façade system that responds dynamically to the building's solar exposure: south-facing fins are angled to block peak summer sun while admitting winter daylight, while north-facing glazing maximizes diffuse natural light. A passive stack-effect atrium at the building core reduces mechanical ventilation loads by 35%. Rooftop solar arrays were integrated architecturally rather than bolted on.",
     outcome:
       'The Vertex Eco-Tower achieved IGBC Platinum certification and reduced projected operational energy consumption by 48% compared to conventional office construction. The building achieved 100% occupancy within 6 months of commissioning. It has become a benchmark reference for sustainable commercial design in the region.',
     tags: ['Commercial Tower', 'IGBC Platinum', 'Net-Zero Design', 'Parametric Façade', 'Passive Solar'],
@@ -115,7 +115,7 @@ export const successStoriesData: SuccessStoryItem[] = [
     approach:
       'Morphink conducted an exhaustive heritage survey before any design work began, cataloguing every significant original element. Service infrastructure (MEP, fire suppression, accessibility ramps) was routed through service cores and concealed within secondary wall layers, completely avoiding penetration of heritage surfaces. Original teak windows were restored rather than replaced, with secondary glazing added for thermal performance.',
     outcome:
-      'The Pavilion opened to immediate critical acclaim — featured in Condé Nast Traveller India's "Best New Boutique Hotels" list within three months of opening. Original heritage features are intact. The project has set a new reference standard for sympathetic hotel conversions of colonial bungalows in the region.',
+      "The Pavilion opened to immediate critical acclaim — featured in Condé Nast Traveller India's \"Best New Boutique Hotels\" list within three months of opening. Original heritage features are intact. The project has set a new reference standard for sympathetic hotel conversions of colonial bungalows in the region.",
     tags: ['Heritage Renovation', 'Boutique Hotel', 'Adaptive Reuse', 'Colonial Bungalow', 'Conservation'],
     metrics: [
       { label: 'Heritage Elements Preserved', value: '100%' },

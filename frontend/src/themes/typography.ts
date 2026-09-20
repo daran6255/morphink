@@ -1,151 +1,170 @@
-import type { CSSProperties } from 'react'
-import type { TypographyVariantsOptions } from '@mui/material/styles'
+/**
+ * MORPHINK ARCHITECTS — Typography System
+ * Google Fonts:
+ *   - Heading: Allerta Stencil (400)
+ *   - Subtitle: Space Grotesk (300, 400, 500, 600)
+ *   - Body: Inter (300, 400, 500)
+ * All font weights strictly <= 600.
+ */
 
-// ─── Morphink Architecture Typography System ──────────────────────────────────
-// Font pairing philosophy:
-//   • HEADINGS: "Lexend" — geometric, precise, architectural. The clean letterforms
-//     mirror the structural precision of the Morphink "M" logomark. Exceptional
-//     legibility at display sizes. Available from Google Fonts.
-//   • BODY: "DM Sans" — rational, neutral, professional. A contemporary geometric
-//     sans that complements Lexend without competing. Clear at small sizes.
-// Both fonts should be loaded via <link> in index.html or via @fontsource packages.
-// ─────────────────────────────────────────────────────────────────────────────
+export const FONT_HEADING = "'Allerta Stencil', sans-serif" as const;
+export const FONT_SUBTITLE = "'Space Grotesk', sans-serif" as const;
+export const FONT_BODY = "'Inter', sans-serif" as const;
+export const FONT_CODE = "monospace" as const;
 
-export const FONT_HEADING = "'Lexend', 'Helvetica Neue', Arial, sans-serif"
-export const FONT_BODY = "'DM Sans', 'Helvetica Neue', Arial, sans-serif"
+export const GOOGLE_FONTS_URL =
+  'https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap' as const;
 
-declare module '@mui/material/styles' {
-  interface TypographyVariants {
-    /** Hero-scale display text — largest typographic expression, for hero headlines. */
-    display: CSSProperties
-    /** ALL-CAPS eyebrow label — spaced uppercase for section labels and category tags. */
-    eyebrow: CSSProperties
-  }
-  interface TypographyVariantsOptions {
-    display?: CSSProperties
-    eyebrow?: CSSProperties
-  }
-}
-
-declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    display: true
-    eyebrow: true
-  }
-}
-
-export const typography: TypographyVariantsOptions = {
-  fontFamily: FONT_BODY,
-  htmlFontSize: 16,
-
-  // ── Display: Hero-scale — "Parametric Tower" headline sizes ──────────────
-  display: {
+export const typography = {
+  displayXl: {
     fontFamily: FONT_HEADING,
-    fontWeight: 700,
-    fontSize: 'clamp(3rem, 2.2rem + 3.5vw, 5rem)',
+    fontSize: 'clamp(3rem, 6vw, 5rem)',
+    fontWeight: 400,
     lineHeight: 1.05,
-    letterSpacing: '-0.03em',
+    letterSpacing: '0.04em',
+    textTransform: 'uppercase',
   },
-
-  // ── Headings: Architectural grid scale ───────────────────────────────────
+  displayLg: {
+    fontFamily: FONT_HEADING,
+    fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)',
+    fontWeight: 400,
+    lineHeight: 1.08,
+    letterSpacing: '0.035em',
+    textTransform: 'uppercase',
+  },
   h1: {
     fontFamily: FONT_HEADING,
-    fontWeight: 700,
-    fontSize: 'clamp(2.25rem, 1.8rem + 2vw, 3.75rem)',
+    fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)',
+    fontWeight: 400,
     lineHeight: 1.1,
-    letterSpacing: '-0.025em',
+    letterSpacing: '0.03em',
   },
   h2: {
     fontFamily: FONT_HEADING,
-    fontWeight: 700,
-    fontSize: 'clamp(1.875rem, 1.5rem + 1.5vw, 2.875rem)',
+    fontSize: 'clamp(1.5rem, 2.8vw, 2.125rem)',
+    fontWeight: 400,
     lineHeight: 1.15,
-    letterSpacing: '-0.02em',
+    letterSpacing: '0.025em',
   },
   h3: {
     fontFamily: FONT_HEADING,
-    fontWeight: 600,
-    fontSize: 'clamp(1.5rem, 1.3rem + 0.8vw, 2.25rem)',
+    fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)',
+    fontWeight: 400,
     lineHeight: 1.2,
-    letterSpacing: '-0.015em',
+    letterSpacing: '0.02em',
   },
   h4: {
     fontFamily: FONT_HEADING,
-    fontWeight: 600,
-    fontSize: 'clamp(1.25rem, 1.1rem + 0.5vw, 1.75rem)',
+    fontSize: 'clamp(1.1rem, 1.8vw, 1.375rem)',
+    fontWeight: 400,
     lineHeight: 1.25,
-    letterSpacing: '-0.01em',
+    letterSpacing: '0.018em',
   },
   h5: {
     fontFamily: FONT_HEADING,
-    fontWeight: 600,
-    fontSize: '1.25rem',
+    fontSize: '1.125rem',
+    fontWeight: 400,
     lineHeight: 1.3,
-    letterSpacing: '-0.005em',
+    letterSpacing: '0.015em',
   },
   h6: {
     fontFamily: FONT_HEADING,
-    fontWeight: 600,
-    fontSize: '1.0625rem',
-    lineHeight: 1.4,
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: 1.35,
+    letterSpacing: '0.012em',
   },
-
-  // ── Body: Clean, rational body copy ──────────────────────────────────────
   subtitle1: {
-    fontFamily: FONT_BODY,
-    fontWeight: 500,
+    fontFamily: FONT_SUBTITLE,
     fontSize: '1.125rem',
-    lineHeight: 1.55,
-    letterSpacing: '0.005em',
+    fontWeight: 500,
+    lineHeight: 1.5,
+    letterSpacing: '0.01em',
   },
   subtitle2: {
-    fontFamily: FONT_BODY,
+    fontFamily: FONT_SUBTITLE,
+    fontSize: '0.9375rem',
     fontWeight: 500,
-    fontSize: '0.9375rem',
     lineHeight: 1.5,
+    letterSpacing: '0.01em',
   },
-  body1: {
-    fontFamily: FONT_BODY,
+  subtitle3: {
+    fontFamily: FONT_SUBTITLE,
+    fontSize: '0.8125rem',
     fontWeight: 400,
+    lineHeight: 1.5,
+    letterSpacing: '0.015em',
+  },
+  bodyLg: {
+    fontFamily: FONT_BODY,
+    fontSize: '1.0625rem',
+    fontWeight: 400,
+    lineHeight: 1.75,
+    letterSpacing: '0.008em',
+    maxWidth: '68ch',
+  },
+  body: {
+    fontFamily: FONT_BODY,
     fontSize: '1rem',
-    lineHeight: 1.65,
-  },
-  body2: {
-    fontFamily: FONT_BODY,
     fontWeight: 400,
-    fontSize: '0.875rem',
-    lineHeight: 1.6,
+    lineHeight: 1.7,
+    letterSpacing: '0.008em',
+    maxWidth: '68ch',
   },
-  button: {
+  bodySm: {
     fontFamily: FONT_BODY,
-    fontWeight: 600,
-    fontSize: '0.9375rem',
-    lineHeight: 1.5,
-    textTransform: 'none' as const,
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    lineHeight: 1.65,
     letterSpacing: '0.01em',
   },
   caption: {
     fontFamily: FONT_BODY,
-    fontWeight: 400,
     fontSize: '0.8125rem',
-    lineHeight: 1.45,
+    fontWeight: 300,
+    lineHeight: 1.6,
+    letterSpacing: '0.015em',
   },
   overline: {
-    fontFamily: FONT_BODY,
-    fontWeight: 700,
-    fontSize: '0.6875rem',
-    lineHeight: 1.5,
-    letterSpacing: '0.12em',
-    textTransform: 'uppercase' as const,
-  },
-
-  // ── Custom Variants ───────────────────────────────────────────────────────
-  eyebrow: {
-    fontFamily: FONT_BODY,
-    fontWeight: 700,
+    fontFamily: FONT_SUBTITLE,
     fontSize: '0.75rem',
-    lineHeight: 1.4,
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase' as const,
+    fontWeight: 500,
+    lineHeight: 1.5,
+    letterSpacing: '0.14em',
+    textTransform: 'uppercase',
   },
-}
+  button: {
+    fontFamily: FONT_SUBTITLE,
+    fontSize: '1rem',
+    fontWeight: 600,
+    lineHeight: 1,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+  },
+  buttonSm: {
+    fontFamily: FONT_SUBTITLE,
+    fontSize: '0.875rem',
+    fontWeight: 500,
+    lineHeight: 1,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+  },
+  label: {
+    fontFamily: FONT_BODY,
+    fontSize: '0.8125rem',
+    fontWeight: 500,
+    lineHeight: 1.4,
+    letterSpacing: '0.02em',
+  },
+  code: {
+    fontFamily: FONT_CODE,
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    lineHeight: 1.6,
+    letterSpacing: '0em',
+  },
+} as const;
+
+export type Typography = typeof typography;
+export type TypographyVariant = keyof typeof typography;
+export type TypographyStyle = Typography[TypographyVariant];
