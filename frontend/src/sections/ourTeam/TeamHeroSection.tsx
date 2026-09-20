@@ -1,23 +1,23 @@
-import { alpha, styled } from '@mui/material/styles'
+import { alpha } from '@mui/material/styles'
+import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { Chip } from '../../components'
 import { teamHero } from '../../data'
 
-const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
-  backgroundImage:
-    theme.palette.mode === 'dark'
-      ? `radial-gradient(90% 100% at 100% 0%, ${alpha(theme.palette.accent.light, 0.14)} 0%, transparent 55%), radial-gradient(90% 100% at 0% 100%, ${alpha(theme.palette.primary.light, 0.12)} 0%, transparent 55%)`
-      : 'none',
-}))
-
 /** Page hero: who the team is and what brings them together. */
 export const TeamHeroSection = () => (
-  <Root aria-labelledby="team-hero-heading">
+  <Box
+    component="section"
+    aria-labelledby="team-hero-heading"
+    sx={(theme) => ({
+      backgroundImage:
+        theme.palette.mode === 'dark'
+          ? `radial-gradient(90% 100% at 100% 0%, ${alpha(theme.palette.accent.light, 0.14)} 0%, transparent 55%), radial-gradient(90% 100% at 0% 100%, ${alpha(theme.palette.primary.light, 0.12)} 0%, transparent 55%)`
+          : 'none',
+    })}
+  >
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={3.5} sx={{ maxWidth: 780 }}>
         <Chip
@@ -41,5 +41,5 @@ export const TeamHeroSection = () => (
         </Typography>
       </Stack>
     </Container>
-  </Root>
+  </Box>
 )

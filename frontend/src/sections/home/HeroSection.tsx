@@ -14,16 +14,12 @@ const pulseGlow = keyframes`
   100% { transform: scale(0.95); opacity: 0.8; }
 `
 
-const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
-  color: theme.palette.text.primary,
+const HeroRoot = styled('section')({
   minHeight: 'calc(100vh - 72px)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-}))
+})
 
 // Background Waves Full Canvas Container
 const WavesBackground = styled(Box)({
@@ -78,7 +74,7 @@ export const HeroSection = () => {
   const isDark = theme.palette.mode === 'dark'
 
   return (
-    <Root aria-labelledby="hero-heading">
+    <HeroRoot aria-labelledby="hero-heading">
       {/* 1. Full-bleed Background Gradient Waves Component (active in Dark Mode) */}
       {isDark && (
         <WavesBackground aria-hidden="true">
@@ -234,6 +230,6 @@ export const HeroSection = () => {
           </Stack>
         </Stack>
       </Container>
-    </Root>
+    </HeroRoot>
   )
 }

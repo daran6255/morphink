@@ -26,13 +26,6 @@ const pulseGlow = keyframes`
   100% { transform: scale(0.95); opacity: 0.8; }
 `
 
-const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
-  color: theme.palette.text.primary,
-}))
-
 // Ambient background lighting
 const AmbientGlow = styled(Box)(({ theme }) => ({
   display: theme.palette.mode === 'dark' ? 'block' : 'none',
@@ -165,7 +158,7 @@ const timelineItems: TimelineItem[] = storyHero.milestones.map((milestone) => ({
 
 /** Page hero: founding story narrative with hero image frame, floating glass cards, and reusable horizontal timeline. */
 export const StoryHeroSection = () => (
-  <Root aria-labelledby="story-hero-heading">
+  <Box component="section" aria-labelledby="story-hero-heading">
     <AmbientGlow aria-hidden="true" />
     <GridPattern aria-hidden="true" />
 
@@ -336,5 +329,5 @@ export const StoryHeroSection = () => (
         </Box>
       </Stack>
     </Container>
-  </Root>
+  </Box>
 )

@@ -1,4 +1,3 @@
-import { alpha, styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -8,15 +7,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button, IconBadge, SectionHeading } from '../../components'
 import { storyFoundation } from '../../data'
 
-const Root = styled('section')(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.accent.light, 0.07),
-  borderTop: `1px solid ${theme.palette.divider}`,
-  borderBottom: `1px solid ${theme.palette.divider}`,
-}))
-
 /** "The Foundation That Shapes Everything" — accent-tinted narrative section. */
 export const FoundationStorySection = () => (
-  <Root aria-labelledby="foundation-story-heading">
+  <Box component="section" aria-labelledby="foundation-story-heading" sx={{ borderTop: 1, borderBottom: 1, borderColor: 'divider' }}>
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={3.5} sx={{ maxWidth: 800, mx: 'auto', alignItems: 'center', textAlign: 'center' }}>
         <IconBadge icon={<Diversity2OutlinedIcon />} tone="accent" size="lg" />
@@ -40,5 +33,5 @@ export const FoundationStorySection = () => (
         </Box>
       </Stack>
     </Container>
-  </Root>
+  </Box>
 )

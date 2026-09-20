@@ -33,13 +33,6 @@ const pulseGlow = keyframes`
   100% { transform: scale(0.95); opacity: 0.8; }
 `
 
-const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
-  color: theme.palette.text.primary,
-}))
-
 // Ambient theme background glow containers
 const AmbientGlow = styled(Box)(({ theme }) => ({
   display: theme.palette.mode === 'dark' ? 'block' : 'none',
@@ -248,7 +241,7 @@ const TRUST_CREDENTIALS = [
 ]
 
 export const SuccessStoriesHeroSection = () => (
-  <Root aria-labelledby="success-stories-hero-heading">
+  <Box component="section" aria-labelledby="success-stories-hero-heading">
     <AmbientGlow aria-hidden="true" />
     <GridPattern aria-hidden="true" />
 
@@ -584,5 +577,5 @@ export const SuccessStoriesHeroSection = () => (
         </Grid>
       </Container>
     </TrustBarSection>
-  </Root>
+  </Box>
 )

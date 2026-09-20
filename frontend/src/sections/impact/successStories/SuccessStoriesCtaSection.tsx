@@ -6,15 +6,12 @@ import { Button, SectionHeading } from '../../../components'
 import { successStoriesCtaData } from '../../../data/impact/successStories'
 
 const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.inverse.main : '#FFFFFF',
-  color: theme.palette.mode === 'dark' ? theme.palette.inverse.contrastText : theme.palette.text.primary,
   borderTop: `1px solid ${theme.palette.divider}`,
-  backgroundImage:
-    theme.palette.mode === 'dark'
-      ? `radial-gradient(80% 120% at 100% 0%, ${alpha(theme.palette.accent.main, 0.24)} 0%, transparent 65%), radial-gradient(80% 120% at 0% 100%, ${alpha(theme.palette.primary.main, 0.22)} 0%, transparent 65%)`
-      : 'none',
+  ...(theme.palette.mode === 'dark' && {
+    backgroundColor: theme.palette.inverse.main,
+    color: theme.palette.inverse.contrastText,
+    backgroundImage: `radial-gradient(80% 120% at 100% 0%, ${alpha(theme.palette.accent.main, 0.24)} 0%, transparent 65%), radial-gradient(80% 120% at 0% 100%, ${alpha(theme.palette.primary.main, 0.22)} 0%, transparent 65%)`,
+  }),
 }))
 
 export const SuccessStoriesCtaSection = () => {
@@ -33,27 +30,16 @@ export const SuccessStoriesCtaSection = () => {
             maxWidth={720}
           />
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-            <Button
-              tone="primary"
-              variant="contained"
-              size="large"
-              href={successStoriesCtaData.primaryCta.href}
-              endIcon={<ArrowForwardIcon />}
-              sx={{ px: 4, py: 1.6, fontSize: '1.0625rem', fontWeight: 700 }}
-            >
-              {successStoriesCtaData.primaryCta.label}
-            </Button>
-
-            <Button
-              variant="outlined"
-              size="large"
-              href={successStoriesCtaData.secondaryCta.href}
-              sx={{ px: 3.5, py: 1.6, fontSize: '1.0625rem', fontWeight: 700 }}
-            >
-              {successStoriesCtaData.secondaryCta.label}
-            </Button>
-          </Stack>
+          <Button
+            tone="primary"
+            variant="contained"
+            size="large"
+            href={successStoriesCtaData.cta.href}
+            endIcon={<ArrowForwardIcon />}
+            sx={{ px: 4, py: 1.6, fontSize: '1.0625rem', fontWeight: 700 }}
+          >
+            {successStoriesCtaData.cta.label}
+          </Button>
         </Stack>
       </Container>
     </Root>

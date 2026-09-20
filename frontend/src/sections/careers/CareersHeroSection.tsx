@@ -14,10 +14,6 @@ const pulseGlow = keyframes`
 `
 
 const Root = styled('section')(({ theme }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
-  color: theme.palette.text.primary,
   paddingTop: theme.spacing(6),
   paddingBottom: theme.spacing(6),
   [theme.breakpoints.up('md')]: {

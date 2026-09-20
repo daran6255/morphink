@@ -19,11 +19,6 @@ const WHY_US_ICONS: Record<string, ReactNode> = {
   'one-partner': <HandshakeOutlinedIcon />,
 }
 
-const Root = styled('section')(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.accent.light, 0.05) : '#FFFFFF',
-  borderTop: `1px solid ${theme.palette.divider}`,
-  borderBottom: `1px solid ${theme.palette.divider}`,
-}))
 
 const StepCard = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -45,7 +40,7 @@ const StepCard = styled(Box)(({ theme }) => ({
 }))
 
 export const WhyMorphinkSection = () => (
-  <Root aria-labelledby="why-us-heading">
+  <Box component="section" aria-labelledby="why-us-heading" sx={{ borderTop: 1, borderBottom: 1, borderColor: 'divider' }}>
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={{ xs: 8, md: 10 }} sx={{ alignItems: 'center' }}>
         {/* Top: 4 Core Differentiators */}
@@ -110,5 +105,5 @@ export const WhyMorphinkSection = () => (
         </Stack>
       </Stack>
     </Container>
-  </Root>
+  </Box>
 )
