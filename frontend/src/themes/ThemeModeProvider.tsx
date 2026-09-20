@@ -6,8 +6,10 @@
 
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { getGlobalStyles } from './globalStyles';
 import type { ColorMode } from './palette';
+import { buildMuiTheme } from './theme';
 
 const STORAGE_KEY = 'morphink-theme';
 
@@ -112,14 +114,18 @@ export const ThemeModeProvider: React.FC<ThemeModeProviderProps> = ({
   );
 
   const globalStyles = useMemo(() => getGlobalStyles(mode), [mode]);
+  const muiTheme = useMemo(() => buildMuiTheme(mode), [mode]);
 
   return (
     <ThemeModeContext.Provider value={value}>
-      <style id="morphink-global-theme-styles" dangerouslySetInnerHTML={{ __html: globalStyles }} />
-      {children}
+      <MuiThemeProvider theme={muiTheme}>
+        <style id="morphink-global-theme-styles" dangerouslySetInnerHTML={{ __html: globalStyles }} />
+        {children}
+      </MuiThemeProvider>
     </ThemeModeContext.Provider>
   );
 };
+
 
 export const useThemeMode = (): ThemeModeContextValue => {
   const context = useContext(ThemeModeContext);

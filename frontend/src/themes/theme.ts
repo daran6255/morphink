@@ -128,3 +128,64 @@ export type BoxShadow = typeof tokens.shadow;
 export type Spacing = typeof tokens.spacing;
 export type Transition = typeof tokens.transition;
 export type ZIndex = typeof tokens.zIndex;
+
+import { createTheme } from '@mui/material/styles';
+import { palette } from './palette';
+import { typography } from './typography';
+import { breakpoints } from './breakpoints';
+
+export const buildMuiTheme = (mode: 'light' | 'dark') => {
+  const modeTokens = palette[mode];
+  return createTheme({
+    palette: {
+      mode,
+      primary: {
+        main: mode === 'light' ? palette.brand.lime : palette.brand.limeLight,
+        light: palette.brand.limeLight,
+        dark: palette.brand.limeDark,
+        contrastText: '#1A1A2E',
+      },
+      secondary: {
+        main: mode === 'light' ? palette.brand.amber : palette.brand.amberLight,
+        light: palette.brand.amberLight,
+        dark: palette.brand.amberDark,
+        contrastText: '#1A1A2E',
+      },
+      accent: {
+        main: modeTokens.text.accent,
+        light: palette.brand.limeLight,
+        dark: palette.brand.limeDark,
+        contrastText: '#1A1A2E',
+      },
+      inverse: {
+        main: palette.brand.ink,
+        light: palette.brand.inkSoft,
+        dark: '#0F0F1A',
+        contrastText: palette.brand.concrete,
+      },
+      background: {
+        default: modeTokens.background.default,
+        paper: modeTokens.background.paper,
+      },
+      text: {
+        primary: modeTokens.text.primary,
+        secondary: modeTokens.text.secondary,
+        disabled: modeTokens.text.disabled,
+      },
+      divider: modeTokens.border.default,
+    },
+    typography: {
+      fontFamily: "'Inter', sans-serif",
+      display: typography.displayLg,
+      eyebrow: typography.overline,
+      ...typography,
+    },
+    breakpoints: {
+      values: breakpoints.values,
+    },
+    shape: { borderRadius: 8 },
+  });
+};
+
+export const buildTheme = buildMuiTheme;
+
