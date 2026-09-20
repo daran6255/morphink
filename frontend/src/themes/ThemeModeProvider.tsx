@@ -7,6 +7,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { getGlobalStyles } from './globalStyles';
 import type { ColorMode } from './palette';
 import { buildMuiTheme } from './theme';
@@ -119,6 +120,7 @@ export const ThemeModeProvider: React.FC<ThemeModeProviderProps> = ({
   return (
     <ThemeModeContext.Provider value={value}>
       <MuiThemeProvider theme={muiTheme}>
+        <CssBaseline />
         <style id="morphink-global-theme-styles" dangerouslySetInnerHTML={{ __html: globalStyles }} />
         {children}
       </MuiThemeProvider>

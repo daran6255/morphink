@@ -184,6 +184,18 @@ export const buildMuiTheme = (mode: 'light' | 'dark') => {
       values: breakpoints.values,
     },
     shape: { borderRadius: 8 },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          section: {
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundColor: mode === 'dark' ? modeTokens.background.default : '#FFFFFF',
+            color: modeTokens.text.primary,
+          },
+        },
+      },
+    },
   });
 };
 

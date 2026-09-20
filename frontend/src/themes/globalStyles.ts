@@ -101,6 +101,14 @@ body {
   min-height: 100vh;
 }
 
+/* Universal Section Defaults */
+section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-default, ${activePalette.background.default});
+  color: var(--color-text-primary, ${activePalette.text.primary});
+}
+
 /* Smooth Theme Mode Transition */
 body, header, main, footer, nav, section, article, div, p, span, h1, h2, h3, h4, h5, h6, a, button, input {
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);

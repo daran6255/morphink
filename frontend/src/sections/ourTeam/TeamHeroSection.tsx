@@ -8,7 +8,11 @@ import { teamHero } from '../../data'
 const Root = styled('section')(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
-  background: `radial-gradient(90% 100% at 100% 0%, ${alpha(theme.palette.accent.light, 0.14)} 0%, transparent 55%), radial-gradient(90% 100% at 0% 100%, ${alpha(theme.palette.primary.light, 0.12)} 0%, transparent 55%)`,
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
+  backgroundImage:
+    theme.palette.mode === 'dark'
+      ? `radial-gradient(90% 100% at 100% 0%, ${alpha(theme.palette.accent.light, 0.14)} 0%, transparent 55%), radial-gradient(90% 100% at 0% 100%, ${alpha(theme.palette.primary.light, 0.12)} 0%, transparent 55%)`
+      : 'none',
 }))
 
 /** Page hero: who the team is and what brings them together. */

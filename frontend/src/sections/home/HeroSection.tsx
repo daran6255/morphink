@@ -1,4 +1,4 @@
-import { alpha, styled, keyframes } from '@mui/material/styles'
+import { alpha, styled, keyframes, useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -17,7 +17,7 @@ const pulseGlow = keyframes`
 const Root = styled('section')(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
   color: theme.palette.text.primary,
   minHeight: 'calc(100vh - 72px)',
   display: 'flex',
@@ -41,14 +41,14 @@ const EyebrowPill = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1.25),
   padding: theme.spacing(0.75, 2.25),
   borderRadius: 999,
-  backgroundColor: alpha(theme.palette.background.paper, 0.8),
-  backdropFilter: 'blur(16px)',
-  WebkitBackdropFilter: 'blur(16px)',
-  border: `1px solid ${alpha(palette.brand.lime, 0.35)}`,
-  boxShadow: `0 4px 16px ${alpha(theme.palette.common.black, 0.08)}`,
+  backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.background.paper, 0.8) : '#FFFFFF',
+  backdropFilter: theme.palette.mode === 'dark' ? 'blur(16px)' : 'none',
+  WebkitBackdropFilter: theme.palette.mode === 'dark' ? 'blur(16px)' : 'none',
+  border: `1px solid ${theme.palette.mode === 'dark' ? alpha(palette.brand.lime, 0.35) : theme.palette.divider}`,
+  boxShadow: `0 2px 8px ${alpha(theme.palette.common.black, theme.palette.mode === 'dark' ? 0.08 : 0.04)}`,
   transition: theme.transitions.create(['background-color', 'border-color', 'transform', 'box-shadow']),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.background.paper, 0.95),
+    backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.background.paper, 0.95) : '#FFFFFF',
     borderColor: palette.brand.lime,
     transform: 'translateY(-1px)',
   },
@@ -74,33 +74,38 @@ const HighlightText = styled('span')(({ theme }) => {
 })
 
 export const HeroSection = () => {
+  const theme = useTheme()
+  const isDark = theme.palette.mode === 'dark'
+
   return (
     <Root aria-labelledby="hero-heading">
-      {/* 1. Full-bleed Background Gradient Waves Component */}
-      <WavesBackground aria-hidden="true">
-        <GradientWaves
-          horizonColor="#5227FF"
-          waveColor="#FF9FFC"
-          crestColor="#FFFFFF"
-          speed={0.4}
-          amplitude={2.5}
-          waveScale={0.6}
-          waveRatio={0.9}
-          swell={35}
-          turbulence={20}
-          tilt={1.11}
-          zoom={1.0}
-          height={5.5}
-          fogDepth={15}
-          detail="medium"
-          brightness={1.0}
-          opacity={1.0}
-          mouseInteraction={true}
-          parallaxStrength={0.5}
-          grain={true}
-          grainIntensity={0.05}
-        />
-      </WavesBackground>
+      {/* 1. Full-bleed Background Gradient Waves Component (active in Dark Mode) */}
+      {isDark && (
+        <WavesBackground aria-hidden="true">
+          <GradientWaves
+            horizonColor="#5227FF"
+            waveColor="#FF9FFC"
+            crestColor="#FFFFFF"
+            speed={0.4}
+            amplitude={2.5}
+            waveScale={0.6}
+            waveRatio={0.9}
+            swell={35}
+            turbulence={20}
+            tilt={1.11}
+            zoom={1.0}
+            height={5.5}
+            fogDepth={15}
+            detail="medium"
+            brightness={1.0}
+            opacity={1.0}
+            mouseInteraction={true}
+            parallaxStrength={0.5}
+            grain={true}
+            grainIntensity={0.05}
+          />
+        </WavesBackground>
+      )}
 
       {/* 2. Main Hero Editorial Content */}
       <Container

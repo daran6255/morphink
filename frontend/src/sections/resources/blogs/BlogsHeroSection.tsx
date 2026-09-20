@@ -15,17 +15,18 @@ const pulseGlow = keyframes`
 const Root = styled('section')(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
   color: theme.palette.text.primary,
-  paddingTop: theme.spacing(8),
+  paddingTop: theme.spacing(6),
   paddingBottom: theme.spacing(6),
   [theme.breakpoints.up('md')]: {
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   },
 }))
 
 const AmbientGlow = styled(Box)(({ theme }) => ({
+  display: theme.palette.mode === 'dark' ? 'block' : 'none',
   position: 'absolute',
   top: 0,
   left: 0,
@@ -67,7 +68,7 @@ const GridPattern = styled(Box)(({ theme }) => ({
   inset: 0,
   pointerEvents: 'none',
   zIndex: 1,
-  backgroundImage: `radial-gradient(${alpha(theme.palette.text.primary, 0.06)} 1.2px, transparent 1.2px)`,
+  backgroundImage: theme.palette.mode === 'dark' ? `radial-gradient(${alpha(theme.palette.text.primary, 0.06)} 1.2px, transparent 1.2px)` : 'none',
   backgroundSize: '28px 28px',
   opacity: 0.7,
 }))
@@ -81,10 +82,9 @@ const PulseDot = styled(Box)(({ theme }) => ({
 }))
 
 const GradientText = styled('span')(({ theme }) => ({
-  background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 45%, ${theme.palette.accent.main} 100%)`,
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
   display: 'inline-block',
+  fontWeight: 800,
 }))
 
 export const BlogsHeroSection = () => (

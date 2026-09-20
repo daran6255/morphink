@@ -29,12 +29,13 @@ const pulseGlow = keyframes`
 const Root = styled('section')(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.default : '#FFFFFF',
   color: theme.palette.text.primary,
 }))
 
 // Ambient background lighting
 const AmbientGlow = styled(Box)(({ theme }) => ({
+  display: theme.palette.mode === 'dark' ? 'block' : 'none',
   position: 'absolute',
   top: 0,
   left: 0,
@@ -77,7 +78,7 @@ const GridPattern = styled(Box)(({ theme }) => ({
   inset: 0,
   pointerEvents: 'none',
   zIndex: 1,
-  backgroundImage: `radial-gradient(${alpha(theme.palette.text.primary, 0.06)} 1.2px, transparent 1.2px)`,
+  backgroundImage: theme.palette.mode === 'dark' ? `radial-gradient(${alpha(theme.palette.text.primary, 0.06)} 1.2px, transparent 1.2px)` : 'none',
   backgroundSize: '28px 28px',
   opacity: 0.7,
 }))
@@ -92,10 +93,9 @@ const PulseDot = styled(Box)(({ theme }) => ({
 
 // Gradient Text Highlight driven by theme palette tokens
 const GradientText = styled('span')(({ theme }) => ({
-  background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 45%, ${theme.palette.accent.main} 100%)`,
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
   display: 'inline-block',
+  fontWeight: 800,
 }))
 
 // Hero visual image frame
@@ -103,7 +103,7 @@ const VisualFrame = styled(Box)(({ theme }) => ({
   position: 'relative',
   borderRadius: Number(theme.shape.borderRadius) * 2.8,
   padding: theme.spacing(1.25),
-  background: `linear-gradient(145deg, ${theme.palette.background.paper} 0%, ${alpha(theme.palette.accent.light, 0.08)} 100%)`,
+  background: theme.palette.mode === 'dark' ? `linear-gradient(145deg, ${theme.palette.background.paper} 0%, ${alpha(theme.palette.accent.light, 0.08)} 100%)` : '#FFFFFF',
   border: `1px solid ${theme.palette.divider}`,
   boxShadow: `0 24px 48px -12px ${alpha(theme.palette.secondary.dark, 0.12)}, 0 4px 16px ${alpha(theme.palette.common.black, 0.04)}`,
 }))

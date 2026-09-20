@@ -42,7 +42,7 @@ export const AboutTeaserSection = () => (
     component="section"
     aria-labelledby="about-heading"
     sx={(theme) => ({
-      bgcolor: alpha(theme.palette.accent.light, 0.04),
+      bgcolor: theme.palette.mode === 'dark' ? alpha(theme.palette.accent.light, 0.04) : '#FFFFFF',
       borderTop: `1px solid ${theme.palette.divider}`,
       borderBottom: `1px solid ${theme.palette.divider}`,
     })}

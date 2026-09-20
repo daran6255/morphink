@@ -21,7 +21,7 @@ export const palette = {
     background: {
       default: '#FFFFFF', // pure clean white
       paper: '#FFFFFF',
-      surface: '#F8F9FA',
+      surface: '#FFFFFF',
       elevated: '#FFFFFF',
     },
     text: {

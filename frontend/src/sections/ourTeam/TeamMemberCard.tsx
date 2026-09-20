@@ -52,7 +52,8 @@ const Photo = styled(Box, {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: `linear-gradient(155deg, ${alpha(tone.main, 0.16)} 0%, ${alpha(tone.main, 0.07)} 100%)`,
+    backgroundColor: theme.palette.mode === 'dark' ? alpha(tone.main, 0.12) : alpha(tone.main, 0.08),
+    backgroundImage: theme.palette.mode === 'dark' ? `linear-gradient(155deg, ${alpha(tone.main, 0.16)} 0%, ${alpha(tone.main, 0.07)} 100%)` : 'none',
   }
 })
 

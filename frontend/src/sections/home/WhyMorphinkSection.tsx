@@ -20,7 +20,7 @@ const WHY_US_ICONS: Record<string, ReactNode> = {
 }
 
 const Root = styled('section')(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.accent.light, 0.05),
+  backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.accent.light, 0.05) : '#FFFFFF',
   borderTop: `1px solid ${theme.palette.divider}`,
   borderBottom: `1px solid ${theme.palette.divider}`,
 }))
