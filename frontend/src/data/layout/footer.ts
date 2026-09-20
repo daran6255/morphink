@@ -15,9 +15,8 @@ export const footerLinkGroups: FooterLinkGroup[] = [
     title: 'Company',
     links: [...sectionLinks('about'), { id: 'careers', label: 'Careers', href: '/careers' }],
   },
-  { id: 'services', title: 'Services', links: sectionLinks('services') },
-  { id: 'impact', title: 'Impact', links: sectionLinks('impact') },
-  { id: 'resources', title: 'Resources', links: sectionLinks('resources') },
+  { id: 'impact', title: 'Portfolio & Impact', links: sectionLinks('impact') },
+  { id: 'resources', title: 'Resources', links: [{ id: 'blogs', label: 'Blogs', href: '/resources/blogs' }] },
 ]
 
 export const legalLinks: NavChildItem[] = [
@@ -32,11 +31,10 @@ export interface SocialLink {
   href: string
 }
 
-/** Replace `href` with the live profile URLs when they're available. */
 export const socialLinks: SocialLink[] = [
   { id: 'linkedin', label: 'LinkedIn', href: '#' },
   { id: 'twitter', label: 'X (Twitter)', href: '#' },
-  { id: 'facebook', label: 'Facebook', href: '#' },
+  { id: 'instagram', label: 'Instagram', href: '#' },
 ]
 
-export const footerTagline = 'Enabling Success Through Knowledge.'
+export const footerTagline = 'Architectural Excellence & Sustainable Building Design.'

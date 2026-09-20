@@ -19,7 +19,7 @@ export const BlogDetailsPage = () => {
 
   useEffect(() => {
     if (post?.title) {
-      document.title = `${post.title} | WinVinaya Blog`
+      document.title = `${post.title} | Morphink Architecture Blog`
     }
   }, [post])
 

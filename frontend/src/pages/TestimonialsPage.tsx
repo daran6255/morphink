@@ -12,7 +12,7 @@ export const TestimonialsPage = () => {
   const { testimonials } = useTestimonials()
 
   useEffect(() => {
-    document.title = 'Testimonials & Client Feedback | WinVinaya'
+    document.title = 'Testimonials & Client Feedback | Morphink Architecture'
   }, [])
 
   return (

@@ -7,62 +7,48 @@ export interface InternshipDomain {
 
 export const careersHeroData = {
   eyebrow: 'Careers & Internships • Work With Purpose',
-  headline: 'Shape an Inclusive',
-  headlineHighlight: 'Digital Future',
+  headline: 'Shape the Future of',
+  headlineHighlight: 'Sustainable Architecture',
   subheadline:
-    'Join our team engineering accessible software, delivering enterprise audits, and creating transformative career opportunities for Persons with Disabilities across India.',
+    'Join our studio designing landmark commercial structures, luxury residential spaces, and eco-responsive urban landscapes across India.',
 }
 
 export const internshipProgramData = {
-  badge: 'College Students & Recent Graduates',
-  heading: 'Hands-On Industry Internship Program',
+  badge: 'Architecture Students & Recent Graduates',
+  heading: 'Architectural & Building Design Internship Program',
   subheading:
-    'Gain real-world engineering and accessibility experience working directly on live company client and product deliverables.',
+    'Gain hands-on experience in 3D BIM modeling, parametric facade design, structural drafting, and site administration on live projects.',
   
   importantNotice: {
-    title: 'Important Note Regarding This Internship Program',
+    title: 'Important Note Regarding Our Architectural Internship',
     points: [
-      'Unpaid Internship: This is an unpaid, skill-intensive industry internship program.',
-      'Live Company Projects: This program is NOT for students seeking academic project guidance or dummy college assignments. Interns work directly on WinVinaya’s active, ongoing production projects and client deliverables.',
-      'Performance-Driven: Interns are expected to maintain professional sprint deadlines, attend daily standups, and deliver high-quality contributions.',
+      'Skill-Intensive Studio Experience: Work directly alongside senior architects and principal designers.',
+      'Live Architectural Projects: Interns contribute directly to Morphink’s active commercial, residential, and urban planning developments.',
+      'Portfolio-Driven: Interns build a professional portfolio of verified 3D renders, BIM models, and construction drawings.',
     ],
   },
 
   domains: [
     {
-      id: 'accessibility-audit',
-      title: 'Digital Accessibility Auditing & QA',
-      skills: ['WCAG 2.2 AA', 'NVDA', 'JAWS', 'TalkBack', 'VoiceOver', 'Colour Contrast Testing'],
+      id: 'architectural-design',
+      title: 'Architectural & BIM Design',
+      skills: ['AutoCAD', 'Revit', 'Rhino 3D', 'BIM', 'Parametric Modeling'],
       description:
-        'Audit live web applications, mobile apps, and design systems for enterprise compliance, log cross-disability barrier reports, and collaborate on remediation fixes.',
+        'Develop 3D architectural models, conceptual floorplans, and structural details for landmark developments.',
     },
     {
-      id: 'fullstack-dev',
-      title: 'Full-Stack Software Development',
-      skills: ['React', 'TypeScript', 'Next.js', 'Node.js', 'REST APIs', 'Modern CSS'],
+      id: 'interior-spatial',
+      title: 'Interior Architecture & Spatial Design',
+      skills: ['SketchUp', 'V-Ray', '3ds Max', 'Lighting Design', 'Material Selection'],
       description:
-        'Build and enhance modern web applications, accessible component design systems, and portal features using clean, maintainable architecture.',
+        'Transform interior volumes into high-end environments with customized joinery drawings, lighting, and material palettes.',
     },
     {
-      id: 'test-automation',
-      title: 'Test Automation Engineering',
-      skills: ['Playwright', 'TypeScript', 'Axe-core Automated Auditing', 'CI/CD Pipelines'],
+      id: 'sustainable-building',
+      title: 'Sustainable & Landscape Architecture',
+      skills: ['Green Building Standards', 'Biophilic Design', 'Landscape Masterplanning'],
       description:
-        'Develop end-to-end automated testing suites with Playwright, embedding automated accessibility scanners directly into deployment pipelines.',
-    },
-    {
-      id: 'document-remediation',
-      title: 'Document Remediation & PDF/UA',
-      skills: ['Adobe Acrobat Pro', 'PAC 2024', 'Accessible Word & PPT', 'MathML Structuring'],
-      description:
-        'Remediate complex enterprise documents, financial reports, and academic textbooks to ensure compliance with PDF/UA and WCAG standards.',
-    },
-    {
-      id: 'ai-power-platform',
-      title: 'Agentic AI & Power Platform Solutions',
-      skills: ['Autonomous AI Agents', 'Power BI', 'Power Automate', 'Mission Analytics'],
-      description:
-        'Implement automated workflow agents and interactive Power BI executive dashboards for social impact monitoring and enterprise reporting.',
+        'Design climate-responsive facades, passive solar layouts, and eco-certified landscape masterplans.',
     },
   ],
 
@@ -70,71 +56,65 @@ export const internshipProgramData = {
     {
       title: 'Official Certificate & Recommendation',
       description:
-        'Receive an official Certificate of Internship Completion and performance-based Letter of Recommendation upon successful delivery.',
+        'Receive an official Certificate of Internship Completion and performance-based Letter of Recommendation.',
     },
     {
-      title: 'Real Enterprise Code Contributions',
+      title: 'Verified Design Portfolio',
       description:
-        'Build a verified portfolio of real-world software, audit reports, and automation pipelines rather than generic classroom projects.',
+        'Build a real-world portfolio of high-end architectural renders, BIM models, and construction drawings.',
     },
     {
-      title: 'Direct Industry Mentorship',
+      title: 'Principal Designer Mentorship',
       description:
-        'Work directly with IAAP-certified accessibility specialists, senior architects, and lead engineers with decades of industry experience.',
-    },
-    {
-      title: 'Inclusive Workplace Exposure',
-      description:
-        'Learn how to collaborate seamlessly across diverse, inclusive teams including Deaf, blind, and neurodivergent professionals.',
+        'Work directly with senior architects and principal partners with decades of design experience.',
     },
   ],
 
   eligibility: {
     title: 'Eligibility & Requirements',
     items: [
-      'Pre-final or final year students pursuing BE / B.Tech (CS, IT, ECE), BCA, MCA, or related disciplines.',
-      'Strong foundational knowledge of programming (JavaScript/TypeScript, Python, or Web Technologies).',
-      'High curiosity and genuine interest in Digital Accessibility, Software Quality, or AI.',
-      'Commitment of 2 to 6 months (Flexible full-time or part-time / hybrid arrangements).',
+      'Pre-final or final year students pursuing B.Arch, M.Arch, or Interior Architecture.',
+      'Proficiency in CAD software, 3D modeling tools, and architectural rendering engines.',
+      'Strong passion for sustainable design, structural elegance, and spatial innovation.',
     ],
   },
 
-  applyEmail: 'careers@winvinayainfosystems.com',
-  applySubject: 'Application for College Student Internship - [Your Name] - [Domain of Interest]',
+  applyEmail: 'careers@morphink.com',
+  applySubject: 'Application for Architectural Internship - [Your Name] - [Domain of Interest]',
 }
 
 export const openRolesData = {
-  badge: 'Full-Time & Lateral Opportunities',
-  heading: 'Current Full-Time Openings',
-  noRolesTitle: 'No Open Full-Time Positions at Present',
+  badge: 'Full-Time & Studio Opportunities',
+  heading: 'Current Full-Time Architectural Openings',
+  noRolesTitle: 'Always Looking for Exceptional Design Talent',
   noRolesDescription:
-    'We currently do not have any active full-time job openings. However, we are constantly growing our talent pool of passionate accessibility auditors, full-stack engineers, and sign language interpreters.',
-  talentNetworkTitle: 'Join Our Talent Network',
+    'While active openings vary by project cycle, we welcome portfolios from passionate architects, BIM specialists, and interior designers.',
+  talentNetworkTitle: 'Join Our Architectural Talent Network',
   talentNetworkDescription:
-    'If you are an experienced professional interested in future opportunities with WinVinaya, send your resume and a brief introduction to our talent acquisition team.',
-  contactEmail: 'careers@winvinayainfosystems.com',
-  emailSubject: 'General Application / Talent Network - [Your Name] - [Role/Specialization]',
+    'Send your design portfolio and CV to our team to be considered for upcoming studio projects.',
+  contactEmail: 'careers@morphink.com',
+  emailSubject: 'Architectural Portfolio Submission - [Your Name] - [Role/Specialization]',
 }
 
 export const careersCultureData = {
-  heading: 'Why Build Your Career at WinVinaya?',
+  heading: 'Why Build Your Architectural Career at Morphink?',
   subheading:
-    'We combine rigorous enterprise engineering standards with a high-empathy, inclusive culture where every voice shapes the future of technology.',
+    'We foster a collaborative design environment where artistic vision meets engineering precision.',
   pillars: [
     {
-      title: 'Inclusion is Our Foundation',
+      title: 'Design Excellence First',
       description:
-        'Over 40% of our workforce are Persons with Disabilities. Accessibility and inclusion are not afterthoughts — they are woven into how we work every single day.',
+        'Every project is an opportunity to create timeless, functional, and aesthetically captivating architecture.',
     },
     {
-      title: 'Enterprise Impact at Scale',
+      title: 'Sustainable Innovation',
       description:
-        'Our solutions touch millions of users across India’s leading corporate enterprises, BFSI institutions, and social sector organizations.',
+        'We pioneer carbon-neutral building techniques, energy-efficient HVAC integration, and biophilic design principles.',
     },
     {
-      title: 'Continuous Growth & Certifications',
+      title: 'Collaborative Studio Culture',
       description:
-        'We actively sponsor and encourage team members to obtain globally recognized IAAP certifications (CPACC, WAS) and advanced engineering skills.',
+        'Work in a dynamic studio environment alongside structural engineers, landscape architects, and interior specialists.',
     },
   ],
 }

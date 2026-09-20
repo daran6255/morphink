@@ -18,7 +18,7 @@ export const CareersPage = () => {
   const fullTimeRoles = (careerDomains || []).filter((d) => (d.type || '').toLowerCase().includes('full'))
 
   useEffect(() => {
-    document.title = 'Careers & Internships | WinVinaya'
+    document.title = 'Careers & Internships | Morphink Architecture'
   }, [])
 
   return (

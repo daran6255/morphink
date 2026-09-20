@@ -19,55 +19,55 @@ export interface WhyUsContent {
 }
 
 export const whyUs: WhyUsContent = {
-  eyebrow: 'Why WinVinaya',
-  heading: 'Authentic Accessibility Driven by Lived Experience',
+  eyebrow: 'Why Morphink',
+  heading: 'Visionary Architecture Rooted in Engineering Excellence',
   items: [
     {
       id: 'lived-expertise',
-      title: 'Lived-Experience Testing',
+      title: 'Architectural Innovation',
       description:
-        'Over 50% of our testing engineers are Persons with Disabilities (PwDs). We catch real-world usability barriers that automated scans miss.',
+        'Our design lab combines cutting-edge BIM modeling, spatial ergonomics, and organic aesthetics to deliver inspiring physical spaces.',
     },
     {
       id: 'standards',
-      title: 'Strict Global Standards',
+      title: 'Sustainable Engineering',
       description:
-        'Full compliance with WCAG 2.1/2.2 AA & AAA, Section 508, ADA, GIGW, and PDF/UA standards backed by formal VPAT / ACR documentation.',
+        'We incorporate passive solar orientation, rainwater harvesting, and low-carbon construction materials for green building certifications.',
     },
     {
       id: 'compliant-and-usable',
-      title: 'Zero Compliance Risk',
+      title: 'Structural Precision',
       description:
-        'We deliver accessible code fixes, remediated documents, and verified UI components that satisfy regulatory audits and legal requirements.',
+        'Rigorous structural analysis and building code compliance ensure safe, enduring, and resilient structures built to last generations.',
     },
     {
       id: 'one-partner',
-      title: 'Single Accountable Partner',
+      title: 'Single Design Partner',
       description:
-        'From initial audit to code remediation, staff training, custom software build, and ongoing monitoring — all under one roof.',
+        'From master planning and conceptual 3D renders to interior spatial design and site supervision — all under one unified studio.',
     },
   ],
-  workflowHeading: 'Our Proven 4-Step Engagement Process',
+  workflowHeading: 'Our Proven 4-Step Architectural Design Process',
   workflowSteps: [
     {
       stepNumber: '01',
-      title: 'Audit & Diagnose',
-      description: 'Comprehensive automated scans + manual testing by assistive-technology power users.',
+      title: 'Discovery & Masterplan',
+      description: 'Comprehensive site analysis, client vision alignment, and preliminary zoning masterplanning.',
     },
     {
       stepNumber: '02',
-      title: 'Remediate & Refactor',
-      description: 'Direct code & document remediation with developer-friendly refactoring guidelines.',
+      title: '3D Modeling & BIM',
+      description: 'Parametric 3D visual renderings, structural simulations, and detailed building information modeling.',
     },
     {
       stepNumber: '03',
-      title: 'Validate & Certify',
-      description: 'Lived-experience user validation, screen-reader testing, and VPAT/ACR issuance.',
+      title: 'Engineering & Approvals',
+      description: 'Meticulous structural drafting, MEP engineering integration, and municipal permit processing.',
     },
     {
       stepNumber: '04',
-      title: 'Train & Sustain',
-      description: 'Custom team skilling workshops and continuous accessibility governance frameworks.',
+      title: 'Execution & Delivery',
+      description: 'On-site construction supervision, material quality audits, and flawless interior handover.',
     },
   ],
 }

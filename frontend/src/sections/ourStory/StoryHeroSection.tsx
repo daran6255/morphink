@@ -231,7 +231,7 @@ export const StoryHeroSection = () => (
               <VisualFrame>
                 <VisualImage
                   role="img"
-                  aria-label="WinVinaya founders and inclusive technology team working on accessibility auditing in a modern office."
+                  aria-label="Morphink principal architects and design team reviewing 3D building models in a modern studio."
                 />
               </VisualFrame>
 
@@ -257,7 +257,7 @@ export const StoryHeroSection = () => (
                 </Box>
                 <Box>
                   <Typography variant="subtitle2" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
-                    Founded 2013
+                    Established 2015
                   </Typography>
                   <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', fontWeight: 500 }}>
                     A Decade of Inclusive Excellence

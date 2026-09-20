@@ -4,13 +4,9 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import LaunchIcon from '@mui/icons-material/Launch'
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined'
-import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined'
-import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined'
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined'
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'
-import { Button, SectionHeading } from '../../../components'
+import { SectionHeading } from '../../../components'
 
 const SpotlightContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -26,10 +22,10 @@ const SpotlightContainer = styled(Box)(({ theme }) => ({
 }))
 
 const SPOTLIGHT_HIGHLIGHTS = [
-  'Multi-center trainer and staff timesheet collation with zero spreadsheet friction',
-  'Automated approval workflows and anomaly detection built into daily operations',
-  'Centralized program MIS and beneficiary tracking for WinVinaya Foundation',
-  'Accessible by design across screen-reader and keyboard user workflows',
+  '24-story net-zero carbon skyscraper engineered with parametric thermal facades',
+  'Biophilic sky garden terraces optimizing natural air circulation and occupant wellness',
+  'Integrated rainwater harvesting and solar photovoltaic grid generating 35% clean power',
+  'Full BIM Level 2 execution delivering seamless structural and MEP coordination',
 ]
 
 export const NamedCaseStudySpotlightSection = () => (
@@ -38,9 +34,9 @@ export const NamedCaseStudySpotlightSection = () => (
       <Stack spacing={{ xs: 6, md: 8 }} sx={{ alignItems: 'center' }}>
         <SectionHeading
           headingId="named-spotlight-heading"
-          eyebrow="Featured Live Case Study"
-          heading="The Clearest Proof: A System We Depend on Ourselves"
-          description="While most client case studies are kept confidential, crm.winvinaya.com is one story we can name outright — our own custom, AI-powered MIS running daily Foundation operations."
+          eyebrow="Featured Live Project Spotlight"
+          heading="Vertex Eco-Tower: A Landmark Carbon-Neutral Headquarters"
+          description="Designed and delivered by Morphink Architecture, Vertex Eco-Tower stands as a testament to sustainable engineering, parametric beauty, and urban performance."
           maxWidth={800}
         />
 
@@ -64,19 +60,19 @@ export const NamedCaseStudySpotlightSection = () => (
                     })}
                   >
                     <VerifiedUserIcon sx={{ fontSize: 16 }} />
-                    LIVE PRODUCTION DEPLOYMENT
+                    COMPLETED LANDMARK PROJECT
                   </Box>
                   <Typography variant="caption" sx={(theme) => ({ color: theme.palette.primary.main, fontWeight: 700 })}>
-                    WinVinaya Foundation
+                    Morphink Architecture Studio
                   </Typography>
                 </Stack>
 
                 <Typography variant="h4" sx={{ fontSize: { xs: '1.5rem', sm: '1.875rem' }, fontWeight: 800, color: 'text.primary', lineHeight: 1.25 }}>
-                  crm.winvinaya.com — AI-Powered MIS & Timesheet Management System
+                  Vertex Eco-Tower — Net-Zero Commercial Headquarters
                 </Typography>
 
                 <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: '0.975rem' }}>
-                  Anyone can propose an AI strategy or pitch a slide deck. We believe in engineering solutions that prove their worth in production. We designed, developed, and deployed <strong>crm.winvinaya.com</strong> to replace fragmented manual trackers and spreadsheets with a single, highly reliable operational backbone.
+                  Great architectural design goes beyond drawings — it creates enduring spaces. Morphink designed Vertex Eco-Tower to deliver a high-density, carbon-neutral commercial environment with panoramic city views and energy-efficient building management.
                 </Typography>
 
                 <Stack spacing={1.25} sx={{ pt: 1 }}>
@@ -89,82 +85,54 @@ export const NamedCaseStudySpotlightSection = () => (
                     </Stack>
                   ))}
                 </Stack>
-
-                <Box sx={{ pt: 1.5 }}>
-                  <Button
-                    tone="primary"
-                    variant="contained"
-                    size="large"
-                    href="https://crm.winvinaya.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    endIcon={<LaunchIcon />}
-                    sx={{ px: 3.5, py: 1.5, fontWeight: 700 }}
-                  >
-                    Launch Live System: crm.winvinaya.com
-                  </Button>
-                </Box>
               </Stack>
             </Grid>
 
-            {/* Right Column: Architecture & Metric Visual Card */}
+            {/* Right Column: Visual Metrics Card */}
             <Grid size={{ xs: 12, md: 5 }}>
               <Box
                 sx={(theme) => ({
                   p: 3.5,
-                  borderRadius: Number(theme.shape.borderRadius) * 0.1,
+                  borderRadius: Number(theme.shape.borderRadius) * 1.8,
                   bgcolor: alpha(theme.palette.primary.main, 0.05),
-                  border: `1px solid ${alpha(theme.palette.primary.main, 0.25)}`,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 2.5,
+                  border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
                 })}
               >
-                <Typography variant="subtitle2" sx={{ fontWeight: 800, color: 'text.primary', textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '0.8125rem' }}>
-                  Core System Architecture
-                </Typography>
-
-                <Stack spacing={1.75}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                    <Box sx={(theme) => ({ p: 1, borderRadius: Number(theme.shape.borderRadius), bgcolor: alpha(theme.palette.primary.main, 0.12), color: theme.palette.primary.main })}>
-                      <AutoAwesomeOutlinedIcon sx={{ fontSize: 20 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.875rem' }}>
-                        Agentic Automation
-                      </Typography>
-                      <Typography variant="caption" color="text.secondary">
-                        Automated timesheet collation and anomaly detection
-                      </Typography>
-                    </Box>
+                <Stack spacing={3}>
+                  <Box>
+                    <Typography variant="h3" sx={{ fontWeight: 900, color: 'primary.main' }}>
+                      35%
+                    </Typography>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                      Energy Reduction
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Achieved through double-skin thermal facades & smart HVAC controls.
+                    </Typography>
                   </Box>
 
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                    <Box sx={(theme) => ({ p: 1, borderRadius: Number(theme.shape.borderRadius), bgcolor: alpha(theme.palette.accent.main, 0.12), color: theme.palette.accent.dark })}>
-                      <StorageOutlinedIcon sx={{ fontSize: 20 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.875rem' }}>
-                        PostgreSQL Data Layer
-                      </Typography>
-                      <Typography variant="caption" color="text.secondary">
-                        Structured relational models & secure audit trails
-                      </Typography>
-                    </Box>
+                  <Box>
+                    <Typography variant="h3" sx={{ fontWeight: 900, color: 'accent.main' }}>
+                      24 Stories
+                    </Typography>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                      Commercial Space
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Over 450,000 sq.ft. of Grade-A office infrastructure.
+                    </Typography>
                   </Box>
 
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                    <Box sx={(theme) => ({ p: 1, borderRadius: Number(theme.shape.borderRadius), bgcolor: alpha(theme.palette.primary.main, 0.12), color: theme.palette.primary.main })}>
-                      <TableChartOutlinedIcon sx={{ fontSize: 20 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.875rem' }}>
-                        Executive MIS Dashboards
-                      </Typography>
-                      <Typography variant="caption" color="text.secondary">
-                        Real-time student, cohort, and center metrics
-                      </Typography>
-                    </Box>
+                  <Box>
+                    <Typography variant="h3" sx={{ fontWeight: 900, color: 'success.main' }}>
+                      LEED Platinum
+                    </Typography>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                      Green Building Standard
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Certified sustainable architecture & zero-waste design.
+                    </Typography>
                   </Box>
                 </Stack>
               </Box>

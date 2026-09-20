@@ -4,8 +4,6 @@ import {
   AdminLoginPage,
   AdminDashboardPage,
   AdminBlogsPage,
-  AdminNewslettersPage,
-  AdminEbooksPage,
   AdminCareersPage,
   AdminInquiriesPage,
   AdminTestimonialsPage,
@@ -46,26 +44,6 @@ export const adminBlogsRoute = createRoute({
   component: () => (
     <AdminAuthGuard>
       <AdminBlogsPage />
-    </AdminAuthGuard>
-  ),
-})
-
-export const adminNewslettersRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/admin/newsletters',
-  component: () => (
-    <AdminAuthGuard>
-      <AdminNewslettersPage />
-    </AdminAuthGuard>
-  ),
-})
-
-export const adminEbooksRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/admin/ebooks',
-  component: () => (
-    <AdminAuthGuard>
-      <AdminEbooksPage />
     </AdminAuthGuard>
   ),
 })

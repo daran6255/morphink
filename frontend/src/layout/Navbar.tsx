@@ -25,7 +25,6 @@ import { Button } from '../components'
 import { primaryNavItems, contactNavItem } from '../data'
 import type { NavItem } from '../data'
 import { useIsScrolled } from '../hooks'
-import fullLogo from '../assets/logo/winvinayainfosystems_fulllogo.png'
 
 const HeaderRoot = styled('header', {
   shouldForwardProp: (prop) => prop !== 'elevated',
@@ -488,13 +487,15 @@ export const Navbar = () => {
     <HeaderRoot elevated={elevated}>
       <Container maxWidth="xl">
         <Bar>
-          <LogoLink href="/" aria-label="WinVinaya Infosystems home">
-            <Box
-              component="img"
-              src={fullLogo}
-              alt="WinVinaya Infosystems"
-              sx={{ height: { xs: 36, md: 54 }, width: 'auto' }}
-            />
+          <LogoLink href="/" aria-label="Morphink Architecture home" sx={{ textDecoration: 'none' }}>
+            <Box>
+              <Typography variant="h5" sx={{ fontWeight: 900, color: 'text.primary', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                MORPHINK
+              </Typography>
+              <Typography variant="caption" sx={{ fontWeight: 700, color: 'accent.main', letterSpacing: '0.25em', display: 'block', fontSize: '0.65rem' }}>
+                ARCHITECTURE
+              </Typography>
+            </Box>
           </LogoLink>
 
           <Stack

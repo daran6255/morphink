@@ -27,35 +27,35 @@ export interface HeroContent {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: 'Empowering Innovation, Inclusion & Impact',
-  headline: 'Digital Solutions Built',
-  headlineHighlight: 'Without Barriers',
+  eyebrow: 'Redefining Architectural & Building Excellence',
+  headline: 'Innovative Structures Designed',
+  headlineHighlight: 'With Vision & Precision',
   subheadline:
-    'WinVinaya InfoSystems delivers enterprise-grade accessibility auditing, document remediation, custom AI applications, and corporate skilling. Powered by a team including Persons with Disabilities (PwDs), we deliver authentic lived-experience validation alongside strict WCAG compliance.',
-  primaryCta: { label: 'Explore Our Services', href: '/services' },
-  secondaryCta: { label: 'Schedule a Consultation', href: '/contact-us' },
+    'Morphink Architecture is a premier architectural and building design company. We blend visionary aesthetics, sustainable materials, and precise structural engineering to craft iconic commercial, residential, and urban landscapes.',
+  primaryCta: { label: 'Explore Our Portfolio', href: '/impact/success-stories' },
+  secondaryCta: { label: 'Schedule Design Consultation', href: '/contact-us' },
   badges: [
-    { label: 'WCAG 2.1 & 2.2', sublabel: 'Level AA / AAA Standard' },
-    { label: '50%+ PwD Testers', sublabel: 'Lived Experience Auditing' },
-    { label: '100% Usable', sublabel: 'Beyond Checklist Compliance' },
+    { label: 'Sustainable Architecture', sublabel: 'Green Building Certified' },
+    { label: 'Parametric 3D Modeling', sublabel: 'Advanced BIM Workflow' },
+    { label: 'End-to-End Execution', sublabel: 'Concept to Completion' },
   ],
   stats: [
     {
-      value: 'WCAG 2.2',
-      label: 'Level AA & AAA',
-      subtext: '50+ Verified Checkpoints',
+      value: '150+',
+      label: 'Projects Designed',
+      subtext: 'Commercial & Luxury Residential',
       iconType: 'compliance',
     },
     {
-      value: '50%+',
-      label: 'PwD Audit Team',
-      subtext: 'Lived Experience Testing',
+      value: '100%',
+      label: 'Sustainable Design',
+      subtext: 'Energy Efficient Systems',
       iconType: 'lived_experience',
     },
     {
-      value: '100+',
-      label: 'Audits Delivered',
-      subtext: 'Enterprise-Grade Security',
+      value: '15+',
+      label: 'Design Awards',
+      subtext: 'Excellence in Architecture',
       iconType: 'audit',
     },
   ],

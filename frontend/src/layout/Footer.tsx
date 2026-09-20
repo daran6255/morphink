@@ -13,7 +13,6 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button } from '../components'
 import { footerLinkGroups, legalLinks, socialLinks, footerTagline } from '../data'
-import fullLogo from '../assets/logo/winvinayainfosystems_fulllogo.png'
 
 const SOCIAL_ICONS: Record<string, typeof LinkedInIcon> = {
   linkedin: LinkedInIcon,
@@ -88,14 +87,14 @@ export const Footer = () => {
         >
           <Stack spacing={0.5}>
             <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 700, fontSize: '1.15rem' }}>
-              Building Accessible & Intelligent Enterprise Solutions
+              Building Inspiring & Sustainable Architectural Spaces
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-              Partner with WinVinaya to ensure WCAG 2.1/2.2 compliance, AI innovation, and inclusive digital engineering.
+              Partner with Morphink Architecture to design iconic, sustainable, and functional building environments.
             </Typography>
           </Stack>
           <Button tone="accent" variant="contained" href="/contact-us" endIcon={<ArrowForwardIcon />} sx={{ flexShrink: 0 }}>
-            Schedule Consultation
+            Schedule Design Consultation
           </Button>
         </Box>
 
@@ -104,19 +103,16 @@ export const Footer = () => {
           {/* Brand Info Column */}
           <Grid size={{ xs: 12, lg: 4 }}>
             <Stack spacing={2.5}>
-              <Box
-                component="img"
-                src={fullLogo}
-                alt="WinVinaya Infosystems"
-                sx={{ height: 48, width: 'auto', alignSelf: 'flex-start' }}
-              />
+              <Typography variant="h5" sx={{ fontWeight: 900, color: 'text.primary', letterSpacing: '-0.02em' }}>
+                MORPHINK
+              </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 320, fontSize: '0.9rem', lineHeight: 1.6 }}>
                 {footerTagline}
               </Typography>
 
               <Stack direction="row" spacing={1.5} aria-label="Social media">
                 {socialLinks.map((social) => {
-                  const Icon = SOCIAL_ICONS[social.id]
+                  const Icon = SOCIAL_ICONS[social.id] || LinkedInIcon
                   return (
                     <IconButton
                       key={social.id}
@@ -174,7 +170,7 @@ export const Footer = () => {
           sx={{ alignItems: { xs: 'flex-start', sm: 'center' }, justifyContent: 'space-between' }}
         >
           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.85rem' }}>
-            © {year} WinVinaya Infosystems. All rights reserved.
+            © {year} Morphink Architecture. All rights reserved.
           </Typography>
 
           <Stack direction="row" spacing={3}>

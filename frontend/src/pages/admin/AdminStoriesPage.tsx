@@ -90,7 +90,7 @@ export const AdminStoriesPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Manage Success Stories | WinVinaya Admin'
+    document.title = 'Manage Success Stories | Morphink Admin'
     loadStories()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

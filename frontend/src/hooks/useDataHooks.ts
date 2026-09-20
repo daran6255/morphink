@@ -2,10 +2,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import type {
   BlogPost,
   BlogQuery,
-  Newsletter,
-  NewsletterQuery,
-  Ebook,
-  EbookQuery,
   CareerDomain,
   CareerQuery,
   Testimonial,
@@ -17,8 +13,6 @@ import type {
 } from '../models'
 import {
   blogService,
-  newsletterService,
-  ebookService,
   careersService,
   testimonialsService,
   storiesService,
@@ -27,8 +21,6 @@ import {
 
 // Fallback seed data in case backend is offline
 import { blogPostsData, getBlogPostBySlug, featuredBlogPost } from '../data/resources/blogs'
-import { pastNewslettersData, latestNewsletter } from '../data/resources/newsletters'
-import { ebooksData, featuredEbook } from '../data/resources/ebooks'
 import { internshipProgramData } from '../data/careers/careers'
 import { testimonialsData } from '../data/impact/testimonials'
 import { successStoriesData } from '../data/impact/successStories'
@@ -123,90 +115,6 @@ export function useBlogDetails(slug: string) {
   }, [fetchPost])
 
   return { post, loading, error, refetch: fetchPost }
-}
-
-/**
- * Hook to fetch newsletters from backend API with fallback
- */
-export function useNewsletters(query?: NewsletterQuery) {
-  const [newsletters, setNewsletters] = useState<Newsletter[]>(pastNewslettersData as unknown as Newsletter[])
-  const [pagination, setPagination] = useState<PaginationMeta | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const queryKey = useMemo(() => JSON.stringify(query || {}), [query])
-
-  const fetchNewsletters = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    try {
-      const res = await newsletterService.getPublicNewsletters(query)
-      if (res.success && res.data && res.data.length > 0) {
-        setNewsletters(res.data)
-        if (res.pagination) setPagination(res.pagination)
-      } else {
-        setNewsletters(pastNewslettersData as unknown as Newsletter[])
-      }
-    } catch (err: unknown) {
-      console.warn('API error fetching newsletters, using local dataset:', err)
-      setError(err instanceof Error ? err.message : 'Failed to fetch newsletters')
-      setNewsletters(pastNewslettersData as unknown as Newsletter[])
-    } finally {
-      setLoading(false)
-    }
-  }, [queryKey]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    fetchNewsletters()
-  }, [fetchNewsletters])
-
-  const latest = useMemo(() => {
-    return newsletters.find((n) => n.isFeatured) || newsletters[0] || (latestNewsletter as unknown as Newsletter)
-  }, [newsletters])
-
-  return { newsletters, latest, pagination, loading, error, refetch: fetchNewsletters }
-}
-
-/**
- * Hook to fetch eBooks from backend API with fallback
- */
-export function useEbooks(query?: EbookQuery) {
-  const [ebooks, setEbooks] = useState<Ebook[]>(ebooksData as unknown as Ebook[])
-  const [pagination, setPagination] = useState<PaginationMeta | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const queryKey = useMemo(() => JSON.stringify(query || {}), [query])
-
-  const fetchEbooks = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    try {
-      const res = await ebookService.getPublicEbooks(query)
-      if (res.success && res.data && res.data.length > 0) {
-        setEbooks(res.data)
-        if (res.pagination) setPagination(res.pagination)
-      } else {
-        setEbooks(ebooksData as unknown as Ebook[])
-      }
-    } catch (err: unknown) {
-      console.warn('API error fetching eBooks, using local dataset:', err)
-      setError(err instanceof Error ? err.message : 'Failed to fetch eBooks')
-      setEbooks(ebooksData as unknown as Ebook[])
-    } finally {
-      setLoading(false)
-    }
-  }, [queryKey]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    fetchEbooks()
-  }, [fetchEbooks])
-
-  const featured = useMemo(() => {
-    return ebooks.find((e) => e.isFeatured) || ebooks[0] || (featuredEbook as unknown as Ebook)
-  }, [ebooks])
-
-  return { ebooks, featured, pagination, loading, error, refetch: fetchEbooks }
 }
 
 /**

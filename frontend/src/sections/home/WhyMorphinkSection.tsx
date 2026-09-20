@@ -5,7 +5,7 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import AccessibleOutlinedIcon from '@mui/icons-material/AccessibleOutlined'
+import ArchitectureOutlinedIcon from '@mui/icons-material/ArchitectureOutlined'
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined'
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined'
@@ -13,7 +13,7 @@ import { Card, SectionHeading } from '../../components'
 import { whyUs } from '../../data'
 
 const WHY_US_ICONS: Record<string, ReactNode> = {
-  'lived-expertise': <AccessibleOutlinedIcon />,
+  'lived-expertise': <ArchitectureOutlinedIcon />,
   standards: <WorkspacePremiumOutlinedIcon />,
   'compliant-and-usable': <CheckCircleOutlineOutlinedIcon />,
   'one-partner': <HandshakeOutlinedIcon />,
@@ -44,7 +44,7 @@ const StepCard = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const WhyWinVinayaSection = () => (
+export const WhyMorphinkSection = () => (
   <Root aria-labelledby="why-us-heading">
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={{ xs: 8, md: 10 }} sx={{ alignItems: 'center' }}>
@@ -57,7 +57,7 @@ export const WhyWinVinayaSection = () => (
               <Grid key={item.id} size={{ xs: 12, sm: 6, lg: 3 }} sx={{ display: 'flex' }}>
                 <Card
                   fullHeight
-                  icon={WHY_US_ICONS[item.id]}
+                  icon={WHY_US_ICONS[item.id] || <ArchitectureOutlinedIcon />}
                   iconTone="accent"
                   title={item.title}
                   subtitle={item.description}

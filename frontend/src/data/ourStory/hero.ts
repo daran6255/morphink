@@ -13,23 +13,23 @@ export interface StoryHeroContent {
 
 export const storyHero: StoryHeroContent = {
   eyebrow: 'Our Story',
-  heading: 'Where It Began',
-  body: 'In 2013, WinVinaya InfoSystems was founded by Sivasankar "Shiva" Jayagopal, an alumnus of NIT Trichy with a background in enterprise software, quality assurance, and testing. The idea behind the company was straightforward: build an IT consulting firm that competes on technical rigor while creating sustained tech opportunities for Persons with Disabilities (PwDs).',
+  heading: 'Crafting Iconic Spaces With Vision',
+  body: 'Morphink Architecture was founded with a singular mission: to redefine the built environment by blending artistic form, structural precision, and sustainable innovation. What began as a boutique architectural studio has grown into an acclaimed design firm behind landmark commercial towers, luxury residential enclaves, and masterplanned urban developments.',
   milestones: [
     {
-      year: '2013',
-      label: 'Company Founded',
-      description: 'Pioneered inclusive IT QA & software testing with native assistive tech specialists.',
+      year: '2015',
+      label: 'Studio Founded',
+      description: 'Pioneered parametric 3D modeling and sustainable building design.',
     },
     {
-      year: '2016',
-      label: 'WinVinaya Foundation',
-      description: 'Launched non-profit arm to skill and place PwDs in tech & software careers.',
+      year: '2019',
+      label: 'Urban & Commercial Expansion',
+      description: 'Expanded into high-rise corporate headquarters and masterplanned communities.',
     },
     {
       year: 'Today',
-      label: 'Agentic AI & WCAG 2.2',
-      description: 'Delivering enterprise AI solutions, document remediation, and accessibility audits.',
+      label: 'Net-Zero & Biophilic Design',
+      description: 'Delivering carbon-neutral, green-certified architectural masterpieces across India.',
     },
   ],
 }

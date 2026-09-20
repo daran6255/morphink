@@ -6,7 +6,7 @@ dotenv.config();
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.coerce.number().default(5000),
-  DATABASE_URL: z.string().url().default('postgresql://postgres:postgres@localhost:5432/wvis_db?schema=public'),
+  DATABASE_URL: z.string().url().default('postgresql://postgres:postgres@localhost:5432/morphink_db?schema=public'),
   JWT_SECRET: z.string().min(16).default('super-secret-jwt-key-change-in-production-min-32-chars-length'),
   JWT_EXPIRES_IN: z.string().default('7d'),
   CORS_ORIGIN: z.string().default('http://localhost:5173,http://localhost:3000,http://localhost:4173'),

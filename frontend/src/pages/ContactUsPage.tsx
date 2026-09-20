@@ -8,7 +8,7 @@ import {
 /** Contact Us Page — Office location, direct contact info, and interactive inquiry form. */
 export const ContactUsPage = () => {
   useEffect(() => {
-    document.title = 'Contact Us | WinVinaya'
+    document.title = 'Contact Us | Morphink Architecture'
   }, [])
 
   return (

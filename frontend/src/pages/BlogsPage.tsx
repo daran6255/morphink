@@ -13,7 +13,7 @@ export const BlogsPage = () => {
   const { blogs, featured } = useBlogs()
 
   useEffect(() => {
-    document.title = 'The WinVinaya Blog | Inclusive Workplaces & Tech'
+    document.title = 'Architectural Insights & Design Blog | Morphink Architecture'
   }, [])
 
   return (

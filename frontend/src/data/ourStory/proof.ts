@@ -12,25 +12,25 @@ export interface StoryProofContent {
 
 export const storyProof: StoryProofContent = {
   eyebrow: 'Proof in Practice',
-  heading: 'What This Looks Like',
+  heading: 'Our Design Principles in Action',
   items: [
     {
-      id: 'namm-academy',
-      title: 'NammAcademy',
+      id: 'sustainable-high-rise',
+      title: 'Net-Zero Commercial Towers',
       description:
-        'An inclusive learning platform we built offering life skills, digital skills, and entrepreneurship courses for persons with disabilities.',
+        'Iconic corporate skyscrapers engineered with biophilic sky terraces, high-performance thermal envelopes, and 35% reduced carbon footprints.',
     },
     {
-      id: 'ai-capacity-building',
-      title: 'AI Capacity-Building With NGOs',
+      id: 'luxury-residential',
+      title: 'Bespoke Residential Enclaves',
       description:
-        "In partnership with SVP Bengaluru, we've delivered hands-on AI training programs for NGO educators and professionals, including a Train-the-Trainer program with VAANI Deaf Children's Foundation.",
+        'Luxury villas and eco-residences designed with seamless indoor-outdoor spatial transitions, natural illumination, and passive cooling.',
     },
     {
-      id: 'force-for-good',
-      title: 'Force For Good With JPMorgan Chase',
+      id: 'urban-masterplanning',
+      title: 'Integrated Urban Masterplans',
       description:
-        'Working alongside JPMorgan Chase volunteers, WinVinaya Foundation helped develop a prototype learning platform that lets visually impaired learners study coding experientially.',
+        'Large-scale urban developments incorporating sustainable drainage, public green plazas, and eco-friendly pedestrian corridors.',
     },
   ],
 }

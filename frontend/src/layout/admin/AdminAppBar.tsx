@@ -194,7 +194,7 @@ export const AdminAppBar = ({ onDrawerToggle, title = 'Dashboard Overview' }: Ad
                 {user?.name || 'Administrator'}
               </Typography>
               <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.75 }}>
-                {user?.email || 'admin@winvinaya.com'}
+                {user?.email || 'admin@morphink.com'}
               </Typography>
               <Chip
                 label={user?.role || 'SUPERADMIN'}

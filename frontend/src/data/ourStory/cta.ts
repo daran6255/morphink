@@ -5,7 +5,7 @@ export interface StoryCtaContent {
 }
 
 export const storyCta: StoryCtaContent = {
-  heading: 'Meet the People Behind the Mission',
+  heading: 'Meet the Architects & Designers Behind Our Studio',
   primaryCta: { label: 'Meet the Team', href: '/about/our-team' },
-  secondaryCta: { label: 'Learn About WinVinaya Foundation', href: '/about/winvinaya-foundation' },
+  secondaryCta: { label: 'View Our Projects', href: '/impact/success-stories' },
 }

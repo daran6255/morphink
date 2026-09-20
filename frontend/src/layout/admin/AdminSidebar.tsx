@@ -9,8 +9,6 @@ import Divider from '@mui/material/Divider'
 import Stack from '@mui/material/Stack'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined'
-import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined'
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined'
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined'
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined'
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined'
@@ -70,8 +68,6 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: 'dashboard', label: 'Dashboard', href: '/admin/dashboard', icon: <DashboardOutlinedIcon /> },
   { id: 'blogs', label: 'Blogs & Articles', href: '/admin/blogs', icon: <ArticleOutlinedIcon /> },
-  { id: 'newsletters', label: 'Newsletters', href: '/admin/newsletters', icon: <MailOutlineOutlinedIcon /> },
-  { id: 'ebooks', label: 'eBooks & Guides', href: '/admin/ebooks', icon: <MenuBookOutlinedIcon /> },
   { id: 'careers', label: 'Careers & Roles', href: '/admin/careers', icon: <WorkOutlineOutlinedIcon /> },
   { id: 'inquiries', label: 'Contact Inquiries', href: '/admin/inquiries', icon: <ContactMailOutlinedIcon /> },
   { id: 'testimonials', label: 'Testimonials', href: '/admin/testimonials', icon: <StarOutlineOutlinedIcon /> },
@@ -124,14 +120,14 @@ export const AdminSidebar = ({ mobileOpen, onDrawerToggle, currentPath = '/admin
               boxShadow: `0 4px 12px ${alpha(theme.palette.primary.main, 0.35)}`,
             })}
           >
-            W
+            M
           </Box>
           <Box>
             <Typography variant="subtitle1" sx={{ fontWeight: 900, lineHeight: 1.2, color: 'text.primary' }}>
-              WinVinaya
+              Morphink
             </Typography>
             <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, fontSize: '0.725rem' }}>
-              Admin Control Center
+              Architecture Admin
             </Typography>
           </Box>
         </Box>
@@ -190,7 +186,7 @@ export const AdminSidebar = ({ mobileOpen, onDrawerToggle, currentPath = '/admin
               variant="caption"
               sx={{ color: 'text.secondary', display: 'block', fontSize: '0.7rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
             >
-              {user?.email || 'admin@winvinaya.com'}
+              {user?.email || 'admin@morphink.com'}
             </Typography>
           </Box>
 

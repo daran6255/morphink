@@ -22,7 +22,6 @@ import FormControl from '@mui/material/FormControl'
 import ArticleIcon from '@mui/icons-material/Article'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import MarkEmailUnreadIcon from '@mui/icons-material/MarkEmailUnread'
-import MenuBookIcon from '@mui/icons-material/MenuBook'
 import WorkIcon from '@mui/icons-material/Work'
 import StarIcon from '@mui/icons-material/Star'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -60,16 +59,12 @@ export const AdminDashboardPage = () => {
   const user = useAppSelector((state) => state.auth.user)
   const [stats, setStats] = useState<{
     blogsCount: number
-    newslettersCount: number
-    ebooksCount: number
     careersCount: number
     testimonialsCount: number
     inquiriesTotal: number
     inquiriesNew: number
   }>({
     blogsCount: 0,
-    newslettersCount: 0,
-    ebooksCount: 0,
     careersCount: 0,
     testimonialsCount: 0,
     inquiriesTotal: 0,
@@ -83,12 +78,9 @@ export const AdminDashboardPage = () => {
 
   const fetchDashboardData = async () => {
     try {
-      // Fetch stats from various endpoints in parallel
-      const [blogsRes, newslettersRes, ebooksRes, careersRes, testimonialsRes, inquiriesRes] =
+      const [blogsRes, careersRes, testimonialsRes, inquiriesRes] =
         await Promise.allSettled([
           apiClient.get('/blogs?limit=1'),
-          apiClient.get('/newsletters?limit=1'),
-          apiClient.get('/ebooks?limit=1'),
           apiClient.get('/careers'),
           apiClient.get('/testimonials'),
           apiClient.get('/admin/contact?limit=10'),
@@ -96,10 +88,6 @@ export const AdminDashboardPage = () => {
 
       const blogsTotal =
         blogsRes.status === 'fulfilled' ? blogsRes.value.data?.pagination?.total || blogsRes.value.data?.data?.length || 2 : 2
-      const newslettersTotal =
-        newslettersRes.status === 'fulfilled' ? newslettersRes.value.data?.pagination?.total || newslettersRes.value.data?.data?.length || 2 : 2
-      const ebooksTotal =
-        ebooksRes.status === 'fulfilled' ? ebooksRes.value.data?.pagination?.total || ebooksRes.value.data?.data?.length || 2 : 2
       const careersTotal =
         careersRes.status === 'fulfilled' ? careersRes.value.data?.data?.length || 2 : 2
       const testimonialsTotal =
@@ -118,8 +106,6 @@ export const AdminDashboardPage = () => {
 
       setStats({
         blogsCount: blogsTotal,
-        newslettersCount: newslettersTotal,
-        ebooksCount: ebooksTotal,
         careersCount: careersTotal,
         testimonialsCount: testimonialsTotal,
         inquiriesTotal: inqTotal,
@@ -134,7 +120,7 @@ export const AdminDashboardPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Admin Dashboard | WinVinaya Infosystems'
+    document.title = 'Admin Dashboard | Morphink Architecture'
     fetchDashboardData()
   }, [])
 
@@ -194,7 +180,7 @@ export const AdminDashboardPage = () => {
                 />
               </Stack>
               <Typography variant="body2" color="text.secondary">
-                WinVinaya Enterprise Admin Portal • PostgreSQL Connected • Live API Online
+                Morphink Architecture Admin Portal • PostgreSQL Connected • Live API Online
               </Typography>
             </Box>
 
@@ -310,75 +296,7 @@ export const AdminDashboardPage = () => {
             </StatCard>
           </Grid>
 
-          {/* Newsletters */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <StatCard>
-              <CardContent sx={{ p: 3 }}>
-                <Stack direction="row" spacing={2} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-                  <Box>
-                    <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', textTransform: 'uppercase' }}>
-                      Newsletters & Archives
-                    </Typography>
-                    <Typography variant="h4" sx={{ fontWeight: 900, color: 'text.primary', mt: 0.5 }}>
-                      {loading ? <CircularProgress size={24} /> : stats.newslettersCount}
-                    </Typography>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
-                      Monthly cohort updates
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      width: 50,
-                      height: 50,
-                      borderRadius: Number(theme.shape.borderRadius) * 1.5,
-                      bgcolor: alpha(theme.palette.accent.main, 0.12),
-                      color: theme.palette.accent.dark,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    })}
-                  >
-                    <MenuBookIcon sx={{ fontSize: 28 }} />
-                  </Box>
-                </Stack>
-              </CardContent>
-            </StatCard>
-          </Grid>
 
-          {/* eBooks */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <StatCard>
-              <CardContent sx={{ p: 3 }}>
-                <Stack direction="row" spacing={2} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-                  <Box>
-                    <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', textTransform: 'uppercase' }}>
-                      eBooks & Guides
-                    </Typography>
-                    <Typography variant="h4" sx={{ fontWeight: 900, color: 'text.primary', mt: 0.5 }}>
-                      {loading ? <CircularProgress size={24} /> : stats.ebooksCount}
-                    </Typography>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
-                      PDFs & ePub publications
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      width: 50,
-                      height: 50,
-                      borderRadius: Number(theme.shape.borderRadius) * 1.5,
-                      bgcolor: alpha(theme.palette.info.main, 0.1),
-                      color: theme.palette.info.main,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    })}
-                  >
-                    <MenuBookIcon sx={{ fontSize: 28 }} />
-                  </Box>
-                </Stack>
-              </CardContent>
-            </StatCard>
-          </Grid>
 
           {/* Careers */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>

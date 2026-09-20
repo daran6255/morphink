@@ -12,7 +12,7 @@ export const SuccessStoriesPage = () => {
   const { stories } = useStories()
 
   useEffect(() => {
-    document.title = 'Client Success Stories & Case Studies | WinVinaya'
+    document.title = 'Project Portfolio & Case Studies | Morphink Architecture'
   }, [])
 
   return (

@@ -54,7 +54,7 @@ export const AdminLoginPage = () => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    document.title = 'Admin Portal Login | WinVinaya Infosystems'
+    document.title = 'Admin Portal Login | Morphink Architecture'
     // If already authenticated, redirect to dashboard
     if (authService.isAuthenticated()) {
       window.location.href = '/admin/dashboard'
@@ -90,8 +90,8 @@ export const AdminLoginPage = () => {
   }
 
   const handleFillDemoAdmin = () => {
-    setEmail('info@winvinaya.com')
-    setPassword('WinVinaya@2026!')
+    setEmail('admin@morphink.com')
+    setPassword('Morphink@2026!')
     setError(null)
   }
 
@@ -148,7 +148,7 @@ export const AdminLoginPage = () => {
                 fullWidth
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="info@winvinaya.com"
+                placeholder="admin@morphink.com"
                 slotProps={{
                   input: {
                     startAdornment: (

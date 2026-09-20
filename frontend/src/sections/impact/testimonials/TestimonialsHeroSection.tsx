@@ -396,7 +396,7 @@ export const TestimonialsHeroSection = () => (
             <VisualFrame>
               <VisualImage
                 role="img"
-                aria-label="WinVinaya practitioners and clients reviewing successful accessibility, Power Platform, and software deliverables."
+                aria-label="Morphink architects and corporate clients reviewing building design renderings and project milestones."
               >
                 {/* Live Client Voice Snapshot Card */}
                 <InteractiveTestimonialPreview>

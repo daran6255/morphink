@@ -4,68 +4,67 @@ export interface ContactReasonOption {
 }
 
 export const contactHeroData = {
-  eyebrow: 'Get in Touch • Let’s Collaborate',
+  eyebrow: 'Get in Touch • Let’s Design Together',
   headline: 'Contact',
-  headlineHighlight: 'WinVinaya',
+  headlineHighlight: 'Morphink Architecture',
   subheadline:
-    'Have an accessibility audit requirement, training inquiry, document remediation project, or student internship question? We’re here to help.',
+    'Have a commercial architectural project, residential design inquiry, masterplanning requirement, or career question? Our design studio is ready to assist you.',
 }
 
 export const contactInfoData = {
   address: {
-    title: 'Headquarters & Delivery Center',
-    line1: '25/3 Brindavan, 3rd Cross, Post, Nyanappana Halli,',
+    title: 'Architectural Studio & Design Hub',
+    line1: '25/3 Brindavan, 3rd Cross, Nyanappana Halli,',
     line2: 'Hulimavu, Bengaluru, Karnataka 560076',
-    full: '25/3 Brindavan, 3rd Cross, Post, Nyanappana Halli, Hulimavu, Bengaluru, Karnataka 560076',
+    full: '25/3 Brindavan, 3rd Cross, Nyanappana Halli, Hulimavu, Bengaluru, Karnataka 560076',
     mapUrl: 'https://maps.google.com/?q=25/3+Brindavan,+3rd+Cross,+Nyanappana+Halli,+Hulimavu,+Bengaluru,+Karnataka+560076',
   },
   email: {
-    title: 'General & Business Inquiries',
-    address: 'info@winvinaya.com',
-    href: 'mailto:info@winvinaya.com',
+    title: 'General & Design Inquiries',
+    address: 'contact@morphink.com',
+    href: 'mailto:contact@morphink.com',
   },
   phone: {
-    title: 'Direct Call / WhatsApp',
+    title: 'Direct Call / Consultation',
     number: '+91-99805-25374',
     href: 'tel:+919980525374',
   },
   hours: {
-    title: 'Operating Hours',
+    title: 'Studio Hours',
     text: 'Monday – Friday: 9:30 AM – 6:30 PM IST',
     responseTime: 'We typically respond within 1 business day.',
   },
 }
 
 export const contactReasonOptions: ContactReasonOption[] = [
-  { value: 'accessibility-audit', label: 'Digital Accessibility Audit & Testing (WCAG / SEBI / Section 508)' },
-  { value: 'document-remediation', label: 'Document & PDF Remediation (PDF/UA, Word, Courseware)' },
-  { value: 'corporate-training', label: 'Corporate Training & Disability Sensitization Workshops' },
-  { value: 'custom-apps-ai', label: 'Custom Application Development & Agentic AI Solutions' },
-  { value: 'power-platform', label: 'Power Platform, Power BI & Impact Analytics' },
-  { value: 'student-internship', label: 'College Student Internship Program' },
-  { value: 'inclusive-hiring', label: 'Inclusive Hiring & Sourcing PwD Talent' },
-  { value: 'general-inquiry', label: 'General Inquiry / Other Support' },
+  { value: 'commercial-architecture', label: 'Commercial Building & High-Rise Design' },
+  { value: 'residential-architecture', label: 'Luxury Residential & Villa Architecture' },
+  { value: 'interior-spatial-design', label: 'Interior Architecture & Spatial Planning' },
+  { value: 'sustainable-building', label: 'Sustainable Architecture & Green Certification' },
+  { value: 'urban-landscape', label: 'Urban Masterplanning & Landscape Design' },
+  { value: 'career-inquiry', label: 'Architectural Internship & Career Opportunities' },
+  { value: 'general-inquiry', label: 'General Design Inquiry' },
 ]
 
 export const contactFaqData = [
   {
-    question: 'How quickly can WinVinaya start an accessibility audit or project?',
+    question: 'How quickly can Morphink begin schematic architectural design for our project?',
     answer:
-      'We typically schedule an initial discovery call within 24 to 48 hours. Depending on the scope of your application or document volume, we can commence audits within 3 to 5 business days.',
+      'We schedule an initial design discovery workshop within 24 to 48 hours of contact. Conceptual masterplanning and 3D volumetric studies typically begin within 3 to 5 business days after scope finalization.',
   },
   {
-    question: 'Do you sign Non-Disclosure Agreements (NDAs) before reviewing source code or documents?',
+    question: 'Does Morphink handle municipal building approvals and structural engineering compliance?',
     answer:
-      'Yes, absolutely. We regularly sign standard enterprise NDAs and confidentiality agreements before any proprietary code, designs, or confidential documents are shared with our audit team.',
+      'Yes. Our full-service studio coordinates structural engineering, MEP drafting, and municipal sanction drawings to ensure total regulatory compliance.',
   },
   {
-    question: 'Are WinVinaya audits certified by qualified accessibility professionals?',
+    question: 'Do you design sustainable and green-certified buildings?',
     answer:
-      'Yes. Our audits are performed by IAAP Certified Professionals in Accessibility Core Competencies (CPACC) and Web Accessibility Specialists (WAS), ensuring global compliance with WCAG 2.1 / 2.2 AA standards.',
+      'Absolutely. Sustainable design is core to our philosophy. We integrate passive solar planning, rainwater harvesting, energy-efficient HVAC, and eco-certified building materials into every development.',
   },
   {
-    question: 'How do students apply for the College Internship Program?',
+    question: 'How can young architects or students apply for internships at Morphink?',
     answer:
-      'Students can select "College Student Internship Program" in the contact form, share their GitHub/portfolio, or email careers@winvinayainfosystems.com directly. Please note this is an unpaid, hands-on internship working on live production deliverables.',
+      'Applicants can select "Architectural Internship" in our contact form or send their portfolio directly to careers@morphink.com.',
   },
 ]

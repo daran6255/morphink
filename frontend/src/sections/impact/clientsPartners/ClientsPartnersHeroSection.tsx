@@ -396,7 +396,7 @@ export const ClientsPartnersHeroSection = () => (
             <VisualFrame>
               <VisualImage
                 role="img"
-                aria-label="WinVinaya community partners, corporate allies, and academic institutions collaborating on digital inclusion."
+                aria-label="Morphink commercial clients, corporate partners, and structural engineering allies collaborating on architectural developments."
               >
                 {/* Live Partnership Matrix Snapshot Card */}
                 <InteractivePartnerPreview>

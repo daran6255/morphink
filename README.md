@@ -1,6 +1,6 @@
-# 🌐 WinVinaya Infosystems (`wviswebsite2.0`)
+# 🌐 Morphink Architecture Web Platform (`morphink`)
 
-> Official web platform for **WinVinaya Infosystems** — empowering persons with disabilities and women through inclusive IT solutions, digital accessibility services, and specialized skill training.
+> Official web platform for **Morphink Architecture** — a premier architectural & building design company specializing in sustainable commercial high-rises, luxury residential spaces, urban masterplanning, and 3D BIM modeling.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![AWS EC2](https://img.shields.io/badge/AWS-EC2%20Deployment-orange.svg)](./doc/aws-ec2-initial-deployment.md)
@@ -30,9 +30,9 @@
 
 ## 🌟 Overview
 
-The `wviswebsite2.0` repository is a decoupled, modern web application comprising:
+The `morphink` repository is a decoupled, modern web application comprising:
 1. **Frontend SPA**: Fast, accessible Single Page Application built with React 19, TypeScript, Vite 8, Material UI, and TanStack Router.
-2. **Backend API**: Enterprise REST API built with Express 5, TypeScript, Prisma ORM 6, PostgreSQL, Zod validation, and JWT-based authentication.
+2. **Backend API**: Enterprise REST API built with Express 5, TypeScript, Prisma ORM 6, PostgreSQL (`morphink_db`), Zod validation, and JWT-based authentication.
 3. **Nginx Reverse Proxy**: Production routing, SSL termination (Let's Encrypt), static asset caching, and security header enforcement.
 4. **AWS EC2 Production Deployment Guide**: Comprehensive step-by-step master guide for deploying both Frontend and Backend on AWS EC2 in [`doc/aws-ec2-initial-deployment.md`](./doc/aws-ec2-initial-deployment.md).
 

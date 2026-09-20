@@ -100,7 +100,7 @@ export const AdminBlogsPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Manage Blogs & Articles | WinVinaya Admin'
+    document.title = 'Manage Blogs & Articles | Morphink Admin'
     loadBlogs()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

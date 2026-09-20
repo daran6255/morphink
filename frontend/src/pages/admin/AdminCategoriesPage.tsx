@@ -69,7 +69,7 @@ export const AdminCategoriesPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Manage Taxonomy & Categories | WinVinaya Admin'
+    document.title = 'Manage Taxonomy & Categories | Morphink Admin'
     loadCategories()
   }, [])
 

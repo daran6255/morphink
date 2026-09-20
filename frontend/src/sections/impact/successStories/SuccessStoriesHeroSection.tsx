@@ -243,7 +243,7 @@ const TRUST_CREDENTIALS = [
     icon: CloudDoneOutlinedIcon,
     tone: 'info' as const,
     title: 'Live In-Production Systems',
-    detail: 'From crm.winvinaya.com to university courseware, our solutions power daily operations across sectors.',
+    detail: 'From high-rise commercial headquarters to luxury residential projects, our designs define skyline benchmarks.',
   },
 ]
 
@@ -398,7 +398,7 @@ export const SuccessStoriesHeroSection = () => (
             <VisualFrame>
               <VisualImage
                 role="img"
-                aria-label="WinVinaya practitioners delivering verified accessibility and custom software outcomes for clients."
+                aria-label="Morphink architectural design projects delivered with verified structural excellence."
               >
                 {/* Live Outcome Snapshot Card */}
                 <InteractiveCasePreview>
@@ -406,7 +406,7 @@ export const SuccessStoriesHeroSection = () => (
                     <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                       <WorkspacePremiumOutlinedIcon sx={{ fontSize: 20, color: 'primary.main' }} />
                       <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.825rem' }}>
-                        Verified Impact Matrix
+                        Verified Design Matrix
                       </Typography>
                     </Stack>
                     <Box
@@ -420,7 +420,7 @@ export const SuccessStoriesHeroSection = () => (
                         fontWeight: 700,
                       })}
                     >
-                      IN-PRODUCTION
+                      DELIVERED
                     </Box>
                   </Stack>
 
@@ -429,7 +429,7 @@ export const SuccessStoriesHeroSection = () => (
                       <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
                         <GavelOutlinedIcon sx={{ fontSize: 16, color: 'accent.main' }} />
                         <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.75rem' }}>
-                          DEPwD Submissions
+                          BIM 3D Models
                         </Typography>
                       </Stack>
                     </Grid>
@@ -437,7 +437,7 @@ export const SuccessStoriesHeroSection = () => (
                       <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
                         <InsightsOutlinedIcon sx={{ fontSize: 16, color: 'accent.main' }} />
                         <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.75rem' }}>
-                          Power BI Handover
+                          Green Certification
                         </Typography>
                       </Stack>
                     </Grid>
@@ -445,7 +445,7 @@ export const SuccessStoriesHeroSection = () => (
                       <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
                         <HubOutlinedIcon sx={{ fontSize: 16, color: 'accent.main' }} />
                         <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.75rem' }}>
-                          Playwright QA
+                          Parametric Facades
                         </Typography>
                       </Stack>
                     </Grid>
@@ -453,7 +453,7 @@ export const SuccessStoriesHeroSection = () => (
                       <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
                         <CloudDoneOutlinedIcon sx={{ fontSize: 16, color: 'accent.main' }} />
                         <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.75rem' }}>
-                          crm.winvinaya.com
+                          Morphink Studio
                         </Typography>
                       </Stack>
                     </Grid>
@@ -484,10 +484,10 @@ export const SuccessStoriesHeroSection = () => (
               </Box>
               <Box>
                 <Typography variant="subtitle2" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
-                  Regulatory Grade
+                  Award-Winning Design
                 </Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', fontWeight: 500 }}>
-                  WCAG, Section 508 & DEPwD
+                  Sustainable & Net-Zero Architecture
                 </Typography>
               </Box>
             </GlassCard>
@@ -514,10 +514,10 @@ export const SuccessStoriesHeroSection = () => (
               </Box>
               <Box>
                 <Typography variant="subtitle2" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
-                  Real Production Proof
+                  Iconic Skylines
                 </Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', fontWeight: 500 }}>
-                  crm.winvinaya.com In Daily Use
+                  Morphink Architecture Studio
                 </Typography>
               </Box>
             </GlassCard>

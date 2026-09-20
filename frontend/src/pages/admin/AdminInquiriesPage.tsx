@@ -60,7 +60,7 @@ export const AdminInquiriesPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Contact Inquiries & Leads | WinVinaya Admin'
+    document.title = 'Contact Inquiries & Leads | Morphink Admin'
     loadInquiries()
   }, [statusFilter]) // eslint-disable-line react-hooks/exhaustive-deps
 

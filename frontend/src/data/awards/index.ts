@@ -1,5 +1,0 @@
-export * from './hero'
-export * from './awards'
-export * from './partnerships'
-export * from './thoughtLeadership'
-export * from './cta'

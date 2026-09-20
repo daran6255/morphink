@@ -66,45 +66,6 @@ model BlogPost {
   @@map("blog_posts")
 }
 
-model Newsletter {
-  id            String   @id @default(uuid())
-  title         String
-  publishedDate String
-  year          String
-  excerpt       String   @db.Text
-  coverImage    String
-  pdfUrl        String
-  isFeatured    Boolean  @default(false)
-  isPublished   Boolean  @default(true)
-  sortOrder     Int      @default(0)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  @@index([year])
-  @@index([isPublished])
-  @@map("newsletters")
-}
-
-model Ebook {
-  id          String   @id @default(uuid())
-  title       String
-  category    String
-  author      String
-  description String   @db.Text
-  tileImage   String
-  pdfUrl      String
-  epubUrl     String?
-  isFeatured  Boolean  @default(false)
-  isPublished Boolean  @default(true)
-  sortOrder   Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([category])
-  @@index([isPublished])
-  @@map("ebooks")
-}
-
 model CareerDomain {
   id               String   @id @default(uuid())
   title            String

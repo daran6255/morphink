@@ -83,7 +83,7 @@ export const AdminCareersPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Manage Careers & Tracks | WinVinaya Admin'
+    document.title = 'Manage Careers & Tracks | Morphink Admin'
     loadCareers()
   }, [])
 

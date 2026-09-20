@@ -85,7 +85,7 @@ export const AdminTestimonialsPage = () => {
   }
 
   useEffect(() => {
-    document.title = 'Manage Testimonials | WinVinaya Admin'
+    document.title = 'Manage Testimonials | Morphink Admin'
     loadTestimonials()
   }, [])
 
