@@ -5,7 +5,7 @@ export interface TeamHeroContent {
 }
 
 export const teamHero: TeamHeroContent = {
-  eyebrow: 'Our Team',
-  heading: 'The People Behind the Work',
-  body: "Morphink Architecture's team spans architectural design, structural engineering, interior spatial planning, and project management — brought together by a shared commitment to creating buildings that are both beautiful and purposeful. Below are some of the people leading our studio.",
+  eyebrow: 'Architects & Visionaries',
+  heading: 'The Minds Behind Morphink',
+  body: 'Meet our Principal and Chief Architects—master-degreed environmental design leaders, concrete innovators, spatial visualizers, and fine artists dedicated to resurrecting your architectural dreams with the Midas touch.',
 }

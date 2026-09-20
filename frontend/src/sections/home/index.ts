@@ -1,6 +1,8 @@
 export { HeroSection } from './HeroSection'
 export { AboutTeaserSection } from './AboutTeaserSection'
+export { ServicesSection } from './ServicesSection'
 export { WhyMorphinkSection } from './WhyMorphinkSection'
 export { ImpactSection } from './ImpactSection'
+export { LeadershipTeaserSection } from './LeadershipTeaserSection'
 export { ResourcesTeaserSection } from './ResourcesTeaserSection'
 export { FinalCtaSection } from './FinalCtaSection'

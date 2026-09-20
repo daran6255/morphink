@@ -5,20 +5,20 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import ArchitectureOutlinedIcon from '@mui/icons-material/ArchitectureOutlined'
-import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined'
-import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
+import EnergySavingsLeafOutlinedIcon from '@mui/icons-material/EnergySavingsLeafOutlined'
+import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined'
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined'
 import { Card, SectionHeading } from '../../components'
-import { whyUs } from '../../data'
+import { whyUs } from '../../data/home/whyUs'
+import { palette } from '../../themes/palette'
 
 const WHY_US_ICONS: Record<string, ReactNode> = {
-  'lived-expertise': <ArchitectureOutlinedIcon />,
-  standards: <WorkspacePremiumOutlinedIcon />,
-  'compliant-and-usable': <CheckCircleOutlineOutlinedIcon />,
-  'one-partner': <HandshakeOutlinedIcon />,
+  'polyglot-advantage': <TranslateOutlinedIcon />,
+  'environmental-leadership': <EnergySavingsLeafOutlinedIcon />,
+  'material-invention': <ConstructionOutlinedIcon />,
+  'unified-studio': <HandshakeOutlinedIcon />,
 }
-
 
 const StepCard = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -34,8 +34,8 @@ const StepCard = styled(Box)(({ theme }) => ({
   transition: theme.transitions.create(['transform', 'border-color', 'box-shadow']),
   '&:hover': {
     transform: 'translateY(-4px)',
-    borderColor: theme.palette.primary.main,
-    boxShadow: `0 14px 30px ${alpha(theme.palette.primary.main, 0.14)}`,
+    borderColor: palette.brand.lime,
+    boxShadow: `0 14px 30px ${alpha(palette.brand.lime, 0.14)}`,
   },
 }))
 
@@ -45,17 +45,24 @@ export const WhyMorphinkSection = () => (
       <Stack spacing={{ xs: 8, md: 10 }} sx={{ alignItems: 'center' }}>
         {/* Top: 4 Core Differentiators */}
         <Stack spacing={{ xs: 6, md: 8 }} sx={{ width: '100%', alignItems: 'center' }}>
-          <SectionHeading headingId="why-us-heading" eyebrow={whyUs.eyebrow} heading={whyUs.heading} maxWidth={640} />
+          <SectionHeading
+            headingId="why-us-heading"
+            eyebrow={whyUs.eyebrow}
+            heading={whyUs.heading}
+            description={whyUs.subheading}
+            maxWidth={760}
+          />
 
           <Grid container spacing={3} sx={{ width: '100%' }}>
             {whyUs.items.map((item) => (
               <Grid key={item.id} size={{ xs: 12, sm: 6, lg: 3 }} sx={{ display: 'flex' }}>
                 <Card
                   fullHeight
-                  icon={WHY_US_ICONS[item.id] || <ArchitectureOutlinedIcon />}
+                  icon={WHY_US_ICONS[item.id] || <ConstructionOutlinedIcon />}
                   iconTone="accent"
                   title={item.title}
                   subtitle={item.description}
+                  eyebrow={item.highlight}
                 />
               </Grid>
             ))}
@@ -65,10 +72,11 @@ export const WhyMorphinkSection = () => (
         {/* Bottom: 4-Step Engagement Process */}
         <Stack spacing={4} sx={{ width: '100%', alignItems: 'center' }}>
           <SectionHeading
-            eyebrow="HOW WE WORK"
+            eyebrow="OUR METHODOLOGY"
             heading={whyUs.workflowHeading}
             headingVariant="h3"
-            maxWidth={600}
+            description="From initial soil analysis and 3D visualization to on-site structural management and millwork handover."
+            maxWidth={700}
           />
 
           <Grid container spacing={3} sx={{ width: '100%' }}>
@@ -80,24 +88,34 @@ export const WhyMorphinkSection = () => (
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      width: 42,
-                      height: 42,
-                      borderRadius: 999,
-                      bgcolor: alpha(theme.palette.accent.main, 0.14),
-                      color: theme.palette.accent.main,
+                      width: 40,
+                      height: 40,
+                      borderRadius: Number(theme.shape.borderRadius) * 1.2,
+                      bgcolor: alpha(palette.brand.lime, 0.12),
+                      color: palette.brand.lime,
                       fontWeight: 800,
-                      fontSize: '0.95rem',
-                      border: `1px solid ${alpha(theme.palette.accent.main, 0.25)}`,
+                      fontSize: '1rem',
+                      border: `1px solid ${alpha(palette.brand.lime, 0.25)}`,
                     })}
                   >
                     {step.stepNumber}
                   </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.1rem', color: 'text.primary' }}>
+                  <Typography variant="h6" sx={{ fontSize: '1.125rem', fontWeight: 700, color: 'text.primary' }}>
                     {step.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6, flexGrow: 1 }}>
                     {step.description}
                   </Typography>
+                  <Box
+                    sx={(theme) => ({
+                      pt: 1,
+                      borderTop: `1px dashed ${theme.palette.divider}`,
+                    })}
+                  >
+                    <Typography variant="caption" sx={{ fontWeight: 700, color: palette.brand.limeDark }}>
+                      {step.detail}
+                    </Typography>
+                  </Box>
                 </StepCard>
               </Grid>
             ))}

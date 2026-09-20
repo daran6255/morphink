@@ -1,15 +1,19 @@
 export interface FinalCtaContent {
+  eyebrow: string
   heading: string
   body: string
   cta: { label: string; href: string }
-  phone?: { label: string; href: string }
-  email?: { label: string; href: string }
+  benefits: string[]
 }
 
 export const finalCta: FinalCtaContent = {
-  heading: "Let's Build Something Extraordinary Together",
-  body: "Whether it's a residential home, a commercial complex, or an urban master plan — bring us your vision and we'll bring it to life.",
-  cta: { label: 'Get in Touch', href: '/contact-us' },
-  phone: { label: '+91-99805-25374', href: 'tel:+919980525374' },
-  email: { label: 'info@morphink.com', href: 'mailto:info@morphink.com' },
+  eyebrow: 'Start Your Architectural Journey',
+  heading: 'Let’s Bring Your Dream Project to Tangible Life.',
+  body: 'Connect directly with our Karur and Hosur studios. Whether you speak Tamil, Telugu, Kannada, Hindi, or English, we collaborate in your native touch to resurrect your dream space with the Midas touch.',
+  cta: { label: 'Connect With Our Design Team', href: '/contact-us' },
+  benefits: [
+    'Karur & Hosur Design Studios',
+    'Free Architectural Discovery Session',
+    'Polyglot South Indian Delivery',
+  ],
 }

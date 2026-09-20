@@ -24,38 +24,42 @@ export interface HeroContent {
   secondaryCta: HeroCta
   badges: HeroBadge[]
   stats: HeroStatCard[]
+  locations: string[]
+  languages: string[]
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: 'Redefining Architectural & Building Excellence',
-  headline: 'Innovative Structures Designed',
-  headlineHighlight: 'With Vision & Precision',
+  eyebrow: 'Karur • Hosur • South India',
+  headline: 'Where Dreams Are Visualized',
+  headlineHighlight: '& Built With Precision',
   subheadline:
-    'Morphink Architecture is a premier architectural and building design company. We blend visionary aesthetics, sustainable materials, and precise structural engineering to craft iconic commercial, residential, and urban landscapes.',
-  primaryCta: { label: 'Explore Our Portfolio', href: '/impact/success-stories' },
-  secondaryCta: { label: 'Schedule Design Consultation', href: '/contact-us' },
+    'From ancient mythology Morpheus (God of Dreams) to Ink (the tool to visualize): Morphink Architects bridges contemporary design with sustainable earth architecture. Crafting iconic residential, commercial, and landscape spaces with our signature Midas touch.',
+  primaryCta: { label: 'Explore Landmark Projects', href: '/impact/success-stories' },
+  secondaryCta: { label: 'Schedule Consultation', href: '/contact-us' },
+  locations: ['Karur Studio', 'Hosur Studio', 'Projects Across South India'],
+  languages: ['Tamil', 'Telugu', 'Kannada', 'Hindi', 'English'],
   badges: [
-    { label: 'Sustainable Architecture', sublabel: 'Green Building Certified' },
-    { label: 'Parametric 3D Modeling', sublabel: 'Advanced BIM Workflow' },
-    { label: 'End-to-End Execution', sublabel: 'Concept to Completion' },
+    { label: 'M.Arch Environmental', sublabel: 'Sustainable Earth Architecture' },
+    { label: 'Polyglot Design Studio', sublabel: 'Tamil • Telugu • Kannada • Hindi • English' },
+    { label: 'End-to-End Execution', sublabel: 'Architecture • Interior • Landscape • Branding' },
   ],
   stats: [
     {
-      value: '150+',
-      label: 'Projects Designed',
-      subtext: 'Commercial & Luxury Residential',
-      iconType: 'compliance',
-    },
-    {
       value: '100%',
-      label: 'Sustainable Design',
-      subtext: 'Energy Efficient Systems',
+      label: 'Native Touch',
+      subtext: '5 South Indian Languages',
       iconType: 'lived_experience',
     },
     {
-      value: '15+',
-      label: 'Design Awards',
-      subtext: 'Excellence in Architecture',
+      value: 'M.Arch',
+      label: 'Environmental Certified',
+      subtext: 'Sustainable Green Architecture',
+      iconType: 'compliance',
+    },
+    {
+      value: 'Turnkey',
+      label: 'Design to Execution',
+      subtext: 'Bespoke Material Inventions',
       iconType: 'audit',
     },
   ],

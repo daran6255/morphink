@@ -19,134 +19,135 @@ export interface CategoryFilterOption {
 }
 
 export const successStoriesHeroData = {
-  eyebrow: 'Verified Project Stories • Real Engagements',
-  headline: 'Real Projects,',
-  headlineHighlight: 'Real Results',
+  eyebrow: 'Karur & Hosur Studios • South India Projects',
+  headline: 'Where Dreams Are Built,',
+  headlineHighlight: 'Nuance by Nuance',
   subheadline:
-    'Every case study below comes from an actual project engagement — the details are drawn from real design work, construction coordination, and built outcomes. We measure success by how well a building performs, how it serves its occupants, and how it responds to its environment over time.',
+    'Every architectural project below is a real, built engagement from Karur to Hosur and across South India. Explore how our Midas touch, raw material inventions, and M.Arch environmental expertise transform constraints into iconic spaces.',
   disclaimer:
-    'Note: Most client names are kept confidential at the request of our clients. Project details are technically accurate and drawn from completed construction records.',
+    'All case studies reflect completed projects with verified spatial innovations, custom millwork, and turnkey execution records.',
   primaryCta: { label: 'Start Your Own Project', href: '/contact-us' },
-  secondaryCta: { label: 'Browse Case Studies', href: '#case-studies-grid' },
+  secondaryCta: { label: 'Browse Real Case Studies', href: '#case-studies-grid' },
   stats: [
-    { label: '200+ Projects Delivered', sublabel: 'Residential, Commercial & Institutional' },
-    { label: 'Sustainable Design', sublabel: 'GRIHA & LEED Aligned Projects' },
-    { label: 'On-Time Delivery', sublabel: '95% On-Schedule Project Record' },
+    { label: 'Karur & Hosur Studios', sublabel: 'South India Wide Reach' },
+    { label: '5 Regional Languages', sublabel: 'Native Client Collaboration' },
+    { label: 'M.Arch Environmental', sublabel: 'Climate & Material Inventions' },
   ],
 }
 
 export const successStoriesFilterOptions: CategoryFilterOption[] = [
   { id: 'all', label: 'All Projects' },
-  { id: 'residential', label: 'Residential Design' },
-  { id: 'commercial', label: 'Commercial Architecture' },
-  { id: 'institutional', label: 'Institutional Buildings' },
-  { id: 'master-planning', label: 'Master Planning' },
-  { id: 'renovation', label: 'Renovation & Adaptive Reuse' },
-  { id: 'interior', label: 'Interior Design' },
+  { id: 'residential', label: 'Residential & Villas' },
+  { id: 'commercial', label: 'Commercial & Cafes' },
+  { id: 'renovation', label: 'Adaptive Reuse & Retail' },
+  { id: 'interior', label: 'Interiors & Millwork' },
 ]
 
 export const successStoriesData: SuccessStoryItem[] = [
   {
-    id: 'vertex-eco-tower',
-    title: 'Vertex Eco-Tower — A Net-Zero Commercial Landmark',
-    clientType: 'Commercial Real Estate Developer',
-    sector: 'Commercial Architecture & Sustainable Design',
-    category: 'commercial',
-    challenge:
-      'A leading commercial real estate developer wanted a flagship 18-story office tower that would meet India Green Building Council (IGBC) Platinum rating standards — without sacrificing the premium aesthetic required to attract Fortune 500 tenants.',
-    approach:
-      "Morphink developed a parametric façade system that responds dynamically to the building's solar exposure: south-facing fins are angled to block peak summer sun while admitting winter daylight, while north-facing glazing maximizes diffuse natural light. A passive stack-effect atrium at the building core reduces mechanical ventilation loads by 35%. Rooftop solar arrays were integrated architecturally rather than bolted on.",
-    outcome:
-      'The Vertex Eco-Tower achieved IGBC Platinum certification and reduced projected operational energy consumption by 48% compared to conventional office construction. The building achieved 100% occupancy within 6 months of commissioning. It has become a benchmark reference for sustainable commercial design in the region.',
-    tags: ['Commercial Tower', 'IGBC Platinum', 'Net-Zero Design', 'Parametric Façade', 'Passive Solar'],
-    metrics: [
-      { label: 'Energy Reduction', value: '48% vs. Baseline' },
-      { label: 'Green Rating', value: 'IGBC Platinum' },
-      { label: 'Occupancy at Launch', value: '100%' },
-    ],
-    isNamed: true,
-  },
-  {
-    id: 'greenfield-residential-community',
-    title: 'Greenfield Residential Community — 220-Unit Sustainable Housing',
-    clientType: 'Mid-Scale Real Estate Developer',
-    sector: 'Residential Architecture',
+    id: 'basker-residency-circle-house',
+    title: 'The Circle House — Basker Residency (Hosur)',
+    clientType: 'Private Urban Residence & Rental Units',
+    sector: 'Bespoke Residential Architecture',
     category: 'residential',
     challenge:
-      'A residential developer needed to design a 220-unit housing community for a rapidly growing urban periphery — achieving both affordability targets and sustainability certifications on a site with complex topography and limited municipal water supply.',
+      'The client Basker approached us with a 40x50 ft (2,000 sq.ft) corner site in a bustling urban zone of Hosur. The requirement was to design two independent rental units on the ground floor while creating an expansive, open, and luxurious multi-level private residence for a family of four above.',
     approach:
-      'Morphink designed a cluster-based residential layout that follows site contours, avoiding significant cut-and-fill earthworks and preserving existing tree canopy. A community rainwater harvesting and greywater recycling system serving all 220 units was integrated into the master landscape plan. Building massing was optimized for cross-ventilation to reduce AC load.',
+      'We solved the ground floor with rental units, dedicated parking, and a jaali ceiling capped with glass for natural daylighting. For the first-floor residence, we crafted an expansive balcony with vertical greenwalls and circular apertures on the facade and roofs—composed with filler slabs, structural steel, lacquered glass, precast pipes, and toughened glass. We designed a double-height living room with wall cladding, a Vastu-compliant open kitchen with a curved cement breakfast bar, and an attic with 24/7 north lights for family storytelling and study.',
     outcome:
-      'All 220 units were sold before project completion. The community received a GRIHA 3-Star rating and operates with 65% lower potable water consumption than equivalent developments. Resident satisfaction surveys report consistently high scores for thermal comfort and natural light quality.',
-    tags: ['Residential Community', 'GRIHA Rated', 'Rainwater Harvesting', 'Topographic Design', 'Affordable Housing'],
+      'The entire facade stands as an iconic landmark known as "The Circle House" in Hosur. Meticulously curated interiors—from the custom peacock leaf carvings and pooja room doors to bespoke toddler ladder-beds and glassbrick headroom leading to solar panels—delivered both high rental yield and an exquisite family sanctuary.',
+    tags: ['Circle House', 'Double-Height Living', '24/7 North Lights', 'Curved Cement Bar', 'Filler Slabs', 'Hosur'],
     metrics: [
-      { label: 'Units Delivered', value: '220 Homes' },
-      { label: 'Water Savings', value: '65% Reduction' },
-      { label: 'Green Rating', value: 'GRIHA 3-Star' },
-    ],
-  },
-  {
-    id: 'national-institute-campus',
-    title: 'National Institute of Design Studies — Academic Campus Expansion',
-    clientType: 'Educational Institution',
-    sector: 'Institutional & Campus Architecture',
-    category: 'institutional',
-    challenge:
-      'A national design institution needed to add a new academic block to a compact, heritage-sensitive campus — accommodating 600 additional students while preserving the character of the existing 1970s campus buildings and maintaining the quality of the central courtyard as a community gathering space.',
-    approach:
-      'Morphink used a careful massing strategy that kept the new block\'s roofline below the existing heritage structures, creating a visual hierarchy that subordinates the new to the old. A glazed "lantern" circulation spine connects the new and existing buildings without disrupting the original courtyard. Exposed concrete and brick detailing echo the 1970s Brutalist palette of the original campus.',
-    outcome:
-      'The expansion was delivered 3 months ahead of schedule. The courtyard connection point has become the most-used informal gathering space on campus. The project received an architectural commendation from the Council of Architecture for sensitive contemporary insertion into a heritage context.',
-    tags: ['Institutional', 'Campus Design', 'Heritage Sensitivity', 'Courtyard Preservation', 'Exposed Concrete'],
-    metrics: [
-      { label: 'Student Capacity Added', value: '600 Students' },
-      { label: 'Delivery', value: '3 Months Early' },
-      { label: 'Recognition', value: 'COA Commendation' },
-    ],
-  },
-  {
-    id: 'heritage-boutique-hotel',
-    title: 'The Pavilion — Heritage Hotel Adaptive Reuse',
-    clientType: 'Hospitality Group',
-    sector: 'Heritage Renovation & Adaptive Reuse',
-    category: 'renovation',
-    challenge:
-      'A century-old colonial bungalow — structurally sound but functionally obsolete — needed to be converted into a 28-room boutique hotel. The brief required full modern hospitality amenities, fire-life-safety compliance, and accessibility upgrades, without damaging the original verandahs, terrazzo floors, teak woodwork, and decorative plaster ceilings.',
-    approach:
-      'Morphink conducted an exhaustive heritage survey before any design work began, cataloguing every significant original element. Service infrastructure (MEP, fire suppression, accessibility ramps) was routed through service cores and concealed within secondary wall layers, completely avoiding penetration of heritage surfaces. Original teak windows were restored rather than replaced, with secondary glazing added for thermal performance.',
-    outcome:
-      "The Pavilion opened to immediate critical acclaim — featured in Condé Nast Traveller India's \"Best New Boutique Hotels\" list within three months of opening. Original heritage features are intact. The project has set a new reference standard for sympathetic hotel conversions of colonial bungalows in the region.",
-    tags: ['Heritage Renovation', 'Boutique Hotel', 'Adaptive Reuse', 'Colonial Bungalow', 'Conservation'],
-    metrics: [
-      { label: 'Heritage Elements Preserved', value: '100%' },
-      { label: 'Hotel Rooms', value: '28 Keys' },
-      { label: 'Media Recognition', value: 'Condé Nast Featured' },
+      { label: 'Site Footprint', value: '40 x 50 ft' },
+      { label: 'Units Integrated', value: '1 Villa + 2 Rentals' },
+      { label: 'Daylight Efficiency', value: '24/7 Ambient North' },
     ],
     isNamed: true,
   },
   {
-    id: 'mixed-use-township-master-plan',
-    title: 'Horizon Township — Mixed-Use Master Plan for 5,000 Residents',
-    clientType: 'Township Developer',
-    sector: 'Urban Master Planning',
-    category: 'master-planning',
+    id: 'hotwings-restaurant-cafe',
+    title: 'Hotwings Restaurant & Cafe (Karur)',
+    clientType: 'Hospitality Brand & Cafe',
+    sector: 'Commercial Cafe Architecture & Branding',
+    category: 'commercial',
     challenge:
-      'A regional developer needed a master plan for a 47-acre mixed-use township accommodating 5,000 residents — balancing land yield requirements, open space mandates under local development regulations, phased infrastructure delivery, and a target of 15-minute walkability for all daily services.',
+      'A compact commercial space in Karur with a minimal budget, requiring an un-congested, airy ambiance despite having no windows or exterior side openings.',
     approach:
-      'Morphink organized the township around a central civic spine — a pedestrian boulevard connecting a market, primary school, community health center, and landscaped park — with residential clusters radiating outward. Phasing was designed so that the first residential cluster was self-sufficient in amenities without depending on later phases.',
+      'Morphink created a semi-open ropewall with a raw cobblestone base to divide the kitchen and dining areas without blocking air and vision. We designed handmade custom raw furniture and repurposed native cane baskets (traditionally used to shelter hens in the region) into an inverted ceiling light installation that scatters beautiful ambient shadow patterns across the painted back-roof. The cash counter features a handcrafted rope false ceiling, while the exterior entrance features a steel pergola with glass, hanging greenery, and warm illumination.',
     outcome:
-      'Phase 1 residential launch achieved 85% sales within 4 months. Phased infrastructure delivery is on track. The pedestrian spine has received planning recognition as a model for walkable township design in Tier-2 Indian cities.',
-    tags: ['Master Planning', 'Mixed-Use Township', '15-Minute City', 'Phased Delivery', 'Walkable Design'],
+      'The project achieved full turnkey transformation—including complete brand identity and logo crafted in-house. Customers enjoy an un-congested, modern etiquette space rich with traditional texture at a fraction of standard commercial interior cost.',
+    tags: ['Hospitality Cafe', 'Repurposed Cane Baskets', 'Cobblestone Wall', 'Rope False Ceiling', 'Turnkey Branding', 'Karur'],
     metrics: [
-      { label: 'Site Area', value: '47 Acres' },
-      { label: 'Planned Residents', value: '5,000+' },
-      { label: 'Phase 1 Sales', value: '85% in 4 Months' },
+      { label: 'Ceiling Innovation', value: 'Native Cane Baskets' },
+      { label: 'Partition Craft', value: 'Cobblestone & Rope' },
+      { label: 'Branding', value: '100% In-House Crafted' },
     ],
+    isNamed: true,
+  },
+  {
+    id: 'thirumal-residency',
+    title: 'Thirumal Residency — Monolithic Earth Villa (Hosur)',
+    clientType: 'Private Family Villa',
+    sector: 'Sustainable Residential Architecture',
+    category: 'residential',
+    challenge:
+      'As our inaugural residential commission, the client entrusted our team to design a beautiful, structurally rigid, and climatically responsive family home on the outskirts of Hosur.',
+    approach:
+      'Following comprehensive land soil testing, we emphasized rigidity through a self-oriented monolithic facade. The ground floor accommodates parking and the client’s private office. The first floor opens into a foyer greeted by terracotta jaali blocks and a custom teak door carved with Sun & Moon motifs. The interior features a double-height living room with an integrated glass-partitioned pooja room, an elegant modular kitchen, and children’s bedrooms with bespoke ladder-beds and study units.',
+    outcome:
+      'The home delivers 100% free cross-ventilation and natural daylight across every corner. By integrating earth materials like terracotta jaalis and filler slabs, the residence achieves contemporary elegance with deep passive cooling.',
+    tags: ['Rigid Earth Facade', 'Sun & Moon Carving', 'Double-Height Atrium', 'Jaali Breezeway', 'Ladder Beds', 'Hosur Outskirts'],
+    metrics: [
+      { label: 'Firm Milestone', value: '1st Residential Project' },
+      { label: 'Ventilation', value: '100% Cross-Breeze' },
+      { label: 'Materiality', value: 'Jaali & Filler Slabs' },
+    ],
+    isNamed: true,
+  },
+  {
+    id: 'style-stag-clothing-boutique',
+    title: 'The Style Stag — Boutique Conversion (Karur)',
+    clientType: 'Fashion & Textile Retailer',
+    sector: 'Adaptive Reuse & Boutique Retail',
+    category: 'renovation',
+    challenge:
+      'Converting a standard 1BHK rental apartment in the heart of Karur’s bustling textile district into an upscale, minimalist clothing boutique on a tight budget.',
+    approach:
+      'To celebrate Karur’s textile heritage without high gypsum ceiling costs, Morphink custom-designed a ceiling made of locally sourced ropes patterned to echo woven fabric threads. Walls were treated with exposed brick textures alongside clean plaster, with minimalist metal and glass display shelving. The interior private rooms were painted in a bold Bauhaus primary palette (red, blue, yellow) against the clothing displays, and the former kitchen was converted into an intimate VIP trial room.',
+    outcome:
+      'A striking fusion of Bauhaus color theory and textile craftsmanship that cost 40% less than conventional gypsum renovations while setting a new visual benchmark for Karur boutique retail.',
+    tags: ['Adaptive Reuse', 'Rope Weave Ceiling', 'Bauhaus Color Scheme', '1BHK Conversion', 'Exposed Brick', 'Karur'],
+    metrics: [
+      { label: 'Conversion', value: '1BHK to Boutique' },
+      { label: 'Cost Efficiency', value: '40% vs Gypsum' },
+      { label: 'Theme', value: 'Bauhaus Spatial Theme' },
+    ],
+    isNamed: true,
+  },
+  {
+    id: 'amrutha-residency-restaurant',
+    title: 'Amrutha Restaurant — High-Density Urban Renovation (Hosur)',
+    clientType: 'Restaurant & Dining Group',
+    sector: 'Commercial Restaurant Renovation & Branding',
+    category: 'commercial',
+    challenge:
+      'A legacy restaurant in the high-density center of Hosur with congested foot traffic, outdated seating, and compact floor space that needed modern revitalization without long business downtime.',
+    approach:
+      'We redesigned the street interface with an exterior roadside juice, tea, and chat kiosk to separate quick-takeaway crowds from sit-down diners. The restaurant entrance was wrapped in calming artificial greenery facades. Internally, dining booths were partitioned using custom CNC-cut WPC acoustic panels to optimize both privacy and space. Linear wood false ceilings emphasize spatial length, while AC dining zones feature plush sofas. The exterior received a modern ACP elevation and a custom logo combining the Telugu letter "A" and a steaming coffee cup representing mother’s love.',
+    outcome:
+      'Foot traffic flow improved dramatically, dining capacity increased with superior acoustics, and the modular wallpaper and partition system allows future aesthetic refreshes with zero structural disruption.',
+    tags: ['Restaurant Renovation', 'CNC WPC Partitions', 'Traffic Management', 'Wood Linear Ceiling', 'Mother’s Love Logo', 'Hosur Center'],
+    metrics: [
+      { label: 'Flow Optimization', value: 'Streetfront Split Counter' },
+      { label: 'Acoustics', value: 'WPC CNC Panels' },
+      { label: 'Branding', value: 'Telugu "A" Motif' },
+    ],
+    isNamed: true,
   },
 ]
 
 export const successStoriesCtaData = {
-  heading: 'Ready to Start Your Own Success Story?',
-  body: 'Discuss your residential design, commercial architecture, institutional campus, or master planning project with our design team.',
-  cta: { label: 'Start Your Own Project', href: '/contact-us' },
+  heading: 'Ready to Experience the Morphink "Midas Touch"?',
+  body: 'Whether planning a bespoke residence, an environmental villa, a commercial cafe, or a retail transformation in South India, consult directly with our Principal and Chief Architects.',
+  cta: { label: 'Start Your Project With Us', href: '/contact-us' },
 }

@@ -5,56 +5,61 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined'
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined'
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined'
-import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined'
-import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
-import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined'
+import EnergySavingsLeafOutlinedIcon from '@mui/icons-material/EnergySavingsLeafOutlined'
+import VillaOutlinedIcon from '@mui/icons-material/VillaOutlined'
+import RestaurantOutlinedIcon from '@mui/icons-material/RestaurantOutlined'
+import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined'
+import ViewInArOutlinedIcon from '@mui/icons-material/ViewInArOutlined'
+import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
 import { Button, SectionHeading } from '../../components'
-import { servicesTeaser } from '../../data'
+import { servicesTeaser } from '../../data/home/services'
+import { palette } from '../../themes/palette'
 
 const SERVICE_ICONS: Record<string, ReactNode> = {
-  'accessibility-audit-testing': <FactCheckOutlinedIcon />,
-  'document-accessibility-remediation': <DescriptionOutlinedIcon />,
-  'corporate-training': <SchoolOutlinedIcon />,
-  'microsoft-power-platform-solutions': <BoltOutlinedIcon />,
-  'agentic-ai-custom-application-development': <SmartToyOutlinedIcon />,
-  'capacity-building-adoption': <TrendingUpOutlinedIcon />,
+  'sustainable-environmental-architecture': <EnergySavingsLeafOutlinedIcon />,
+  'bespoke-residential-villas': <VillaOutlinedIcon />,
+  'hospitality-cafe-architecture': <RestaurantOutlinedIcon />,
+  'adaptive-reuse-retail-boutiques': <StorefrontOutlinedIcon />,
+  '3d-visualization-landscape': <ViewInArOutlinedIcon />,
+  'spatial-branding-architectural-graphics': <PaletteOutlinedIcon />,
 }
 
-const ServiceCard = styled('a')(({ theme }) => ({
+const ServiceCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
   height: '100%',
-  padding: theme.spacing(3),
+  padding: theme.spacing(3.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.8,
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.divider}`,
-  textDecoration: 'none',
   color: theme.palette.text.primary,
   transition: theme.transitions.create(['border-color', 'box-shadow', 'transform', 'background-color']),
   boxShadow: `0 4px 16px ${alpha(theme.palette.text.primary, 0.04)}`,
+  position: 'relative',
+  overflow: 'hidden',
   '&:hover': {
-    borderColor: alpha(theme.palette.accent.main, 0.5),
-    boxShadow: `0 14px 32px ${alpha(theme.palette.accent.main, 0.14)}`,
+    borderColor: alpha(palette.brand.lime, 0.5),
+    boxShadow: `0 14px 32px ${alpha(palette.brand.lime, 0.14)}`,
     transform: 'translateY(-4px)',
-    '& .arrow-icon': {
-      transform: 'translateX(4px)',
-      color: theme.palette.accent.main,
+    '& .icon-box': {
+      backgroundColor: alpha(palette.brand.lime, 0.2),
+      transform: 'scale(1.05)',
     },
-  },
-  '&:focus-visible': {
-    outline: `3px solid ${alpha(theme.palette.accent.main, 0.7)}`,
-    outlineOffset: 3,
   },
 }))
 
 export const ServicesSection = () => (
-  <Box component="section" aria-labelledby="services-heading" sx={{ bgcolor: 'background.paper' }}>
+  <Box
+    component="section"
+    aria-labelledby="services-heading"
+    sx={(theme) => ({
+      bgcolor: theme.palette.mode === 'dark' ? alpha(theme.palette.background.default, 0.95) : '#FFFFFF',
+      borderTop: `1px solid ${theme.palette.divider}`,
+    })}
+  >
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={{ xs: 6, md: 8 }} sx={{ alignItems: 'center' }}>
         <SectionHeading
@@ -62,87 +67,80 @@ export const ServicesSection = () => (
           eyebrow={servicesTeaser.eyebrow}
           heading={servicesTeaser.heading}
           description={servicesTeaser.subheading}
-          maxWidth={680}
+          maxWidth={760}
         />
 
         <Grid container spacing={3} sx={{ width: '100%' }}>
           {servicesTeaser.items.map((service) => (
-            <Grid key={service.id} size={{ xs: 12, sm: 6, lg: 4 }} sx={{ display: 'flex' }}>
-              <ServiceCard href={service.href} aria-label={service.title}>
-                <Stack spacing={2}>
-                  <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+            <Grid key={service.id} size={{ xs: 12, md: 6, lg: 4 }} sx={{ display: 'flex' }}>
+              <ServiceCard>
+                <Stack spacing={2.5}>
+                  <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                     <Box
+                      className="icon-box"
                       sx={(theme) => ({
-                        width: 46,
-                        height: 46,
-                        borderRadius: Number(theme.shape.borderRadius) * 1.3,
-                        bgcolor: alpha(theme.palette.accent.main, 0.12),
-                        color: theme.palette.accent.main,
+                        p: 1.5,
+                        borderRadius: Number(theme.shape.borderRadius) * 1.2,
+                        bgcolor: alpha(palette.brand.lime, 0.12),
+                        color: palette.brand.lime,
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '1.35rem',
-                        flexShrink: 0,
-                        border: `1px solid ${alpha(theme.palette.accent.main, 0.25)}`,
+                        transition: theme.transitions.create(['background-color', 'transform']),
+                        border: `1px solid ${alpha(palette.brand.lime, 0.25)}`,
                       })}
                     >
-                      {SERVICE_ICONS[service.id]}
+                      {SERVICE_ICONS[service.id] ?? <VillaOutlinedIcon />}
                     </Box>
-
-                    <Typography variant="h6" sx={{ fontSize: '1.085rem', fontWeight: 700, lineHeight: 1.3, color: 'text.primary' }}>
-                      {service.title}
-                    </Typography>
+                    {service.badge && (
+                      <Box
+                        sx={(theme) => ({
+                          px: 1.25,
+                          py: 0.5,
+                          borderRadius: 999,
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          bgcolor: alpha(palette.brand.amber, 0.12),
+                          color: theme.palette.mode === 'dark' ? palette.brand.amberLight : palette.brand.amberDark,
+                          border: `1px solid ${alpha(palette.brand.amber, 0.3)}`,
+                        })}
+                      >
+                        {service.badge}
+                      </Box>
+                    )}
                   </Stack>
 
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem', lineHeight: 1.6 }}>
+                  <Typography variant="h5" sx={{ fontSize: '1.25rem', fontWeight: 700, lineHeight: 1.35 }}>
+                    {service.title}
+                  </Typography>
+
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
                     {service.description}
                   </Typography>
 
-                  {/* Deliverable Tag Badges */}
-                  <Stack direction="row" spacing={0.75} sx={{ flexWrap: 'wrap', gap: 0.75, pt: 0.5 }}>
-                    {service.deliverables.map((item, idx) => (
-                      <Box
-                        key={idx}
-                        sx={(theme) => ({
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 0.5,
-                          py: 0.35,
-                          px: 1.2,
-                          borderRadius: 999,
-                          bgcolor: alpha(theme.palette.text.primary, 0.04),
-                          border: `1px solid ${theme.palette.divider}`,
-                        })}
-                      >
-                        <CheckOutlinedIcon sx={{ fontSize: 12, color: 'accent.main' }} />
-                        <Typography variant="caption" sx={{ fontWeight: 600, color: 'text.secondary', fontSize: '0.725rem' }}>
-                          {item}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Stack>
+                  <Box sx={{ pt: 1 }}>
+                    <Typography variant="caption" sx={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, color: 'text.secondary', display: 'block', mb: 1 }}>
+                      Key Architectural Methods:
+                    </Typography>
+                    <Stack spacing={0.75}>
+                      {service.deliverables.map((item, idx) => (
+                        <Stack key={idx} direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+                          <CheckCircleOutlineOutlinedIcon sx={{ fontSize: '0.95rem', color: palette.brand.lime }} />
+                          <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 500 }}>
+                            {item}
+                          </Typography>
+                        </Stack>
+                      ))}
+                    </Stack>
+                  </Box>
                 </Stack>
-
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, pt: 2.5, mt: 'auto' }}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'accent.main', fontSize: '0.85rem' }}>
-                    Explore Service
-                  </Typography>
-                  <ArrowForwardIcon
-                    className="arrow-icon"
-                    sx={(theme) => ({
-                      fontSize: '0.95rem',
-                      transition: theme.transitions.create(['transform', 'color']),
-                      color: theme.palette.accent.main,
-                    })}
-                  />
-                </Box>
               </ServiceCard>
             </Grid>
           ))}
         </Grid>
 
-        <Box sx={{ textAlign: 'center', pt: 2 }}>
-          <Button tone="primary" variant="contained" href={servicesTeaser.cta.href} size="large" endIcon={<ArrowForwardIcon />}>
+        <Box sx={{ pt: 2 }}>
+          <Button tone="primary" variant="contained" size="large" href={servicesTeaser.cta.href} endIcon={<ArrowForwardIcon />}>
             {servicesTeaser.cta.label}
           </Button>
         </Box>

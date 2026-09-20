@@ -4,6 +4,8 @@ export interface ServiceDetail {
   href: string
   description: string
   deliverables: string[]
+  icon: string
+  badge?: string
 }
 
 export interface ServicesTeaserContent {
@@ -15,59 +17,71 @@ export interface ServicesTeaserContent {
 }
 
 export const servicesTeaser: ServicesTeaserContent = {
-  eyebrow: 'Our Dual-Impact Expertise',
-  heading: 'Corporate & NPO Digital Accessibility & AI Solutions',
+  eyebrow: 'Our Architectural Disciplines',
+  heading: 'Comprehensive Design, Engineering & Spatial Craft',
   subheading:
-    'Comprehensive dual-impact service lines designed for Corporate Enterprise & NPO Social Sector ecosystems to ensure legal compliance, advance GenAI adoption, and empower inclusive teams.',
-  cta: { label: 'Explore All Service Lines', href: '/services' },
+    'Collaging contemporary architecture with environmental sustainability to maintain perfect equilibrium between future innovation and rooted heritage.',
+  cta: { label: 'Consult With Our Architects', href: '/contact-us' },
   items: [
     {
-      id: 'accessibility-audit-testing',
-      title: 'Accessibility Audit & Testing',
-      href: '/services/accessibility-audit-testing',
+      id: 'sustainable-environmental-architecture',
+      title: 'Sustainable & Earth Architecture',
+      href: '/services/sustainable-architecture',
       description:
-        'Comprehensive manual & assistive tech audits against WCAG 2.1/2.2, Section 508 & ADA. Verified by real screen-reader users.',
-      deliverables: ['VPAT / ACR Reports', 'Assistive Tech Testing', 'Code Fix Guidelines'],
+        'Certified environmental architecture utilizing earthen filler slabs, terracotta jaali breezeways, passive solar orientation, and 24/7 North-light harvesting.',
+      deliverables: ['Filler Slab Construction', 'Terracotta Jaali Screening', 'Passive Daylighting & Microclimate'],
+      icon: 'eco',
+      badge: 'M.Arch Certified',
     },
     {
-      id: 'document-accessibility-remediation',
-      title: 'Document Remediation',
-      href: '/services/document-accessibility-remediation',
+      id: 'bespoke-residential-villas',
+      title: 'Bespoke Residential & Urban Villas',
+      href: '/services/residential-architecture',
       description:
-        'Full PDF, Word & PowerPoint remediation with proper reading orders, heading structures, alt text, and tag tree validation.',
-      deliverables: ['PDF/UA Compliance', 'Screen Reader Tagging', 'Bulk Document Batches'],
+        'From signature multi-tier urban homes like "The Circle House" to expansive outskirts villas—meticulously engineered with Vastu Shastra, double-height atriums, and custom millwork.',
+      deliverables: ['Custom Facade Apertures', 'Vastu Shastra Compliance', 'Double-Height Living Spaces'],
+      icon: 'home',
+      badge: 'Signature Craft',
     },
     {
-      id: 'corporate-training',
-      title: 'Corporate Accessibility Skilling',
-      href: '/services/corporate-training',
+      id: 'hospitality-cafe-architecture',
+      title: 'Hospitality, Cafes & Restaurants',
+      href: '/services/hospitality-design',
       description:
-        'Practical awareness and technical training for developers, designers, product managers, and QA engineers to build accessible first.',
-      deliverables: ['Role-Based Skilling', 'Hands-on Workshops', 'WCAG Best Practices'],
+        'Transforming compact commercial spaces into high-energy destinations (e.g. Hotwings & Amrutha)—featuring repurposed cane-basket ceilings, cobblestone partitions, and traffic-diverting streetscapes.',
+      deliverables: ['Repurposed Organic Ceilings', 'Cobblestone & Rope Screening', 'Crowd-Flow Street Facades'],
+      icon: 'restaurant',
+      badge: 'Turnkey Design',
     },
     {
-      id: 'microsoft-power-platform-solutions',
-      title: 'Power Platform Solutions',
-      href: '/services/microsoft-power-platform-solutions',
+      id: 'adaptive-reuse-retail-boutiques',
+      title: 'Adaptive Reuse & Boutique Retail',
+      href: '/services/adaptive-reuse',
       description:
-        'Accessible Power BI dashboards, Power Apps, and Power Automate workflows engineered with inclusive design principles.',
-      deliverables: ['Accessible Dashboards', 'Power Apps UX', 'Process Automation'],
+        'Transforming residential units into vibrant retail destinations like The Style Stag, using cost-effective custom rope weave ceilings, Bauhaus color schemes, and exposed brick aesthetics.',
+      deliverables: ['Bespoke Rope Weave Ceilings', 'Bauhaus Spatial Themes', 'Cost-Optimized Fitouts'],
+      icon: 'store',
+      badge: 'Material Innovation',
     },
     {
-      id: 'agentic-ai-custom-application-development',
-      title: 'Agentic AI & Custom Apps',
-      href: '/services/agentic-ai-custom-application-development',
+      id: '3d-visualization-landscape',
+      title: '3D Spatial Visualisation & Landscape',
+      href: '/services/visualization-landscape',
       description:
-        'Custom web, mobile, and autonomous AI agent solutions built natively accessible, scalable, and secure from day one.',
-      deliverables: ['Custom AI Agents', 'Inclusive Web & Mobile', 'Enterprise Architecture'],
+        'Photorealistic 3D rendering and environmental landscape design led by our Chief Architect—simulating real-world lighting, greenwalls, pergola canopies, and lush outdoor sanctuaries.',
+      deliverables: ['Photorealistic 3D Walkthroughs', 'Vertical Greenwall Engineering', 'Pergola & Garden Architecture'],
+      icon: 'view_in_ar',
+      badge: 'Fine Art Led',
     },
     {
-      id: 'capacity-building-adoption',
-      title: 'Capacity Building & Adoption',
-      href: '/services/capacity-building-adoption',
+      id: 'spatial-branding-architectural-graphics',
+      title: 'Spatial Branding & Environmental Graphics',
+      href: '/services/spatial-branding',
       description:
-        'Sustainable organizational change programs, digital inclusion policy frameworks, and continuous monitoring support.',
-      deliverables: ['Inclusion Governance', 'Change Management', 'Sustained Skilling'],
+        'Holistic identity design tailored for businesses, including custom CNC signage, ACP exterior elevations, custom logo narratives, and branded architectural packaging.',
+      deliverables: ['Architectural Brand Identities', 'CNC & WPC Acoustic Partitions', 'ACP Commercial Elevation'],
+      icon: 'palette',
+      badge: 'Full Identity',
     },
   ],
 }

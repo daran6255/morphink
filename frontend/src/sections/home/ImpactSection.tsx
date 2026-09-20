@@ -4,99 +4,134 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import FormatQuoteRoundedIcon from '@mui/icons-material/FormatQuoteRounded'
-import StarRoundedIcon from '@mui/icons-material/StarRounded'
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { Avatar, Button, SectionHeading, Stat } from '../../components'
-import { impact } from '../../data'
+import { Button, SectionHeading } from '../../components'
+import { impactContent } from '../../data/home/impact'
+import { palette } from '../../themes/palette'
 
-const StatCard = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3.5, 3),
+const ProjectCard = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  height: '100%',
+  padding: theme.spacing(3.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.8,
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.divider}`,
-  textAlign: 'center',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  transition: theme.transitions.create(['transform', 'box-shadow', 'border-color']),
+  color: theme.palette.text.primary,
+  transition: theme.transitions.create(['border-color', 'box-shadow', 'transform']),
   boxShadow: `0 4px 16px ${alpha(theme.palette.text.primary, 0.04)}`,
   '&:hover': {
-    transform: 'translateY(-3px)',
-    borderColor: alpha(theme.palette.primary.main, 0.4),
-    boxShadow: `0 14px 28px ${alpha(theme.palette.primary.main, 0.12)}`,
-  },
-}))
-
-const QuotePanel = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  maxWidth: 840,
-  margin: '0 auto',
-  padding: theme.spacing(4.5, 5),
-  borderRadius: Number(theme.shape.borderRadius) * 2.2,
-  backgroundColor: theme.palette.background.paper,
-  border: `1px solid ${theme.palette.divider}`,
-  boxShadow: `0 16px 40px ${alpha(theme.palette.text.primary, 0.06)}`,
-  '& .quote-mark': {
-    color: alpha(theme.palette.accent.main, 0.25),
-    fontSize: '3.75rem',
+    borderColor: alpha(palette.brand.lime, 0.5),
+    boxShadow: `0 16px 36px ${alpha(palette.brand.lime, 0.15)}`,
+    transform: 'translateY(-4px)',
   },
 }))
 
 export const ImpactSection = () => (
-  <Box component="section" aria-labelledby="impact-heading" sx={{ bgcolor: 'background.paper' }}>
+  <Box
+    component="section"
+    aria-labelledby="impact-heading"
+    sx={(theme) => ({
+      bgcolor: theme.palette.mode === 'dark' ? alpha(theme.palette.background.default, 0.95) : '#FFFFFF',
+      borderTop: `1px solid ${theme.palette.divider}`,
+    })}
+  >
     <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
       <Stack spacing={{ xs: 6, md: 8 }} sx={{ alignItems: 'center' }}>
         <SectionHeading
           headingId="impact-heading"
-          eyebrow={impact.eyebrow}
-          heading={impact.heading}
-          description={impact.subheading}
-          maxWidth={640}
+          eyebrow={impactContent.eyebrow}
+          heading={impactContent.heading}
+          description={impactContent.subheading}
+          maxWidth={760}
         />
 
-        <Grid container spacing={3} sx={{ width: '100%' }}>
-          {impact.stats.map((stat) => (
-            <Grid key={stat.id} size={{ xs: 12, sm: 6, md: 3 }}>
-              <StatCard>
-                <Stat value={stat.value} label={stat.label} />
-              </StatCard>
+        <Grid container spacing={3.5} sx={{ width: '100%' }}>
+          {impactContent.projects.map((project) => (
+            <Grid key={project.id} size={{ xs: 12, md: 6, lg: 4 }} sx={{ display: 'flex' }}>
+              <ProjectCard>
+                <Stack spacing={2.5}>
+                  {/* Location & Typology Tag */}
+                  <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
+                      <LocationOnOutlinedIcon sx={{ fontSize: '1rem', color: palette.brand.lime }} />
+                      <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                        {project.location}
+                      </Typography>
+                    </Stack>
+                    <Box
+                      sx={(theme) => ({
+                        px: 1.25,
+                        py: 0.35,
+                        borderRadius: 999,
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        bgcolor: alpha(palette.brand.amber, 0.12),
+                        color: theme.palette.mode === 'dark' ? palette.brand.amberLight : palette.brand.amberDark,
+                        border: `1px solid ${alpha(palette.brand.amber, 0.3)}`,
+                      })}
+                    >
+                      {project.client}
+                    </Box>
+                  </Stack>
+
+                  <Box>
+                    <Typography variant="h5" sx={{ fontSize: '1.25rem', fontWeight: 800, mb: 0.5, lineHeight: 1.3 }}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: palette.brand.lime, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      {project.typology}
+                    </Typography>
+                  </Box>
+
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                    {project.summary}
+                  </Typography>
+
+                  {/* Innovations */}
+                  <Box sx={{ pt: 1 }}>
+                    <Typography variant="caption" sx={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, color: 'text.secondary', display: 'block', mb: 1 }}>
+                      Material Inventions:
+                    </Typography>
+                    <Stack spacing={0.75}>
+                      {project.keyInnovations.map((inv, idx) => (
+                        <Stack key={idx} direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+                          <CheckCircleOutlineOutlinedIcon sx={{ fontSize: '0.95rem', color: palette.brand.lime }} />
+                          <Typography variant="caption" sx={{ color: 'text.primary', fontWeight: 600 }}>
+                            {inv}
+                          </Typography>
+                        </Stack>
+                      ))}
+                    </Stack>
+                  </Box>
+
+                  {/* Metrics Bar */}
+                  <Grid container spacing={1.5} sx={{ pt: 1.5, borderTop: '1px dashed', borderColor: 'divider' }}>
+                    {project.metrics.map((m, idx) => (
+                      <Grid key={idx} size={{ xs: 4 }}>
+                        <Stack spacing={0.25} sx={{ textAlign: 'center' }}>
+                          <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.68rem' }}>
+                            {m.label}
+                          </Typography>
+                          <Typography variant="body2" sx={{ fontWeight: 800, color: 'text.primary', fontSize: '0.82rem' }}>
+                            {m.value}
+                          </Typography>
+                        </Stack>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Stack>
+              </ProjectCard>
             </Grid>
           ))}
         </Grid>
 
-        <QuotePanel>
-          <FormatQuoteRoundedIcon className="quote-mark" aria-hidden="true" />
-          <Stack spacing={3}>
-            {/* 5-star rating */}
-            <Stack direction="row" spacing={0.5} sx={{ color: 'accent.main' }}>
-              {[...Array(5)].map((_, i) => (
-                <StarRoundedIcon key={i} fontSize="small" />
-              ))}
-            </Stack>
-
-            <Typography variant="h6" component="blockquote" sx={{ fontStyle: 'italic', fontWeight: 500, m: 0, lineHeight: 1.65, color: 'text.primary' }}>
-              "{impact.testimonial.quote}"
-            </Typography>
-
-            <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pt: 1 }}>
-              <Avatar name={impact.testimonial.name} size="md" />
-              <Stack spacing={0.25}>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700, color: 'text.primary' }}>
-                  {impact.testimonial.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {impact.testimonial.role} • {impact.testimonial.organization}
-                </Typography>
-              </Stack>
-            </Stack>
-          </Stack>
-        </QuotePanel>
-
-        <Box sx={{ textAlign: 'center' }}>
-          <Button tone="primary" variant="outlined" href={impact.cta.href} endIcon={<ArrowForwardIcon />}>
-            {impact.cta.label}
+        <Box sx={{ pt: 2 }}>
+          <Button tone="primary" variant="contained" size="large" href={impactContent.cta.href} endIcon={<ArrowForwardIcon />}>
+            {impactContent.cta.label}
           </Button>
         </Box>
       </Stack>

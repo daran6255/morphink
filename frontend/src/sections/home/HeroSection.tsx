@@ -1,4 +1,4 @@
-import { alpha, styled, keyframes } from '@mui/material/styles'
+import { alpha, styled, keyframes, useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -120,13 +120,17 @@ const ScrollCue = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const HeroSection = () => (
+export const HeroSection = () => {
+  const theme = useTheme()
+  const isDark = theme.palette.mode === 'dark'
+
+  return (
     <HeroRoot aria-labelledby="hero-heading">
       {/* 1. Full-bleed Background Gradient Waves Component */}
       <WavesBackground aria-hidden="true">
         <GradientWaves
-          horizonColor="#5227FF"
-          waveColor="#FF9FFC"
+          horizonColor={isDark ? '#5227FF' : palette.brand.lime}
+          waveColor={isDark ? '#FF9FFC' : palette.brand.amberLight}
           crestColor="#FFFFFF"
           speed={0.4}
           amplitude={2.5}
@@ -140,7 +144,7 @@ export const HeroSection = () => (
           fogDepth={15}
           detail="medium"
           brightness={1.0}
-          opacity={1.0}
+          opacity={isDark ? 1.0 : 0.75}
           mouseInteraction={true}
           parallaxStrength={0.5}
           grain={true}
@@ -286,4 +290,5 @@ export const HeroSection = () => (
         <KeyboardArrowDownRoundedIcon className="cue-icon" />
       </ScrollCue>
     </HeroRoot>
-)
+  )
+}
