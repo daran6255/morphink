@@ -1,4 +1,4 @@
-import { alpha, styled, keyframes, useTheme } from '@mui/material/styles'
+import { alpha, styled, keyframes } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -69,39 +69,33 @@ const HighlightText = styled('span')(({ theme }) => {
   }
 })
 
-export const HeroSection = () => {
-  const theme = useTheme()
-  const isDark = theme.palette.mode === 'dark'
-
-  return (
+export const HeroSection = () => (
     <HeroRoot aria-labelledby="hero-heading">
-      {/* 1. Full-bleed Background Gradient Waves Component (active in Dark Mode) */}
-      {isDark && (
-        <WavesBackground aria-hidden="true">
-          <GradientWaves
-            horizonColor="#5227FF"
-            waveColor="#FF9FFC"
-            crestColor="#FFFFFF"
-            speed={0.4}
-            amplitude={2.5}
-            waveScale={0.6}
-            waveRatio={0.9}
-            swell={35}
-            turbulence={20}
-            tilt={1.11}
-            zoom={1.0}
-            height={5.5}
-            fogDepth={15}
-            detail="medium"
-            brightness={1.0}
-            opacity={1.0}
-            mouseInteraction={true}
-            parallaxStrength={0.5}
-            grain={true}
-            grainIntensity={0.05}
-          />
-        </WavesBackground>
-      )}
+      {/* 1. Full-bleed Background Gradient Waves Component */}
+      <WavesBackground aria-hidden="true">
+        <GradientWaves
+          horizonColor="#5227FF"
+          waveColor="#FF9FFC"
+          crestColor="#FFFFFF"
+          speed={0.4}
+          amplitude={2.5}
+          waveScale={0.6}
+          waveRatio={0.9}
+          swell={35}
+          turbulence={20}
+          tilt={1.11}
+          zoom={1.0}
+          height={5.5}
+          fogDepth={15}
+          detail="medium"
+          brightness={1.0}
+          opacity={1.0}
+          mouseInteraction={true}
+          parallaxStrength={0.5}
+          grain={true}
+          grainIntensity={0.05}
+        />
+      </WavesBackground>
 
       {/* 2. Main Hero Editorial Content */}
       <Container
@@ -231,5 +225,4 @@ export const HeroSection = () => {
         </Stack>
       </Container>
     </HeroRoot>
-  )
-}
+)
