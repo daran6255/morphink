@@ -1,0 +1,6 @@
+export * from './layout'
+export * from './home'
+export * from './ourStory'
+export * from './ourTeam'
+export * from './awards'
+export * from './foundation'
