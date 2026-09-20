@@ -21,7 +21,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import BusinessIcon from '@mui/icons-material/Business'
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { Button } from '../components'
+import { Button, ThemeToggle } from '../components'
 import { primaryNavItems, contactNavItem } from '../data'
 import type { NavItem } from '../data'
 import { useIsScrolled } from '../hooks'
@@ -510,20 +510,23 @@ export const Navbar = () => {
             ))}
           </Stack>
 
-          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+            <ThemeToggle />
             <Button tone="accent" href={contactNavItem.href}>
               {contactNavItem.label}
             </Button>
-          </Box>
+          </Stack>
 
-          <IconButton
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-            aria-expanded={mobileOpen}
-            sx={{ display: { xs: 'inline-flex', md: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Stack direction="row" spacing={1} sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
+            <ThemeToggle size="small" />
+            <IconButton
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Stack>
         </Bar>
       </Container>
 
@@ -533,12 +536,13 @@ export const Navbar = () => {
         onClose={() => setMobileOpen(false)}
         slotProps={{ paper: { sx: { width: 320, maxWidth: '100%', p: 3 } } }}
       >
-        <Stack direction="row" sx={{ justifyContent: 'flex-end' }}>
+        <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <ThemeToggle showLabel size="small" />
           <IconButton onClick={() => setMobileOpen(false)} aria-label="Close menu">
             <CloseIcon />
           </IconButton>
         </Stack>
-        <Stack component="nav" aria-label="Primary" sx={{ mt: 1 }}>
+        <Stack component="nav" aria-label="Primary">
           {primaryNavItems.map((item) => (
             <MobileNavSection key={item.id} item={item} />
           ))}

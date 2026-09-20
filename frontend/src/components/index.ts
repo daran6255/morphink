@@ -13,5 +13,6 @@ export * from './Skeleton'
 export * from './Stat'
 export * from './Table'
 export * from './Timeline'
+export * from './ThemeToggle'
 export * from './admin'
 
