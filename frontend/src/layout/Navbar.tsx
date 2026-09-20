@@ -13,61 +13,81 @@ import Typography from '@mui/material/Typography'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
-import Popover from '@mui/material/Popover'
-import Chip from '@mui/material/Chip'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import BusinessIcon from '@mui/icons-material/Business'
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import ArchitectureIcon from '@mui/icons-material/Architecture'
 import { Button, ThemeToggle } from '../components'
 import { primaryNavItems, contactNavItem } from '../data'
 import type { NavItem } from '../data'
 import { useIsScrolled } from '../hooks'
+import { palette, typography, tokens } from '../themes'
 
 const HeaderRoot = styled('header', {
   shouldForwardProp: (prop) => prop !== 'elevated',
 })<{ elevated: boolean }>(({ theme, elevated }) => ({
   position: 'sticky',
   top: 0,
-  zIndex: theme.zIndex.appBar,
-  backgroundColor: alpha(theme.palette.background.paper, 0.92),
-  backdropFilter: 'blur(8px)',
-  borderBottom: `1px solid ${elevated ? theme.palette.divider : 'transparent'}`,
-  boxShadow: elevated ? `0 8px 24px -16px ${alpha(theme.palette.common.black, 0.35)}` : 'none',
-  transition: theme.transitions.create(['box-shadow', 'border-color']),
+  zIndex: tokens.zIndex.sticky + 10,
+  backgroundColor: elevated
+    ? alpha(theme.palette.background.paper, 0.88)
+    : alpha(theme.palette.background.paper, 0.96),
+  backdropFilter: 'blur(16px)',
+  WebkitBackdropFilter: 'blur(16px)',
+  borderBottom: `${tokens.borderWidth.thin} solid ${
+    elevated
+      ? alpha(theme.palette.accent?.main || palette.brand.lime, 0.3)
+      : alpha(theme.palette.divider, 0.6)
+  }`,
+  boxShadow: elevated
+    ? theme.palette.mode === 'dark'
+      ? tokens.dark.shadow.md
+      : tokens.shadow.md
+    : 'none',
+  transition: `background-color ${tokens.transition.slow}, border-color ${tokens.transition.slow}, box-shadow ${tokens.transition.slow}`,
 }))
 
 const Bar = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 76,
+  height: 80,
   [theme.breakpoints.down('md')]: {
-    height: 64,
+    height: 68,
   },
 }))
 
 const LogoLink = styled('a')({
   display: 'flex',
   alignItems: 'center',
+  gap: '12px',
+  textDecoration: 'none',
   flexShrink: 0,
+  transition: `transform ${tokens.transition.fast}`,
+  '&:hover': {
+    transform: 'translateY(-1px)',
+  },
 })
 
 const NavLink = styled('a')(({ theme }) => ({
   color: theme.palette.text.primary,
   textDecoration: 'none',
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 600,
-  fontSize: theme.typography.pxToRem(15),
-  padding: theme.spacing(1, 0.5),
-  transition: theme.transitions.create('color'),
-  '&:hover': { color: theme.palette.accent.main },
+  fontFamily: typography.subtitle2.fontFamily,
+  fontWeight: typography.subtitle2.fontWeight,
+  fontSize: typography.subtitle2.fontSize,
+  letterSpacing: typography.subtitle2.letterSpacing,
+  padding: theme.spacing(1, 1.5),
+  borderRadius: tokens.radius.md,
+  position: 'relative',
+  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
+  '&:hover': {
+    color: palette.brand.lime,
+    backgroundColor: alpha(palette.brand.lime, 0.08),
+  },
   '&:focus-visible': {
-    outline: `3px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-    outlineOffset: 4,
-    borderRadius: 4,
+    outline: `${tokens.borderWidth.medium} solid ${palette.brand.lime}`,
+    outlineOffset: 3,
   },
 }))
 
@@ -76,57 +96,48 @@ const NavTrigger = styled('button', {
 })<{ open: boolean }>(({ theme, open }) => ({
   display: 'inline-flex',
   alignItems: 'center',
-  gap: 4,
-  background: 'none',
+  gap: 6,
+  background: open ? alpha(palette.brand.lime, 0.08) : 'none',
   border: 'none',
+  borderRadius: tokens.radius.md,
   cursor: 'pointer',
-  color: open ? theme.palette.accent.main : theme.palette.text.primary,
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 600,
-  fontSize: theme.typography.pxToRem(15),
-  padding: theme.spacing(1, 0.5),
-  transition: theme.transitions.create('color'),
-  '&:hover': { color: theme.palette.accent.main },
+  color: open ? palette.brand.lime : theme.palette.text.primary,
+  fontFamily: typography.subtitle2.fontFamily,
+  fontWeight: typography.subtitle2.fontWeight,
+  fontSize: typography.subtitle2.fontSize,
+  letterSpacing: typography.subtitle2.letterSpacing,
+  padding: theme.spacing(1, 1.5),
+  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
+  '&:hover': {
+    color: palette.brand.lime,
+    backgroundColor: alpha(palette.brand.lime, 0.08),
+  },
   '&:focus-visible': {
-    outline: `3px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-    outlineOffset: 4,
-    borderRadius: 4,
+    outline: `${tokens.borderWidth.medium} solid ${palette.brand.lime}`,
+    outlineOffset: 3,
   },
   '& svg': {
     fontSize: 18,
     transform: open ? 'rotate(180deg)' : 'none',
-    transition: theme.transitions.create('transform'),
+    transition: `transform ${tokens.transition.base}`,
   },
 }))
 
 const MobileNavLink = styled('a')(({ theme }) => ({
-  display: 'block',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   color: theme.palette.text.primary,
   textDecoration: 'none',
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 600,
-  fontSize: theme.typography.pxToRem(17),
-  padding: theme.spacing(1.5, 0),
-  '&:focus-visible': {
-    outline: `3px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-    outlineOffset: 2,
-    borderRadius: 4,
-  },
-}))
-
-const MobileChildLink = styled('a')(({ theme }) => ({
-  display: 'block',
-  color: theme.palette.text.secondary,
-  textDecoration: 'none',
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: 500,
-  fontSize: theme.typography.pxToRem(15),
-  padding: theme.spacing(1, 0),
-  '&:hover': { color: theme.palette.accent.main },
-  '&:focus-visible': {
-    outline: `3px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-    outlineOffset: 2,
-    borderRadius: 4,
+  fontFamily: typography.subtitle1.fontFamily,
+  fontWeight: typography.subtitle1.fontWeight,
+  fontSize: typography.subtitle1.fontSize,
+  padding: theme.spacing(1.5, 1),
+  borderRadius: tokens.radius.md,
+  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
+  '&:hover': {
+    color: palette.brand.lime,
+    backgroundColor: alpha(palette.brand.lime, 0.08),
   },
 }))
 
@@ -146,180 +157,6 @@ const DesktopNavItem = ({ item }: { item: NavItem }) => {
 
   const handleOpen = (event: MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
-
-  if (item.isMegaMenu && item.megaMenuColumns) {
-    return (
-      <>
-        <NavTrigger
-          id={triggerId}
-          type="button"
-          open={open}
-          aria-haspopup="true"
-          aria-controls={open ? menuId : undefined}
-          aria-expanded={open || undefined}
-          onClick={handleOpen}
-        >
-          {item.label}
-          <ExpandMoreIcon aria-hidden="true" />
-        </NavTrigger>
-        <Popover
-          id={menuId}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-          transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-          slotProps={{
-            paper: {
-              sx: (theme) => ({
-                mt: 1.5,
-                p: 3,
-                width: { md: 800, lg: 900 },
-                maxWidth: 'calc(100vw - 32px)',
-                borderRadius: 3,
-                boxShadow: `0 20px 45px -15px ${alpha(theme.palette.common.black, 0.22)}`,
-                border: `1px solid ${theme.palette.divider}`,
-                overflow: 'hidden',
-              }),
-            },
-          }}
-        >
-          <Box sx={{ display: 'grid', gridTemplateColumns: { md: '1fr 1fr' }, gap: 4 }}>
-            {item.megaMenuColumns.map((col) => (
-              <Box key={col.id} sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1.5,
-                    mb: 2,
-                    pb: 1,
-                    borderBottom: (theme) =>
-                      `2px solid ${
-                        col.id === 'corporate-sector'
-                          ? alpha(theme.palette.primary.main, 0.25)
-                          : alpha(theme.palette.secondary.main, 0.25)
-                      }`,
-                  }}
-                >
-                  {col.id === 'corporate-sector' ? (
-                    <BusinessIcon sx={{ color: 'primary.main', fontSize: 24 }} />
-                  ) : (
-                    <VolunteerActivismIcon sx={{ color: 'secondary.main', fontSize: 24 }} />
-                  )}
-                  <Box>
-                    <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
-                        {col.title}
-                      </Typography>
-                      {col.badge && (
-                        <Chip
-                          label={col.badge}
-                          size="small"
-                          color={col.id === 'corporate-sector' ? 'primary' : 'secondary'}
-                          variant="outlined"
-                          sx={{ height: 20, fontSize: '0.68rem', fontWeight: 700 }}
-                        />
-                      )}
-                    </Stack>
-                  </Box>
-                </Box>
-
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, flexGrow: 1 }}>
-                  {col.groups.map((group) => (
-                    <Box key={group.id}>
-                      <Typography
-                        component="a"
-                        href={group.href || '#'}
-                        onClick={handleClose}
-                        variant="caption"
-                        sx={{
-                          fontWeight: 700,
-                          color: col.id === 'corporate-sector' ? 'primary.main' : 'secondary.main',
-                          textTransform: 'uppercase',
-                          letterSpacing: 0.5,
-                          display: 'inline-block',
-                          mb: 0.5,
-                          textDecoration: 'none',
-                          '&:hover': { textDecoration: 'underline' },
-                        }}
-                      >
-                        {group.title}
-                      </Typography>
-                      <Stack spacing={0.25} sx={{ pl: 0.5 }}>
-                        {group.items.map((service) => (
-                          <Box
-                            key={service.id}
-                            component="a"
-                            href={service.href}
-                            onClick={handleClose}
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              py: 0.4,
-                              px: 1,
-                              borderRadius: 1,
-                              textDecoration: 'none',
-                              color: 'text.primary',
-                              fontSize: '0.875rem',
-                              fontWeight: 500,
-                              transition: 'color 0.15s, background-color 0.15s',
-                              '&:hover': {
-                                color: 'accent.main',
-                                backgroundColor: (theme) => alpha(theme.palette.accent.main, 0.06),
-                              },
-                              '&:focus-visible': {
-                                outline: (theme) => `2px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-                                borderRadius: 1,
-                              },
-                            }}
-                          >
-                            <Box
-                              component="span"
-                              sx={{
-                                width: 5,
-                                height: 5,
-                                borderRadius: '50%',
-                                backgroundColor: (theme) => alpha(theme.palette.text.secondary, 0.4),
-                                mr: 1.2,
-                                flexShrink: 0,
-                              }}
-                            />
-                            {service.label}
-                          </Box>
-                        ))}
-                      </Stack>
-                    </Box>
-                  ))}
-                </Box>
-              </Box>
-            ))}
-          </Box>
-
-          <Divider sx={{ my: 2 }} />
-
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              px: 2,
-              py: 1.25,
-              borderRadius: 2,
-              backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.04),
-            }}
-          >
-            <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-              Shared mission, not just vendor-client — Flexible engagements across Fee-for-Service & Co-Delivery Models.
-            </Typography>
-            <Button tone="accent" size="small" href="/contact-us" onClick={handleClose} sx={{ flexShrink: 0, ml: 2 }}>
-              Contact Us <ArrowForwardIcon sx={{ fontSize: 14, ml: 0.5 }} />
-            </Button>
-          </Box>
-        </Popover>
-      </>
-    )
-  }
 
   return (
     <>
@@ -343,12 +180,16 @@ const DesktopNavItem = ({ item }: { item: NavItem }) => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         slotProps={{
-          list: { 'aria-labelledby': triggerId, sx: { minWidth: 280, py: 1 } },
+          list: { 'aria-labelledby': triggerId, sx: { minWidth: 260, py: 1.25 } },
           paper: {
             sx: (theme) => ({
-              mt: 1,
-              borderRadius: 2,
-              boxShadow: `0 20px 45px -20px ${alpha(theme.palette.common.black, 0.35)}`,
+              mt: 1.5,
+              borderRadius: tokens.radius.lg,
+              backgroundColor: alpha(theme.palette.background.paper, 0.98),
+              backdropFilter: 'blur(16px)',
+              border: `${tokens.borderWidth.thin} solid ${alpha(palette.brand.lime, 0.2)}`,
+              boxShadow: theme.palette.mode === 'dark' ? tokens.dark.shadow.xl : tokens.shadow.xl,
+              overflow: 'hidden',
             }),
           },
         }}
@@ -356,10 +197,59 @@ const DesktopNavItem = ({ item }: { item: NavItem }) => {
         {item.children?.map((child) => (
           <Fragment key={child.id}>
             {child.topDivider && <Divider sx={{ my: 1 }} />}
-            <MenuItem component="a" href={child.href} onClick={handleClose} sx={{ py: 1 }}>
-              <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                {child.label}
-              </Typography>
+            <MenuItem
+              component="a"
+              href={child.href}
+              onClick={handleClose}
+              sx={{
+                py: 1.2,
+                px: 2.25,
+                borderRadius: tokens.radius.md,
+                mx: 1,
+                transition: `all ${tokens.transition.fast}`,
+                '&:hover': {
+                  backgroundColor: alpha(palette.brand.lime, 0.1),
+                  '& .child-label': { color: palette.brand.lime },
+                  '& .child-arrow': { opacity: 1, transform: 'translateX(3px)' },
+                },
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                <Box>
+                  <Typography
+                    className="child-label"
+                    sx={{
+                      ...typography.subtitle2,
+                      fontWeight: 600,
+                      color: 'text.primary',
+                      transition: `color ${tokens.transition.fast}`,
+                    }}
+                  >
+                    {child.label}
+                  </Typography>
+                  {child.description && (
+                    <Typography
+                      sx={{
+                        ...typography.caption,
+                        color: 'text.secondary',
+                        display: 'block',
+                        mt: 0.2,
+                      }}
+                    >
+                      {child.description}
+                    </Typography>
+                  )}
+                </Box>
+                <ArrowForwardIcon
+                  className="child-arrow"
+                  sx={{
+                    fontSize: 16,
+                    color: palette.brand.lime,
+                    opacity: 0,
+                    transition: `opacity ${tokens.transition.fast}, transform ${tokens.transition.fast}`,
+                  }}
+                />
+              </Box>
             </MenuItem>
           </Fragment>
         ))}
@@ -368,82 +258,13 @@ const DesktopNavItem = ({ item }: { item: NavItem }) => {
   )
 }
 
-const MobileNavSection = ({ item }: { item: NavItem }) => {
+const MobileNavSection = ({ item, onClose }: { item: NavItem; onClose: () => void }) => {
   if (!item.children && !item.megaMenuColumns) {
     return (
-      <MobileNavLink key={item.id} href={item.href}>
+      <MobileNavLink key={item.id} href={item.href} onClick={onClose}>
         {item.label}
+        <ArrowForwardIcon sx={{ fontSize: 16, color: palette.brand.lime, opacity: 0.7 }} />
       </MobileNavLink>
-    )
-  }
-
-  if (item.isMegaMenu && item.megaMenuColumns) {
-    return (
-      <Accordion
-        key={item.id}
-        disableGutters
-        elevation={0}
-        square
-        sx={{ '&:before': { display: 'none' }, backgroundColor: 'transparent' }}
-      >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 0 }}>
-          <Typography sx={{ fontWeight: 600 }}>{item.label}</Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ px: 0, pt: 0 }}>
-          <Stack spacing={1.5}>
-            {item.megaMenuColumns.map((col) => (
-              <Accordion
-                key={col.id}
-                disableGutters
-                elevation={0}
-                square
-                sx={{
-                  '&:before': { display: 'none' },
-                  backgroundColor: (theme) => alpha(theme.palette.action.hover, 0.4),
-                  borderRadius: 1.5,
-                }}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 18 }} />} sx={{ px: 1.5, minHeight: 44 }}>
-                  <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                      {col.title}
-                    </Typography>
-                    {col.badge && (
-                      <Chip label={col.badge} size="small" variant="outlined" sx={{ height: 18, fontSize: '0.65rem' }} />
-                    )}
-                  </Stack>
-                </AccordionSummary>
-                <AccordionDetails sx={{ px: 1.5, pb: 1.5, pt: 0 }}>
-                  <Stack spacing={1.5}>
-                    {col.groups.map((group) => (
-                      <Box key={group.id}>
-                        <Typography
-                          variant="caption"
-                          sx={{ fontWeight: 700, color: 'text.secondary', textTransform: 'uppercase', display: 'block', mb: 0.5 }}
-                        >
-                          {group.title}
-                        </Typography>
-                        <Stack spacing={0.5}>
-                          {group.items.map((service) => (
-                            <Box
-                              key={service.id}
-                              component="a"
-                              href={service.href}
-                              sx={{ textDecoration: 'none', py: 0.25, color: 'text.primary', fontSize: '0.85rem' }}
-                            >
-                              {service.label}
-                            </Box>
-                          ))}
-                        </Stack>
-                      </Box>
-                    ))}
-                  </Stack>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </Stack>
-        </AccordionDetails>
-      </Accordion>
     )
   }
 
@@ -453,18 +274,47 @@ const MobileNavSection = ({ item }: { item: NavItem }) => {
       disableGutters
       elevation={0}
       square
-      sx={{ '&:before': { display: 'none' }, backgroundColor: 'transparent' }}
+      sx={{
+        '&:before': { display: 'none' },
+        backgroundColor: 'transparent',
+        borderBottom: (theme) => `${tokens.borderWidth.thin} solid ${alpha(theme.palette.divider, 0.4)}`,
+      }}
     >
-      <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 0 }}>
-        <Typography sx={{ fontWeight: 600 }}>{item.label}</Typography>
+      <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: palette.brand.lime }} />} sx={{ px: 1, minHeight: 48 }}>
+        <Typography sx={{ ...typography.subtitle1, fontWeight: 600 }}>
+          {item.label}
+        </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ px: 0, pt: 0 }}>
-        <Stack>
+      <AccordionDetails sx={{ px: 1, pb: 2, pt: 0 }}>
+        <Stack spacing={0.75}>
           {item.children?.map((child) => (
-            <Fragment key={child.id}>
-              {child.topDivider && <Divider sx={{ my: 0.5 }} />}
-              <MobileChildLink href={child.href}>{child.label}</MobileChildLink>
-            </Fragment>
+            <Box
+              key={child.id}
+              component="a"
+              href={child.href}
+              onClick={onClose}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                py: 1,
+                px: 1.5,
+                borderRadius: tokens.radius.sm,
+                textDecoration: 'none',
+                color: 'text.secondary',
+                ...typography.subtitle2,
+                transition: `all ${tokens.transition.fast}`,
+                '&:hover': {
+                  color: palette.brand.lime,
+                  backgroundColor: alpha(palette.brand.lime, 0.08),
+                },
+              }}
+            >
+              <Typography sx={{ ...typography.bodySm, fontWeight: 500 }}>
+                {child.label}
+              </Typography>
+              <ArrowForwardIcon sx={{ fontSize: 14, color: palette.brand.lime }} />
+            </Box>
           ))}
         </Stack>
       </AccordionDetails>
@@ -472,12 +322,9 @@ const MobileNavSection = ({ item }: { item: NavItem }) => {
   )
 }
 
-
 /**
- * Sticky primary navigation: full lock-up logo on the left, section
- * dropdowns plus a "Contact Us" CTA on the right. Dropdowns use MUI's Menu
- * (correct keyboard/ARIA menu semantics out of the box); below `md` the
- * whole thing collapses into an accessible drawer with accordion sections.
+ * MORPHINK ARCHITECTS — Unified Studio Navigation Bar
+ * Uses design system typography and solid brand color palette.
  */
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -487,21 +334,51 @@ export const Navbar = () => {
     <HeaderRoot elevated={elevated}>
       <Container maxWidth="xl">
         <Bar>
-          <LogoLink href="/" aria-label="Morphink Architecture home" sx={{ textDecoration: 'none' }}>
+          {/* Studio Brand Logo */}
+          <LogoLink href="/" aria-label="Morphink Architects home">
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: tokens.radius.md,
+                backgroundColor: palette.brand.lime,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: tokens.shadow.lime,
+              }}
+            >
+              <ArchitectureIcon sx={{ color: palette.brand.ink, fontSize: 24 }} />
+            </Box>
             <Box>
-              <Typography variant="h5" sx={{ fontWeight: 900, color: 'text.primary', letterSpacing: '-0.03em', lineHeight: 1 }}>
+              <Typography
+                sx={{
+                  ...typography.h5,
+                  color: 'text.primary',
+                  lineHeight: 1,
+                }}
+              >
                 MORPHINK
               </Typography>
-              <Typography variant="caption" sx={{ fontWeight: 700, color: 'accent.main', letterSpacing: '0.25em', display: 'block', fontSize: '0.65rem' }}>
-                ARCHITECTURE
+              <Typography
+                sx={{
+                  ...typography.overline,
+                  color: palette.brand.lime,
+                  display: 'block',
+                  fontSize: '0.625rem',
+                  mt: 0.2,
+                }}
+              >
+                STUDIO ARCHITECTURE
               </Typography>
             </Box>
           </LogoLink>
 
+          {/* Desktop Navigation Links */}
           <Stack
             component="nav"
             direction="row"
-            spacing={3}
+            spacing={1}
             aria-label="Primary"
             sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
           >
@@ -510,46 +387,125 @@ export const Navbar = () => {
             ))}
           </Stack>
 
+          {/* Desktop Right Controls: Theme Toggle & Solid Clean CTA */}
           <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-            <ThemeToggle />
-            <Button tone="accent" href={contactNavItem.href}>
+            <ThemeToggle size="medium" />
+            <Button
+              tone="accent"
+              href={contactNavItem.href}
+              sx={(theme) => ({
+                ...typography.buttonSm,
+                px: 3,
+                py: 1.1,
+                borderRadius: tokens.radius.pill,
+                backgroundColor: theme.palette.mode === 'dark' ? palette.brand.limeLight : palette.brand.lime,
+                color: palette.brand.ink,
+                boxShadow: tokens.shadow.lime,
+                border: 'none',
+                transition: `all ${tokens.transition.base}`,
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'dark' ? palette.brand.lime : palette.brand.limeLight,
+                  boxShadow: tokens.shadow.limeLg,
+                  transform: 'translateY(-1px)',
+                },
+              })}
+            >
               {contactNavItem.label}
+              <ArrowForwardIcon sx={{ fontSize: 16, ml: 0.8 }} />
             </Button>
           </Stack>
 
+          {/* Mobile Right Controls: Theme Toggle & Menu Icon */}
           <Stack direction="row" spacing={1} sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
             <ThemeToggle size="small" />
             <IconButton
               onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
+              aria-label="Open navigation menu"
               aria-expanded={mobileOpen}
+              sx={(theme) => ({
+                color: 'text.primary',
+                backgroundColor: alpha(theme.palette.text.primary, 0.06),
+                borderRadius: tokens.radius.md,
+                p: 1,
+              })}
             >
-              <MenuIcon />
+              <MenuIcon fontSize="medium" />
             </IconButton>
           </Stack>
         </Bar>
       </Container>
 
+      {/* Mobile Touch Drawer */}
       <Drawer
         anchor="right"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        slotProps={{ paper: { sx: { width: 320, maxWidth: '100%', p: 3 } } }}
+        slotProps={{
+          paper: {
+            sx: (theme) => ({
+              width: 340,
+              maxWidth: '85vw',
+              p: 3,
+              backgroundColor: alpha(theme.palette.background.paper, 0.96),
+              backdropFilter: 'blur(20px)',
+              borderLeft: `${tokens.borderWidth.thin} solid ${alpha(palette.brand.lime, 0.2)}`,
+            }),
+          },
+        }}
       >
-        <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <ThemeToggle showLabel size="small" />
-          <IconButton onClick={() => setMobileOpen(false)} aria-label="Close menu">
+        <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 3, pb: 2, borderBottom: (theme) => `${tokens.borderWidth.thin} solid ${theme.palette.divider}` }}>
+          <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
+            <Box
+              sx={{
+                width: 32,
+                height: 32,
+                borderRadius: tokens.radius.sm,
+                backgroundColor: palette.brand.lime,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ArchitectureIcon sx={{ color: palette.brand.ink, fontSize: 18 }} />
+            </Box>
+            <Typography sx={{ ...typography.h6 }}>
+              MORPHINK
+            </Typography>
+          </Stack>
+          <IconButton onClick={() => setMobileOpen(false)} aria-label="Close navigation menu" sx={{ color: 'text.primary' }}>
             <CloseIcon />
           </IconButton>
         </Stack>
-        <Stack component="nav" aria-label="Primary">
+
+        <Stack component="nav" aria-label="Mobile primary navigation" spacing={0.5}>
           {primaryNavItems.map((item) => (
-            <MobileNavSection key={item.id} item={item} />
+            <MobileNavSection key={item.id} item={item} onClose={() => setMobileOpen(false)} />
           ))}
         </Stack>
-        <Button tone="accent" href={contactNavItem.href} sx={{ mt: 3 }} fullWidth>
-          {contactNavItem.label}
-        </Button>
+
+        <Box sx={{ mt: 'auto', pt: 4 }}>
+          <Box sx={{ p: 2, borderRadius: tokens.radius.md, backgroundColor: (theme) => alpha(theme.palette.text.primary, 0.04), mb: 2 }}>
+            <ThemeToggle showLabel size="small" />
+          </Box>
+          <Button
+            tone="accent"
+            href={contactNavItem.href}
+            onClick={() => setMobileOpen(false)}
+            sx={(theme) => ({
+              width: '100%',
+              py: 1.25,
+              borderRadius: tokens.radius.pill,
+              ...typography.buttonSm,
+              backgroundColor: theme.palette.mode === 'dark' ? palette.brand.limeLight : palette.brand.lime,
+              color: palette.brand.ink,
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'dark' ? palette.brand.lime : palette.brand.limeLight,
+              },
+            })}
+          >
+            {contactNavItem.label} <ArrowForwardIcon sx={{ fontSize: 16, ml: 1 }} />
+          </Button>
+        </Box>
       </Drawer>
     </HeaderRoot>
   )
