@@ -31,7 +31,7 @@ export const CareersCtaSection = () => (
             variant="contained"
             size="large"
             component="a"
-            href="mailto:careers@winvinayainfosystems.com?subject=Campus%20Partnership%20Inquiry%20-%20WinVinaya"
+            href="mailto:careers@morphink.com?subject=Campus%20Partnership%20Inquiry%20-%20Morphink"
             startIcon={<EmailOutlinedIcon />}
             sx={{
               px: 4,

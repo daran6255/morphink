@@ -49,12 +49,12 @@ interface TestimonialFormState {
 
 const initialFormState: TestimonialFormState = {
   name: '',
-  role: 'Head of Quality Assurance & Compliance',
-  organization: 'Fintech Enterprise Partner',
+  role: 'Head of Real Estate Development',
+  organization: 'Property Development Partner',
   avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
-  content: 'WinVinaya delivered thorough accessibility audit reports that empowered our engineering team to remediate 100+ compliance gaps ahead of our regulatory audit.',
+  content: 'Morphink Architecture delivered an outstanding design that transformed our vision into a landmark building. Their attention to detail and sustainability focus exceeded all our expectations.',
   rating: 5,
-  category: 'Accessibility',
+  category: 'Commercial',
   isFeatured: false,
   isPublished: true,
   sortOrder: 0,

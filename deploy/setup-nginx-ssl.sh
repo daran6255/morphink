@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# WinVinaya Infosystems (wviswebsite2.0) - Nginx & SSL Setup Script
+# Morphink Architecture - Nginx & SSL Setup Script
 # Usage:
 #   sudo bash deploy/setup-nginx-ssl.sh [domain.com] [www.domain.com]
 # Example:
-#   sudo bash deploy/setup-nginx-ssl.sh winvinaya.com www.winvinaya.com
+#   sudo bash deploy/setup-nginx-ssl.sh Morphink.com www.Morphink.com
 # ==============================================================================
 
 set -e
@@ -21,8 +21,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-DOMAIN_1="${1:-winvinaya.com}"
-DOMAIN_2="${2:-www.winvinaya.com}"
+DOMAIN_1="${1:-Morphink.com}"
+DOMAIN_2="${2:-www.Morphink.com}"
 
 echo -e "${CYAN}================================================================${NC}"
 echo -e "${CYAN}   🌐 Nginx & Let's Encrypt SSL Automated Setup               ${NC}"
@@ -34,14 +34,14 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 # 1. Copy initial HTTP starter configuration
 echo -e "\n${BLUE}📝 Step 1/4: Installing starter Nginx configuration...${NC}"
-cp "${PROJECT_ROOT}/nginx/wvis-http-only.conf" /etc/nginx/sites-available/wvis.conf
+cp "${PROJECT_ROOT}/nginx/morphink-http-only.conf" /etc/nginx/sites-available/morphink.conf
 
 # Update server_name in configuration
-sed -i "s/server_name winvinaya.com www.winvinaya.com;/server_name ${DOMAIN_1} ${DOMAIN_2};/g" /etc/nginx/sites-available/wvis.conf
+sed -i "s/server_name Morphink.com www.Morphink.com;/server_name ${DOMAIN_1} ${DOMAIN_2};/g" /etc/nginx/sites-available/morphink.conf
 
 # 2. Symlink and enable site
 echo -e "\n${BLUE}🔗 Step 2/4: Enabling site and testing Nginx...${NC}"
-ln -sf /etc/nginx/sites-available/wvis.conf /etc/nginx/sites-enabled/
+ln -sf /etc/nginx/sites-available/morphink.conf /etc/nginx/sites-enabled/
 rm -f /etc/nginx/sites-enabled/default
 
 nginx -t
@@ -57,8 +57,8 @@ certbot --nginx -d "${DOMAIN_1}" -d "${DOMAIN_2}" --non-interactive --agree-tos 
 
 # 4. Switch to full hardened production configuration
 echo -e "\n${BLUE}🛡️ Step 4/4: Activating hardened production SSL configuration...${NC}"
-cp "${PROJECT_ROOT}/nginx/wvis.conf" /etc/nginx/sites-available/wvis.conf
-sed -i "s/server_name winvinaya.com www.winvinaya.com;/server_name ${DOMAIN_1} ${DOMAIN_2};/g" /etc/nginx/sites-available/wvis.conf
+cp "${PROJECT_ROOT}/nginx/morphink.conf" /etc/nginx/sites-available/morphink.conf
+sed -i "s/server_name Morphink.com www.Morphink.com;/server_name ${DOMAIN_1} ${DOMAIN_2};/g" /etc/nginx/sites-available/morphink.conf
 
 nginx -t
 systemctl reload nginx

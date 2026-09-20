@@ -6,11 +6,11 @@ export interface StoryFoundationContent {
 }
 
 export const storyFoundation: StoryFoundationContent = {
-  eyebrow: 'The Foundation That Shapes Everything',
-  heading: 'A Registered Charitable Trust, Built Into How We Work',
+  eyebrow: 'The Philosophy That Shapes Everything',
+  heading: 'Sustainable Design, Built Into How We Work',
   paragraphs: [
-    'WinVinaya Foundation, co-founded alongside the company by Akila Sankar, is a registered (80G) charitable trust that has provided free, industry-grade skill training and job placement support for persons with disabilities since 2016 — in software development, testing, BFSI skills, and more.',
-    "The two organizations aren't run separately in spirit, even where the work is. People trained through the Foundation bring lived experience with assistive technology into WinVinaya InfoSystems' accessibility and testing work — which is a large part of why our audits and remediation catch what automated tools and generic checklists miss.",
+    'At Morphink Architecture, sustainability is not an afterthought — it is embedded into every design decision from the first sketch. We use parametric modeling, passive energy strategies, and locally sourced materials to create buildings that are as responsible as they are remarkable.',
+    "Our projects span residential, commercial, and institutional typologies, with each design shaped by its unique environmental context, the needs of its occupants, and the character of the surrounding community. Great architecture listens before it speaks.",
   ],
-  cta: { label: 'Learn About WinVinaya Foundation', href: '/about/winvinaya-foundation' },
+  cta: { label: 'Explore Our Design Philosophy', href: '/about/our-story' },
 }

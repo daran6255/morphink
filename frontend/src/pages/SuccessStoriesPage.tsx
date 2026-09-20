@@ -7,7 +7,7 @@ import {
 } from '../sections/impact/successStories'
 import { useStories } from '../hooks'
 
-/** Impact: Success Stories Page — Verified case studies across fintech compliance, NGO Power BI dashboards, healthcare QA upskilling, GenAI sprints, academic document remediation, and live in-house MIS crm.winvinaya.com. */
+/** Impact: Success Stories Page — Verified case studies across residential design, commercial architecture, institutional buildings, urban master planning, and sustainable construction projects. */
 export const SuccessStoriesPage = () => {
   const { stories } = useStories()
 

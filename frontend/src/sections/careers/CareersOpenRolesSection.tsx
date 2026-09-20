@@ -127,7 +127,7 @@ export const CareersOpenRolesSection = ({ roles = [] }: CareersOpenRolesSectionP
                 const applyMailto = `mailto:${openRolesData.contactEmail}?subject=${encodeURIComponent(
                   `Application for ${role.title} (${role.department || 'Full-Time'})`,
                 )}&body=${encodeURIComponent(
-                  `Hi WinVinaya Talent Team,\n\nI am writing to express my strong interest in the ${role.title} position (${role.location || 'Bengaluru / Hybrid'}).\n\nPlease find my resume attached.\n\nBest regards,\n[Your Name]\n[Your Phone Number]`,
+                  `Hi Morphink Talent Team,\n\nI am writing to express my strong interest in the ${role.title} position (${role.location || 'Bengaluru / Hybrid'}).\n\nPlease find my resume attached.\n\nBest regards,\n[Your Name]\n[Your Phone Number]`,
                 )}`
 
                 return (

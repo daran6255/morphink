@@ -146,7 +146,7 @@ export const AboutTeaserSection = () => (
                     Social Impact Partnership
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                    Directly linked to WinVinaya Foundation, our social-impact arm that trains and places PwDs in tech careers, driving inclusive economic empowerment.
+                    Committed to sustainable architecture and community-driven design, Morphink creates spaces that empower people and strengthen local environments.
                   </Typography>
                 </Stack>
               </PillarCard>

@@ -1,8 +1,8 @@
 import apiClient from './apiClient'
 import type { AuthUser, LoginCredentials, LoginApiResponse, MeApiResponse } from '../models'
 
-const TOKEN_KEY = 'wvis_auth_token'
-const USER_KEY = 'wvis_auth_user'
+const TOKEN_KEY = 'morphink_auth_token'
+const USER_KEY = 'morphink_auth_user'
 
 export const authService = {
   async login(credentials: LoginCredentials): Promise<LoginApiResponse> {

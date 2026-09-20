@@ -7,9 +7,9 @@ export interface FinalCtaContent {
 }
 
 export const finalCta: FinalCtaContent = {
-  heading: "Let's Build Something Everyone Can Use",
-  body: "Whether it's a single audit or a full digital transformation, we'll meet you where you are.",
+  heading: "Let's Build Something Extraordinary Together",
+  body: "Whether it's a residential home, a commercial complex, or an urban master plan — bring us your vision and we'll bring it to life.",
   cta: { label: 'Get in Touch', href: '/contact-us' },
   phone: { label: '+91-99805-25374', href: 'tel:+919980525374' },
-  email: { label: 'info@winvinaya.com', href: 'mailto:info@winvinaya.com' },
+  email: { label: 'info@morphink.com', href: 'mailto:info@morphink.com' },
 }

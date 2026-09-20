@@ -41,7 +41,7 @@ The `morphink` repository is a decoupled, modern web application comprising:
 ## 📁 Repository Structure
 
 ```
-wviswebsite2.0/
+morphink-website/
 ├── backend/                  # Express 5 + TypeScript + Prisma API Service
 │   ├── prisma/               # Database schema & initial seeding scripts
 │   ├── src/                  # Controllers, routes, services & middlewares
@@ -58,7 +58,7 @@ wviswebsite2.0/
 │
 ├── nginx/                    # Production Nginx Server Configurations
 │   ├── wvis.conf             # Full HTTPS/SSL production reverse proxy config
-│   ├── wvis-http-only.conf   # Initial HTTP starter config (for Certbot SSL setup)
+│   ├── morphink-http-only.conf   # Initial HTTP starter config (for Certbot SSL setup)
 │   └── README.md             # Nginx-specific configuration guide
 │
 ├── deploy/                   # Automated AWS EC2 Deployment Scripts
@@ -174,7 +174,7 @@ Detailed production deployment guides are available in the [`doc/`](./doc/) dire
 |---|---|
 | Review AWS EC2 Guide | See [`doc/aws-ec2-initial-deployment.md`](./doc/aws-ec2-initial-deployment.md) |
 | Review Documentation | See [`doc/README.md`](./doc/README.md) |
-| Review Nginx Configs | See [`nginx/wvis.conf`](./nginx/wvis.conf) |
+| Review Nginx Configs | See [`nginx/morphink.conf`](./nginx/morphink.conf) |
 
 ### Backend (`/backend`)
 ```bash
@@ -204,4 +204,4 @@ npm run preview          # Preview production build locally
 
 This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
 
-Copyright © 2026 **WinVinaya Infosystems**. All rights reserved.
+Copyright © 2026 **Morphink Architecture**. All rights reserved.

@@ -6,8 +6,8 @@ export interface FoundationTeaserContent {
 }
 
 export const foundationTeaser: FoundationTeaserContent = {
-  eyebrow: 'WinVinaya Foundation',
-  heading: 'Business With a Built-In Purpose',
-  body: 'WinVinaya Foundation, our social-impact arm, provides free, industry-grade skill training and job placement support for persons with disabilities — in software development, testing, and more. Every engagement with WinVinaya InfoSystems helps sustain that mission.',
-  cta: { label: 'Learn About the Foundation', href: '/about/winvinaya-foundation' },
+  eyebrow: 'Morphink Vision',
+  heading: 'Design With a Built-In Purpose',
+  body: 'At Morphink Architecture, every project is guided by a commitment to sustainable design, community benefit, and long-term environmental responsibility. We believe buildings should serve not just their owners, but the neighborhoods and cities they inhabit.',
+  cta: { label: 'Learn About Our Values', href: '/about/our-story' },
 }

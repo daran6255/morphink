@@ -13,7 +13,7 @@ export const apiClient: AxiosInstance = axios.create({
 // Request Interceptor: Attach JWT Bearer Token if logged in
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('wvis_auth_token')
+    const token = localStorage.getItem('morphink_auth_token')
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -43,8 +43,8 @@ apiClient.interceptors.response.use(
 
     // If 401 unauthorized on protected route, clean up auth storage
     if (error.response?.status === 401 && !error.config?.url?.includes('/auth/login')) {
-      localStorage.removeItem('wvis_auth_token')
-      localStorage.removeItem('wvis_auth_user')
+      localStorage.removeItem('morphink_auth_token')
+      localStorage.removeItem('morphink_auth_user')
     }
 
     return Promise.reject(new Error(customMessage))

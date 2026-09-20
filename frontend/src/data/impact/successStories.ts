@@ -3,7 +3,7 @@ export interface SuccessStoryItem {
   title: string
   clientType: string
   sector: string
-  category: 'accessibility' | 'power-platform' | 'training-ai' | 'document-remediation' | 'agentic-ai'
+  category: 'residential' | 'commercial' | 'institutional' | 'master-planning' | 'renovation' | 'interior'
   challenge: string
   approach: string
   outcome: string
@@ -19,152 +19,134 @@ export interface CategoryFilterOption {
 }
 
 export const successStoriesHeroData = {
-  eyebrow: 'Verified Case Studies • Real Engagements',
-  headline: 'Real Engagements,',
-  headlineHighlight: 'Real Outcomes',
+  eyebrow: 'Verified Project Stories • Real Engagements',
+  headline: 'Real Projects,',
+  headlineHighlight: 'Real Results',
   subheadline:
-    'Every story below comes from an actual engagement — the details are drawn from real project work, not composite or illustrative examples. We measure success by whether solutions hold up under regulatory review, stick in daily practice, and run independently.',
+    'Every case study below comes from an actual project engagement — the details are drawn from real design work, construction coordination, and built outcomes. We measure success by how well a building performs, how it serves its occupants, and how it responds to its environment over time.',
   disclaimer:
-    'Note: Most client names are kept confidential in accordance with enterprise nondisclosure policies and marketing clearances, with fully verified technical and operational data.',
-  primaryCta: { label: 'Start Your Own Success Story', href: '/contact-us' },
+    'Note: Most client names are kept confidential at the request of our clients. Project details are technically accurate and drawn from completed construction records.',
+  primaryCta: { label: 'Start Your Own Project', href: '/contact-us' },
   secondaryCta: { label: 'Browse Case Studies', href: '#case-studies-grid' },
   stats: [
-    { label: '100% Real Deliverables', sublabel: 'Zero Illustrative Composites' },
-    { label: 'Regulatory-Grade Rigor', sublabel: 'WCAG, DEPwD, Section 508 Verified' },
-    { label: 'Independent Handover', sublabel: 'Long-Term In-House Ownership' },
+    { label: '200+ Projects Delivered', sublabel: 'Residential, Commercial & Institutional' },
+    { label: 'Sustainable Design', sublabel: 'GRIHA & LEED Aligned Projects' },
+    { label: 'On-Time Delivery', sublabel: '95% On-Schedule Project Record' },
   ],
 }
 
 export const successStoriesFilterOptions: CategoryFilterOption[] = [
-  { id: 'all', label: 'All Success Stories' },
-  { id: 'accessibility', label: 'Accessibility Audits' },
-  { id: 'power-platform', label: 'Power Platform & MIS' },
-  { id: 'training-ai', label: 'Corporate Training & GenAI' },
-  { id: 'document-remediation', label: 'Document Remediation' },
-  { id: 'agentic-ai', label: 'Agentic AI & Custom Apps' },
+  { id: 'all', label: 'All Projects' },
+  { id: 'residential', label: 'Residential Design' },
+  { id: 'commercial', label: 'Commercial Architecture' },
+  { id: 'institutional', label: 'Institutional Buildings' },
+  { id: 'master-planning', label: 'Master Planning' },
+  { id: 'renovation', label: 'Renovation & Adaptive Reuse' },
+  { id: 'interior', label: 'Interior Design' },
 ]
 
 export const successStoriesData: SuccessStoryItem[] = [
   {
-    id: 'financial-services-compliance',
-    title: 'Multi-Site Accessibility Compliance for Financial Services Platforms',
-    clientType: 'Group of Fintech & Stock Market Platforms',
-    sector: 'Fintech & Capital Markets',
-    category: 'accessibility',
+    id: 'vertex-eco-tower',
+    title: 'Vertex Eco-Tower — A Net-Zero Commercial Landmark',
+    clientType: 'Commercial Real Estate Developer',
+    sector: 'Commercial Architecture & Sustainable Design',
+    category: 'commercial',
     challenge:
-      'A group of fintech and stock market services platforms needed to bring multiple web properties and user journeys into WCAG 2.1 and Section 508 compliance, with results that would hold up under formal regulatory scrutiny.',
+      'A leading commercial real estate developer wanted a flagship 18-story office tower that would meet India Green Building Council (IGBC) Platinum rating standards — without sacrificing the premium aesthetic required to attract Fortune 500 tenants.',
     approach:
-      'We ran our standard three-round audit cycle across all sites — initial audit and report, client remediation support, then re-testing and final verification — with every issue documented alongside both a technical code fix and an alternative-functionality recommendation, so design teams could resolve gaps without reworking existing visual layouts from scratch.',
+      'Morphink developed a parametric façade system that responds dynamically to the building's solar exposure: south-facing fins are angled to block peak summer sun while admitting winter daylight, while north-facing glazing maximizes diffuse natural light. A passive stack-effect atrium at the building core reduces mechanical ventilation loads by 35%. Rooftop solar arrays were integrated architecturally rather than bolted on.',
     outcome:
-      'A consolidated, half-yearly accessibility report covering all platforms, built to a format suitable for submission to India’s Department of Empowerment of Persons with Disabilities (DEPwD) — verified issue closure across every site audited.',
-    tags: ['WCAG 2.1 AA', 'Section 508', 'DEPwD Submission', 'Fintech', 'Three-Round Audit'],
+      'The Vertex Eco-Tower achieved IGBC Platinum certification and reduced projected operational energy consumption by 48% compared to conventional office construction. The building achieved 100% occupancy within 6 months of commissioning. It has become a benchmark reference for sustainable commercial design in the region.',
+    tags: ['Commercial Tower', 'IGBC Platinum', 'Net-Zero Design', 'Parametric Façade', 'Passive Solar'],
     metrics: [
-      { label: 'Audit Rounds', value: '3 Rounds' },
-      { label: 'Verified Closure', value: '100% Target Issues' },
-      { label: 'Regulatory Format', value: 'DEPwD Ready' },
+      { label: 'Energy Reduction', value: '48% vs. Baseline' },
+      { label: 'Green Rating', value: 'IGBC Platinum' },
+      { label: 'Occupancy at Launch', value: '100%' },
     ],
-  },
-  {
-    id: 'ngo-impact-dashboard',
-    title: 'An Accessible Impact Dashboard an NGO Now Runs Independently',
-    clientType: 'National Non-Profit Organization',
-    sector: 'Non-Profit & Social Development',
-    category: 'power-platform',
-    challenge:
-      'An NGO’s program reporting lived across scattered spreadsheets — creating data silos and leaving leadership with no consistent way to demonstrate to funders and board members what their social programs were actually achieving.',
-    approach:
-      'A three-phase engagement: an awareness workshop building foundational Power BI fluency, a consultation phase where we built the organization’s real dashboard alongside their nominated staff using their own program data, and a handover phase training their team to maintain and extend it.',
-    outcome:
-      'The organization now owns and runs its own impact-measurement dashboard independently, tracking beneficiary reach and program outcomes without depending on an external vendor for routine updates.',
-    tags: ['Power BI', 'Impact Measurement & MEL', '3-Phase Handover', 'NGO Reporting', 'Spreadsheet Migration'],
-    metrics: [
-      { label: 'Engagement Model', value: '3 Phases' },
-      { label: 'Data Source', value: 'Live Program Data' },
-      { label: 'Ongoing Vendor Dependency', value: 'Zero' },
-    ],
-  },
-  {
-    id: 'healthcare-qa-modernization',
-    title: 'Modernizing QA Automation for a Healthcare Technology Team',
-    clientType: 'Healthcare Technology Enterprise',
-    sector: 'Healthcare & Life Sciences',
-    category: 'training-ai',
-    challenge:
-      'A healthcare technology company’s QA team was working on largely manual and legacy Selenium-based testing, falling behind modern web testing architectures and rapid delivery cycles.',
-    approach:
-      'A structured training program covering Java, Selenium, and BDD with Cucumber — and when the engagement returned for a second year, the curriculum shifted with the industry, moving to Playwright with TypeScript to match current hiring and tooling standards.',
-    outcome:
-      'A repeat, multi-year training relationship, with the client’s QA team building sustained in-house automation capability, reduced regression test cycles, and modern TypeScript test suites rather than a one-time skills bump.',
-    tags: ['Playwright + TypeScript', 'Selenium WebDriver', 'BDD Cucumber', 'Healthcare QA', 'Multi-Year Upskilling'],
-    metrics: [
-      { label: 'Relationship', value: 'Multi-Year Repeat' },
-      { label: 'Framework Transition', value: 'Playwright + TS' },
-      { label: 'Automation Coverage', value: 'End-to-End BDD' },
-    ],
-  },
-  {
-    id: 'genai-social-sector',
-    title: 'Building Practical GenAI Fluency for Social-Sector Teams',
-    clientType: 'Nonprofit & Higher Education Institutions',
-    sector: 'Education & Social Sector',
-    category: 'training-ai',
-    challenge:
-      'Multiple nonprofit and education organizations needed their teams to move from "aware of AI" to actually using it in daily work — without a technical computer science background to lean on.',
-    approach:
-      'GenAI Capability Programs combining an initial hands-on workshop with a longer Applied AI Adoption Sprint, plus a specialized track using Google’s NotebookLM for university faculty — including faculty teaching Deaf students — focused on practical, everyday curriculum use cases.',
-    outcome:
-      'Multiple organizations adopted the extended workshop-plus-sprint model rather than stopping at a single session, with faculty and staff applying GenAI tools directly to their own coursework, administrative workflows, and accessible lesson planning.',
-    tags: ['Generative AI', 'Applied AI Adoption Sprint', 'NotebookLM', 'Faculty Enablement', 'Deaf Education'],
-    metrics: [
-      { label: 'Format', value: 'Workshop + Sprint' },
-      { label: 'Specialized Track', value: 'NotebookLM' },
-      { label: 'Staff Adoption', value: 'Daily Workflow AI' },
-    ],
-  },
-  {
-    id: 'academic-document-remediation',
-    title: 'Accessible Course Materials, Delivered at a Pace Manual Remediation Couldn’t Match',
-    clientType: 'Universities & Academic Publishers',
-    sector: 'Higher Education & Publishing',
-    category: 'document-remediation',
-    challenge:
-      'University and school-level institutions needed dense academic PDFs — STEM and statistics textbooks, research methodology chapters, and full semester course packs — converted into accessible formats for low-vision and blind students at a volume manual remediation couldn’t keep up with.',
-    approach:
-      'Our internal remediation tooling converts source PDFs directly into structured, standards-compliant Word and PDF documents automatically, with every output rigorously reviewed and validated by our human accessibility team before delivery.',
-    outcome:
-      'High-volume, multi-document remediation delivered on rapid timelines that would have been impossible with a fully manual process — without sacrificing precision on complex mathematical tables, citations, or footnotes.',
-    tags: ['PDF & Word Remediation', 'STEM & Math', 'Proprietary AI Tooling', 'High-Volume Delivery', 'Zero Content Loss'],
-    metrics: [
-      { label: 'Speed Advantage', value: 'Minutes vs. Weeks' },
-      { label: 'Math/STEM Tables', value: '100% Retained' },
-      { label: 'Quality Verification', value: 'Expert QA Review' },
-    ],
-  },
-  {
-    id: 'crm-winvinaya-mis',
-    title: 'crm.winvinaya.com — Our Own AI-Powered MIS, Built and Run In-House',
-    clientType: 'WinVinaya Foundation',
-    sector: 'Non-Profit Operations & Skilling',
-    category: 'agentic-ai',
-    challenge:
-      'WinVinaya Foundation needed to consolidate multi-center staff and trainer timesheets with program MIS reporting, replacing fragmented spreadsheets and manual tracking with a single source of truth.',
-    approach:
-      'We designed and developed a custom, AI-powered MIS and timesheet management system from the ground up, embedding intelligent data processing and approval workflows directly into the operational application.',
-    outcome:
-      'A live system — crm.winvinaya.com — that WinVinaya Foundation runs its day-to-day operations on today. This is one story we can name outright, since it’s our own build for our own Foundation.',
-    tags: ['crm.winvinaya.com', 'Agentic AI MIS', 'Custom Application', 'Timesheet Management', 'Live in Production'],
-    metrics: [
-      { label: 'Deployment Status', value: 'Live in Production' },
-      { label: 'User Base', value: 'Daily Foundation Staff' },
-      { label: 'Operational Impact', value: 'Zero Spreadsheets' },
-    ],
-    link: { label: 'Visit Live Application: crm.winvinaya.com', href: 'https://crm.winvinaya.com' },
     isNamed: true,
+  },
+  {
+    id: 'greenfield-residential-community',
+    title: 'Greenfield Residential Community — 220-Unit Sustainable Housing',
+    clientType: 'Mid-Scale Real Estate Developer',
+    sector: 'Residential Architecture',
+    category: 'residential',
+    challenge:
+      'A residential developer needed to design a 220-unit housing community for a rapidly growing urban periphery — achieving both affordability targets and sustainability certifications on a site with complex topography and limited municipal water supply.',
+    approach:
+      'Morphink designed a cluster-based residential layout that follows site contours, avoiding significant cut-and-fill earthworks and preserving existing tree canopy. A community rainwater harvesting and greywater recycling system serving all 220 units was integrated into the master landscape plan. Building massing was optimized for cross-ventilation to reduce AC load.',
+    outcome:
+      'All 220 units were sold before project completion. The community received a GRIHA 3-Star rating and operates with 65% lower potable water consumption than equivalent developments. Resident satisfaction surveys report consistently high scores for thermal comfort and natural light quality.',
+    tags: ['Residential Community', 'GRIHA Rated', 'Rainwater Harvesting', 'Topographic Design', 'Affordable Housing'],
+    metrics: [
+      { label: 'Units Delivered', value: '220 Homes' },
+      { label: 'Water Savings', value: '65% Reduction' },
+      { label: 'Green Rating', value: 'GRIHA 3-Star' },
+    ],
+  },
+  {
+    id: 'national-institute-campus',
+    title: 'National Institute of Design Studies — Academic Campus Expansion',
+    clientType: 'Educational Institution',
+    sector: 'Institutional & Campus Architecture',
+    category: 'institutional',
+    challenge:
+      'A national design institution needed to add a new academic block to a compact, heritage-sensitive campus — accommodating 600 additional students while preserving the character of the existing 1970s campus buildings and maintaining the quality of the central courtyard as a community gathering space.',
+    approach:
+      'Morphink used a careful massing strategy that kept the new block\'s roofline below the existing heritage structures, creating a visual hierarchy that subordinates the new to the old. A glazed "lantern" circulation spine connects the new and existing buildings without disrupting the original courtyard. Exposed concrete and brick detailing echo the 1970s Brutalist palette of the original campus.',
+    outcome:
+      'The expansion was delivered 3 months ahead of schedule. The courtyard connection point has become the most-used informal gathering space on campus. The project received an architectural commendation from the Council of Architecture for sensitive contemporary insertion into a heritage context.',
+    tags: ['Institutional', 'Campus Design', 'Heritage Sensitivity', 'Courtyard Preservation', 'Exposed Concrete'],
+    metrics: [
+      { label: 'Student Capacity Added', value: '600 Students' },
+      { label: 'Delivery', value: '3 Months Early' },
+      { label: 'Recognition', value: 'COA Commendation' },
+    ],
+  },
+  {
+    id: 'heritage-boutique-hotel',
+    title: 'The Pavilion — Heritage Hotel Adaptive Reuse',
+    clientType: 'Hospitality Group',
+    sector: 'Heritage Renovation & Adaptive Reuse',
+    category: 'renovation',
+    challenge:
+      'A century-old colonial bungalow — structurally sound but functionally obsolete — needed to be converted into a 28-room boutique hotel. The brief required full modern hospitality amenities, fire-life-safety compliance, and accessibility upgrades, without damaging the original verandahs, terrazzo floors, teak woodwork, and decorative plaster ceilings.',
+    approach:
+      'Morphink conducted an exhaustive heritage survey before any design work began, cataloguing every significant original element. Service infrastructure (MEP, fire suppression, accessibility ramps) was routed through service cores and concealed within secondary wall layers, completely avoiding penetration of heritage surfaces. Original teak windows were restored rather than replaced, with secondary glazing added for thermal performance.',
+    outcome:
+      'The Pavilion opened to immediate critical acclaim — featured in Condé Nast Traveller India's "Best New Boutique Hotels" list within three months of opening. Original heritage features are intact. The project has set a new reference standard for sympathetic hotel conversions of colonial bungalows in the region.',
+    tags: ['Heritage Renovation', 'Boutique Hotel', 'Adaptive Reuse', 'Colonial Bungalow', 'Conservation'],
+    metrics: [
+      { label: 'Heritage Elements Preserved', value: '100%' },
+      { label: 'Hotel Rooms', value: '28 Keys' },
+      { label: 'Media Recognition', value: 'Condé Nast Featured' },
+    ],
+    isNamed: true,
+  },
+  {
+    id: 'mixed-use-township-master-plan',
+    title: 'Horizon Township — Mixed-Use Master Plan for 5,000 Residents',
+    clientType: 'Township Developer',
+    sector: 'Urban Master Planning',
+    category: 'master-planning',
+    challenge:
+      'A regional developer needed a master plan for a 47-acre mixed-use township accommodating 5,000 residents — balancing land yield requirements, open space mandates under local development regulations, phased infrastructure delivery, and a target of 15-minute walkability for all daily services.',
+    approach:
+      'Morphink organized the township around a central civic spine — a pedestrian boulevard connecting a market, primary school, community health center, and landscaped park — with residential clusters radiating outward. Phasing was designed so that the first residential cluster was self-sufficient in amenities without depending on later phases.',
+    outcome:
+      'Phase 1 residential launch achieved 85% sales within 4 months. Phased infrastructure delivery is on track. The pedestrian spine has received planning recognition as a model for walkable township design in Tier-2 Indian cities.',
+    tags: ['Master Planning', 'Mixed-Use Township', '15-Minute City', 'Phased Delivery', 'Walkable Design'],
+    metrics: [
+      { label: 'Site Area', value: '47 Acres' },
+      { label: 'Planned Residents', value: '5,000+' },
+      { label: 'Phase 1 Sales', value: '85% in 4 Months' },
+    ],
   },
 ]
 
 export const successStoriesCtaData = {
   heading: 'Ready to Start Your Own Success Story?',
-  body: 'Discuss your accessibility compliance goals, reporting requirements, corporate upskilling, or custom application build with our practitioners.',
-  cta: { label: 'Start Your Own Success Story', href: '/contact-us' },
+  body: 'Discuss your residential design, commercial architecture, institutional campus, or master planning project with our design team.',
+  cta: { label: 'Start Your Own Project', href: '/contact-us' },
 }

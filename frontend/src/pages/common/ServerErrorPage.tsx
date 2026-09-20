@@ -66,7 +66,7 @@ export const ServerErrorPage = ({ error, reset }: ServerErrorPageProps) => {
               Server Down or Unreachable
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.65 }}>
-              We are unable to connect to the WinVinaya server right now. This may be due to temporary network disruptions or backend service maintenance.
+              We are unable to connect to the Morphink server right now. This may be due to temporary network disruptions or backend service maintenance.
             </Typography>
           </Stack>
 

@@ -1,6 +1,6 @@
-# 🌐 WinVinaya Infosystems - Nginx Deployment & Routing Guide
+# 🌐 Morphink Architecture - Nginx Deployment & Routing Guide
 
-This directory contains the production-grade **Nginx configuration files** for deploying **WinVinaya Infosystems (`wviswebsite2.0`)** on any Linux VPS or server (Ubuntu / Debian / CentOS) without Docker.
+This directory contains the production-grade **Nginx configuration files** for deploying **Morphink Architecture (`morphink-website`)** on any Linux VPS or server (Ubuntu / Debian / CentOS) without Docker.
 
 ---
 
@@ -8,8 +8,8 @@ This directory contains the production-grade **Nginx configuration files** for d
 
 | File | Purpose |
 |---|---|
-| [`wvis.conf`](./wvis.conf) | **Full Production Configuration** (HTTP + HTTPS SSL, HTTP/2, Gzip, Security Headers, SPA Fallback, `/api/` Proxy, `/uploads/` Direct Serving) |
-| [`wvis-http-only.conf`](./wvis-http-only.conf) | **Starter Configuration** (Port 80 HTTP only — use during initial setup before obtaining SSL via Certbot) |
+| [`morphink.conf`](./morphink.conf) | **Full Production Configuration** (HTTP + HTTPS SSL, HTTP/2, Gzip, Security Headers, SPA Fallback, `/api/` Proxy, `/uploads/` Direct Serving) |
+| [`morphink-http-only.conf`](./morphink-http-only.conf) | **Starter Configuration** (Port 80 HTTP only — use during initial setup before obtaining SSL via Certbot) |
 
 ---
 
@@ -57,14 +57,14 @@ sudo npm install -g pm2
 
 ### Step 2: Clone & Prepare Project Directories
 
-Assuming you deploy to `/var/www/wvis`:
+Assuming you deploy to `/var/www/morphink`:
 ```bash
 # Create target directory
-sudo mkdir -p /var/www/wvis
-sudo chown -R $USER:$USER /var/www/wvis
+sudo mkdir -p /var/www/morphink
+sudo chown -R $USER:$USER /var/www/morphink
 
 # Clone your repository
-cd /var/www/wvis
+cd /var/www/morphink
 git clone <YOUR_GIT_REPO_URL> .
 ```
 
@@ -73,7 +73,7 @@ git clone <YOUR_GIT_REPO_URL> .
 ### Step 3: Build & Start Backend Service
 
 ```bash
-cd /var/www/wvis/backend
+cd /var/www/morphink/backend
 
 # 1. Install dependencies
 npm install
@@ -95,7 +95,7 @@ mkdir -p uploads
 chmod -R 775 uploads
 
 # 6. Start Backend using PM2
-pm2 start dist/index.js --name "wvis-backend"
+pm2 start dist/index.js --name "morphink-backend"
 pm2 save
 pm2 startup
 ```
@@ -105,7 +105,7 @@ pm2 startup
 ### Step 4: Build Frontend Production Bundle
 
 ```bash
-cd /var/www/wvis/frontend
+cd /var/www/morphink/frontend
 
 # 1. Install dependencies
 npm install
@@ -116,7 +116,7 @@ cp .env.example .env
 # 3. Build SPA static bundle
 npm run build
 ```
-This generates the optimized production build at `/var/www/wvis/frontend/dist`.
+This generates the optimized production build at `/var/www/morphink/frontend/dist`.
 
 ---
 
@@ -126,19 +126,19 @@ This generates the optimized production build at `/var/www/wvis/frontend/dist`.
 
 1. Copy the starter HTTP configuration:
    ```bash
-   sudo cp /var/www/wvis/nginx/wvis-http-only.conf /etc/nginx/sites-available/wvis.conf
+   sudo cp /var/www/morphink/nginx/morphink-http-only.conf /etc/nginx/sites-available/morphink.conf
    ```
 
 2. Edit server domain name:
    ```bash
-   sudo nano /etc/nginx/sites-available/wvis.conf
+   sudo nano /etc/nginx/sites-available/morphink.conf
    # Check server_name is set to:
-   # server_name winvinaya.com www.winvinaya.com;
+   # server_name Morphink.com www.Morphink.com;
    ```
 
 3. Enable the site and test configuration:
    ```bash
-   sudo ln -sf /etc/nginx/sites-available/wvis.conf /etc/nginx/sites-enabled/
+   sudo ln -sf /etc/nginx/sites-available/morphink.conf /etc/nginx/sites-enabled/
    # Remove default Nginx site if present
    sudo rm -f /etc/nginx/sites-enabled/default
 
@@ -152,30 +152,30 @@ This generates the optimized production build at `/var/www/wvis/frontend/dist`.
 4. Obtain Free SSL with Certbot:
    ```bash
    sudo apt install -y certbot python3-certbot-nginx
-   sudo certbot --nginx -d winvinaya.com -d www.winvinaya.com
+   sudo certbot --nginx -d Morphink.com -d www.Morphink.com
    ```
    *Certbot will automatically configure HTTPS, renew certificates, and redirect HTTP to HTTPS.*
 
 ---
 
-#### Option B: Manual Full SSL Setup (`wvis.conf`)
+#### Option B: Manual Full SSL Setup (`morphink.conf`)
 
 If you already have your SSL certificate keys (e.g. from Cloudflare or custom CA):
 1. Copy the full configuration:
    ```bash
-   sudo cp /var/www/wvis/nginx/wvis.conf /etc/nginx/sites-available/wvis.conf
+   sudo cp /var/www/morphink/nginx/morphink.conf /etc/nginx/sites-available/morphink.conf
    ```
 
-2. Open `/etc/nginx/sites-available/wvis.conf` and verify:
-   - `server_name winvinaya.com www.winvinaya.com;`
-   - `ssl_certificate /etc/letsencrypt/live/winvinaya.com/fullchain.pem;`
-   - `ssl_certificate_key /etc/letsencrypt/live/winvinaya.com/privkey.pem;`
-   - `root /var/www/wvis/frontend/dist;`
-   - `alias /var/www/wvis/backend/uploads/;`
+2. Open `/etc/nginx/sites-available/morphink.conf` and verify:
+   - `server_name Morphink.com www.Morphink.com;`
+   - `ssl_certificate /etc/letsencrypt/live/Morphink.com/fullchain.pem;`
+   - `ssl_certificate_key /etc/letsencrypt/live/Morphink.com/privkey.pem;`
+   - `root /var/www/morphink/frontend/dist;`
+   - `alias /var/www/morphink/backend/uploads/;`
 
 3. Enable & Restart:
    ```bash
-   sudo ln -sf /etc/nginx/sites-available/wvis.conf /etc/nginx/sites-enabled/
+   sudo ln -sf /etc/nginx/sites-available/morphink.conf /etc/nginx/sites-enabled/
    sudo nginx -t
    sudo systemctl restart nginx
    ```
@@ -189,11 +189,11 @@ If you already have your SSL certificate keys (e.g. from Cloudflare or custom CA
 | **Test Nginx Syntax** | `sudo nginx -t` |
 | **Reload Nginx (Zero Downtime)** | `sudo systemctl reload nginx` |
 | **Restart Nginx** | `sudo systemctl restart nginx` |
-| **View Nginx Access Logs** | `sudo tail -f /var/log/nginx/wvis_access.log` |
-| **View Nginx Error Logs** | `sudo tail -f /var/log/nginx/wvis_error.log` |
+| **View Nginx Access Logs** | `sudo tail -f /var/log/nginx/morphink_access.log` |
+| **View Nginx Error Logs** | `sudo tail -f /var/log/nginx/morphink_error.log` |
 | **Check Backend Status** | `pm2 status` |
-| **Check Backend Logs** | `pm2 logs wvis-backend` |
-| **Restart Backend** | `pm2 restart wvis-backend` |
+| **Check Backend Logs** | `pm2 logs morphink-backend` |
+| **Restart Backend** | `pm2 restart morphink-backend` |
 
 ---
 
@@ -208,6 +208,6 @@ If you already have your SSL certificate keys (e.g. from Cloudflare or custom CA
 - **Issue: 403 Forbidden on `/uploads/*`**
   - *Fix*: Check file permissions on the backend uploads directory:
     ```bash
-    sudo chown -R www-data:www-data /var/www/wvis/backend/uploads
-    sudo chmod -R 775 /var/www/wvis/backend/uploads
+    sudo chown -R www-data:www-data /var/www/morphink/backend/uploads
+    sudo chmod -R 775 /var/www/morphink/backend/uploads
     ```

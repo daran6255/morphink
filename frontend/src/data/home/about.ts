@@ -8,9 +8,9 @@ export interface AboutTeaserContent {
 
 export const aboutTeaser: AboutTeaserContent = {
   eyebrow: 'Who We Are',
-  heading: "Inclusion Isn't Our Add-On. It's Our Origin Story.",
-  body: "WinVinaya InfoSystems was founded on a simple belief: technology should work for everyone, and the people best equipped to build that technology are the ones who understand accessibility firsthand. We're an IT consulting and training company specializing in accessibility, AI, and inclusive digital solutions — proudly connected to WinVinaya Foundation, our social-impact arm that has trained and placed persons with disabilities in industry roles for years.",
+  heading: 'Architecture That Shapes the Future.',
+  body: "Morphink Architecture was founded on a belief that great spaces are born from the intersection of bold design and purposeful engineering. We are an architecture and building design studio specializing in parametric design, sustainable construction, and intelligent spatial planning — creating structures that are as beautiful as they are functional.",
   highlight:
-    "That connection isn't a footnote. It's why our accessibility work holds up under real assistive-technology use, not just automated scans.",
+    "Every project we take on reflects our commitment to precision, innovation, and spaces that genuinely enhance the way people live and work.",
   cta: { label: 'Read Our Story', href: '/about/our-story' },
 }

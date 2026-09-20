@@ -7,5 +7,5 @@ export interface TeamHeroContent {
 export const teamHero: TeamHeroContent = {
   eyebrow: 'Our Team',
   heading: 'The People Behind the Work',
-  body: "WinVinaya's team spans accessibility testing, software engineering, business intelligence, and training — brought together by a shared belief that inclusive technology is built by people who understand the stakes firsthand. Below are some of the people leading that work.",
+  body: "Morphink Architecture's team spans architectural design, structural engineering, interior spatial planning, and project management — brought together by a shared commitment to creating buildings that are both beautiful and purposeful. Below are some of the people leading our studio.",
 }

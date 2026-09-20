@@ -3,8 +3,8 @@ import type { PaletteMode, PaletteOptions } from '@mui/material/styles'
 declare module '@mui/material/styles' {
   interface Palette {
     accent: Palette['primary']
-    /** Fixed dark brand surface used where a section is deliberately kept
-     * dark regardless of the active light/dark mode (e.g. the footer). */
+    /** Fixed dark architectural surface — always dark regardless of light/dark mode (e.g. footer,
+     * hero overlays, dark feature sections). Mirrors the deep charcoal of the Morphink wordmark. */
     inverse: Palette['primary']
   }
   interface PaletteOptions {
@@ -13,78 +13,98 @@ declare module '@mui/material/styles' {
   }
 }
 
-// Fixed dark brand surface, identical in both modes by design.
+// ─── Morphink Brand Tokens ────────────────────────────────────────────────────
+// Logo analysis:
+//   • Bold geometric "M" in vivid lime-green (#8DC21F) with 3D shading gradient
+//   • "MORPHINK ARCHITECTS" wordmark in clean dark architectural charcoal (#1C2229)
+//   • Secondary shading on the "M" uses a deeper forest green (#5A7F14)
+//   • The mark evokes precision, structure, and growth — hallmarks of architecture
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Fixed dark brand surface — used for footer, hero dark overlays, and inverse sections.
+// Matches the deep architectural charcoal of the Morphink wordmark.
 const inverseSurface = {
-  main: '#241A10',
-  light: '#3A2A1A',
-  dark: '#160F09',
-  contrastText: '#F5EEE4',
+  main: '#1C2229',
+  light: '#2A3340',
+  dark: '#10151B',
+  contrastText: '#F4F6F0',
 }
 
-// Palette derived from the WinVinaya Infosystems logo: flame orange,
-// leaf green, earthy brown, and the wordmark's warm gray.
+// ─── Light Mode ──────────────────────────────────────────────────────────────
+// Primary = Morphink Lime-Green anchored for WCAG AA on white/light backgrounds.
+// Raw brand green (#8DC21F) passes large-text AA but fails small-text AA on white —
+// so `main` is darkened to #5C8000 for button fills and text-on-white, while
+// `light` keeps the vivid logo lime for decorative surfaces, hovers, and dark-mode.
 const lightPalette: PaletteOptions = {
   mode: 'light',
-  // `main` shades are tuned to clear WCAG AA (4.5:1) as white-on-solid
-  // buttons and as text-on-white/cream — the vivid logo tones (flame
-  // orange, leaf green) read beautifully but fail contrast at that size,
-  // so they're kept as `light` for decorative use (washes, dark-surface
-  // accents, large graphics) rather than for text or button fills.
   primary: {
-    main: '#A85D0A',
-    light: '#F7941D',
-    dark: '#8F4E08',
+    main: '#5C8000',     // WCAG AA on white: 4.6:1 — safe for button fills and body text
+    light: '#8DC21F',   // Vivid Morphink lime-green for large elements, decorative washes
+    dark: '#3D5500',    // Deep forest green for pressed states, borders, heavy text
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#7A4522',
-    light: '#96602F',
-    dark: '#5C3216',
+    main: '#3A4A5C',     // Steel-blue charcoal — cool, architectural, professional
+    light: '#5B6E84',
+    dark: '#253040',
     contrastText: '#FFFFFF',
   },
   accent: {
-    main: '#548021',
-    light: '#8DC63F',
-    dark: '#3F6614',
+    main: '#1C7A5C',     // Deep teal-green accent — complements the primary lime
+    light: '#2BAF84',
+    dark: '#115A42',
     contrastText: '#FFFFFF',
   },
-  success: { main: '#33681A', contrastText: '#FFFFFF' },
-  warning: { main: '#7A6000', contrastText: '#FFFFFF' },
-  error: { main: '#C81E1E', contrastText: '#FFFFFF' },
-  info: { main: '#336E94', contrastText: '#FFFFFF' },
-  background: { default: '#FFFBF5', paper: '#FFFFFF' },
-  text: { primary: '#231F1C', secondary: '#58595B', disabled: '#A7A8AA' },
-  divider: '#E9E3D9',
+  success: { main: '#2E7D32', contrastText: '#FFFFFF' },
+  warning: { main: '#8B6914', contrastText: '#FFFFFF' },
+  error: { main: '#C62828', contrastText: '#FFFFFF' },
+  info: { main: '#1565C0', contrastText: '#FFFFFF' },
+  // Warm architectural whites — concrete white, off-white paper
+  background: { default: '#F8FAF4', paper: '#FFFFFF' },
+  text: {
+    primary: '#1C2229',   // Deep charcoal — matches the Morphink wordmark
+    secondary: '#4A5A6B', // Cool medium gray — readable secondary copy
+    disabled: '#A0AAAA',
+  },
+  divider: '#D9E4C8',   // Soft sage-green divider — echoes the primary palette
   inverse: inverseSurface,
 }
 
+// ─── Dark Mode ───────────────────────────────────────────────────────────────
+// In dark mode, the vivid #8DC21F lime-green gets to shine as primary —
+// it passes WCAG AA as text/icon on dark backgrounds (e.g. #1C2229 → 6.5:1).
 const darkPalette: PaletteOptions = {
   mode: 'dark',
   primary: {
-    main: '#F7941D',
-    light: '#FFB84D',
-    dark: '#D9720A',
-    contrastText: '#1A1512',
+    main: '#8DC21F',    // Full vivid Morphink lime-green — legible on dark bg
+    light: '#A8D94B',   // Lighter lime for hover states
+    dark: '#5C8000',    // Anchored darker for active/pressed states
+    contrastText: '#0F1A06',  // Very dark green for text on green buttons
   },
   secondary: {
-    main: '#C99A6B',
-    light: '#DCB68C',
-    dark: '#96602F',
-    contrastText: '#1A1512',
+    main: '#7B98B4',    // Lighter steel-blue for dark mode readability
+    light: '#9CB6CE',
+    dark: '#5B6E84',
+    contrastText: '#0F1A2A',
   },
   accent: {
-    main: '#8DC63F',
-    light: '#A9D66C',
-    dark: '#6FA82E',
-    contrastText: '#1A1512',
+    main: '#2BAF84',    // Brighter teal in dark mode
+    light: '#4DC99E',
+    dark: '#1C7A5C',
+    contrastText: '#022E1F',
   },
-  success: { main: '#8DC63F', contrastText: '#1A1512' },
-  warning: { main: '#F59E0B', contrastText: '#3A1D03' },
-  error: { main: '#F87171', contrastText: '#450A0A' },
-  info: { main: '#7DB8DC', contrastText: '#1A1512' },
-  background: { default: '#1A1512', paper: '#241D18' },
-  text: { primary: '#F5F1EC', secondary: '#C9C4BC', disabled: '#8A8580' },
-  divider: 'rgba(233, 227, 217, 0.12)',
+  success: { main: '#66BB6A', contrastText: '#0A3B0C' },
+  warning: { main: '#FFA726', contrastText: '#3A2200' },
+  error: { main: '#EF5350', contrastText: '#3B0A0A' },
+  info: { main: '#42A5F5', contrastText: '#0A2750' },
+  // Deep architectural dark backgrounds — matte charcoal, not blue-black
+  background: { default: '#141A1F', paper: '#1C2229' },
+  text: {
+    primary: '#EDF2E8',   // Warm off-white — avoids harsh #FFFFFF glare
+    secondary: '#A0B4A0', // Muted sage-green for secondary text in dark mode
+    disabled: '#556055',
+  },
+  divider: 'rgba(141, 194, 31, 0.12)',  // Subtle lime-tinted divider
   inverse: inverseSurface,
 }
 

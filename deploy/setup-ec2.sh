@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# WinVinaya Infosystems (wviswebsite2.0) - AWS EC2 Initial Server Setup Script
+# Morphink Architecture (morphink-website) - AWS EC2 Initial Server Setup Script
 # Target OS: Ubuntu 22.04 LTS / Ubuntu 24.04 LTS
 # Usage: Run with sudo or as root on a fresh AWS EC2 instance
 #   curl -fsSL https://raw.githubusercontent.com/.../deploy/setup-ec2.sh | sudo bash
@@ -18,7 +18,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}   🚀 WinVinaya Infosystems - AWS EC2 Server Setup Script     ${NC}"
+echo -e "${CYAN}   🚀 Morphink Architecture - AWS EC2 Server Setup Script     ${NC}"
 echo -e "${CYAN}================================================================${NC}"
 
 # 1. Check Root Privileges
@@ -66,9 +66,9 @@ apt-get install -y postgresql postgresql-contrib
 systemctl enable postgresql
 systemctl start postgresql
 
-DB_NAME="wvis_db"
-DB_USER="wvis_user"
-DB_PASS="WinVinayaDB@2026!"
+DB_NAME="morphink_db"
+DB_USER="morphink_user"
+DB_PASS="MorphinkDB@2026!"
 
 echo -e "${CYAN}🔧 Configuring PostgreSQL database '${DB_NAME}' and user '${DB_USER}'...${NC}"
 sudo -u postgres psql << EOF
@@ -99,11 +99,11 @@ systemctl start nginx
 echo -e "${GREEN}✅ Nginx and Certbot installed.${NC}"
 
 # 7. Configure Target Deployment Directory
-echo -e "\n${BLUE}📁 Step 6/7: Setting up /var/www/wvis directory...${NC}"
-mkdir -p /var/www/wvis
-chown -R ${CURRENT_USER}:${CURRENT_USER} /var/www/wvis
-chmod -R 755 /var/www/wvis
-echo -e "${GREEN}✅ Target deployment directory ready at /var/www/wvis.${NC}"
+echo -e "\n${BLUE}📁 Step 6/7: Setting up /var/www/morphink directory...${NC}"
+mkdir -p /var/www/morphink
+chown -R ${CURRENT_USER}:${CURRENT_USER} /var/www/morphink
+chmod -R 755 /var/www/morphink
+echo -e "${GREEN}✅ Target deployment directory ready at /var/www/morphink.${NC}"
 
 # 8. Configure UFW Firewall
 echo -e "\n${BLUE}🛡️ Step 7/7: Configuring Firewall (UFW)...${NC}"
@@ -117,6 +117,6 @@ echo -e "\n${GREEN}=============================================================
 echo -e "${GREEN}   🎉 Base Server Setup Completed Successfully!                ${NC}"
 echo -e "${GREEN}================================================================${NC}"
 echo -e "${YELLOW}Next Steps:${NC}"
-echo -e "1. Clone or copy your repository to ${CYAN}/var/www/wvis${NC}"
+echo -e "1. Clone or copy your repository to ${CYAN}/var/www/morphink${NC}"
 echo -e "2. Run ${CYAN}bash deploy/deploy.sh${NC} to build & start frontend and backend."
 echo -e "3. Run ${CYAN}sudo bash deploy/setup-nginx-ssl.sh${NC} to bind your domain with SSL."

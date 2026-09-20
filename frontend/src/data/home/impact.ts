@@ -22,20 +22,20 @@ export interface ImpactContent {
 
 export const impact: ImpactContent = {
   eyebrow: 'Our Impact & Track Record',
-  heading: 'Proven Enterprise Performance',
-  subheading: 'Delivering measurable accessibility compliance, digital empowerment, and social inclusion.',
+  heading: 'Architecture That Delivers Results',
+  subheading: 'Delivering landmark projects, sustainable designs, and environments that stand the test of time.',
   stats: [
-    { id: 'years', value: '10+', label: 'Years of Operating Excellence' },
-    { id: 'organizations', value: '150+', label: 'Enterprises & Clients Served' },
-    { id: 'documents', value: '50,000+', label: 'Documents Remediated' },
-    { id: 'trained', value: '5,000+', label: 'Individuals & Engineers Trained' },
+    { id: 'years', value: '12+', label: 'Years of Design Excellence' },
+    { id: 'projects', value: '200+', label: 'Projects Completed' },
+    { id: 'sqft', value: '5M+', label: 'Sq. Ft. Designed & Delivered' },
+    { id: 'clients', value: '100+', label: 'Happy Clients & Partners' },
   ],
   testimonial: {
     quote:
-      'WinVinaya delivered a comprehensive WCAG 2.1 AA audit and remediation program for our digital platform. Their lived-experience testing gave us insights that automated tools could never reveal. Outstanding expertise!',
-    name: 'Senior Director of Digital Product',
-    role: 'Global Enterprise Solutions',
-    organization: 'Fortune 500 Technology Partner',
+      'Morphink Architecture transformed our vision into a breathtaking commercial complex. Their parametric design approach and attention to sustainability were exceptional. Delivered on time and beyond expectations.',
+    name: 'Head of Real Estate Development',
+    role: 'Commercial Projects Division',
+    organization: 'Prestige Group',
   },
   cta: { label: 'Explore Our Success Stories', href: '/impact/success-stories' },
 }

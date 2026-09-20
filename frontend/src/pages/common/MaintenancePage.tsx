@@ -56,7 +56,7 @@ export const MaintenancePage = () => {
               We'll Be Back Soon
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.65 }}>
-              WinVinaya Infosystems is currently undergoing scheduled system upgrades to bring you enhanced accessibility tools and performance.
+              Morphink Architecture is currently undergoing scheduled system upgrades to bring you enhanced performance and new features.
             </Typography>
           </Stack>
 
@@ -86,7 +86,7 @@ export const MaintenancePage = () => {
                 <Stack direction="row" spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
                   <EmailOutlinedIcon fontSize="small" sx={{ color: 'accent.main' }} />
                   <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    info@winvinaya.com
+                    info@morphink.com
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
