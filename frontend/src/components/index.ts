@@ -14,5 +14,7 @@ export * from './Stat'
 export * from './Table'
 export * from './Timeline'
 export * from './ThemeToggle'
+export * from './GradientWaves'
+export { default as GradientWaves } from './GradientWaves'
 export * from './admin'
 

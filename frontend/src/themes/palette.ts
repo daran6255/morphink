@@ -19,9 +19,9 @@ export const palette = {
   },
   light: {
     background: {
-      default: '#F7F7F3', // warm architectural paper
+      default: '#FFFFFF', // pure clean white
       paper: '#FFFFFF',
-      surface: '#EEEEE8',
+      surface: '#F8F9FA',
       elevated: '#FFFFFF',
     },
     text: {
