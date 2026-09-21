@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
-import { Button, GradientWaves } from '../../components'
+import { Button, GradientWaves, TypewriterText } from '../../components'
 import { heroContent } from '../../data'
 import { palette } from '../../themes/palette'
 
@@ -200,7 +200,9 @@ export const HeroSection = () => {
             })}
           >
             {heroContent.headline}{' '}
-            <HighlightText>{heroContent.headlineHighlight}</HighlightText>
+            <HighlightText>
+              <TypewriterText text={heroContent.headlineHighlight} startDelay={500} typingSpeed={55} />
+            </HighlightText>
           </Typography>
 
           {/* Subheadline Narrative */}
