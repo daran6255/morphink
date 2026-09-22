@@ -1,9 +1,10 @@
-import { styled, keyframes } from '@mui/material/styles'
+import { styled, keyframes, alpha } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import { Hero } from '@/components/ui/animated-hero'
 import { heroContent } from '../../data'
+import heroVideo from '@/assets/hero/Cinematic_architectural_walkth.mp4'
 
 const bounceCue = keyframes`
   0%, 100% { transform: translateY(0); opacity: 0.6; }
@@ -34,6 +35,37 @@ const HeroRoot = styled('section')(({ theme }) => ({
   },
 }))
 
+// Background video container
+const VideoBackground = styled(Box)({
+  position: 'absolute',
+  inset: 0,
+  zIndex: 0,
+  overflow: 'hidden',
+  pointerEvents: 'none',
+  '& video': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center',
+  },
+})
+
+// Curated overlay:
+// - Dark mode: keeps the exact deep ink gradient loved by the user
+// - Light mode: uses a subtle architectural framing vignette so the video stays vibrant without milky washout
+const VideoOverlay = styled(Box)(({ theme }) => {
+  const isDark = theme.palette.mode === 'dark'
+  return {
+    position: 'absolute',
+    inset: 0,
+    zIndex: 1,
+    pointerEvents: 'none',
+    background: isDark
+      ? `linear-gradient(180deg, ${alpha(theme.palette.background.default, 0.40)} 0%, ${alpha(theme.palette.background.default, 0.55)} 50%, ${alpha(theme.palette.background.default, 0.78)} 100%)`
+      : `linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.10) 25%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.75) 100%), radial-gradient(ellipse 75% 60% at 50% 50%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%)`,
+  }
+})
+
 const ScrollCue = styled(Box)(({ theme }) => ({
   position: 'absolute',
   left: '50%',
@@ -55,6 +87,23 @@ const ScrollCue = styled(Box)(({ theme }) => ({
 export const HeroSection = () => {
   return (
     <HeroRoot aria-labelledby="hero-heading">
+      {/* 1. Cinematic Architectural Walkthrough Background Video (Muted, Autoplay, Looping) */}
+      <VideoBackground aria-hidden="true">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+      </VideoBackground>
+
+      {/* 2. Legibility Overlay */}
+      <VideoOverlay aria-hidden="true" />
+
+      {/* 3. Foreground Hero Content */}
       <div className="relative z-10 w-full flex justify-center">
         <Hero
           headlinePrefix={heroContent.headlinePrefix}

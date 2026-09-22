@@ -98,12 +98,22 @@ function Hero({
       <div
         style={{
           width: "100%",
-          maxWidth: 980,
+          maxWidth: 960,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
           gap: theme.spacing(4),
+          ...(!isDark && {
+            backgroundColor: "rgba(255, 255, 255, 0.62)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderRadius: "28px",
+            border: "1px solid rgba(255, 255, 255, 0.85)",
+            boxShadow:
+              "0 20px 50px -12px rgba(26, 26, 46, 0.10), 0 1px 3px rgba(26, 26, 46, 0.05)",
+            padding: theme.spacing(5, 3.5),
+          }),
         }}
       >
         {/* Eyebrow Launch Badge using Button from @/components/Button */}
@@ -114,7 +124,9 @@ function Hero({
               size="sm"
               href={launchBadgeHref}
               onClick={onBadgeClick}
-              className="rounded-full px-5 py-2 text-xs tracking-wider uppercase font-semibold border border-border/50 shadow-sm"
+              className={`rounded-full px-5 py-2 text-xs tracking-wider uppercase font-semibold border shadow-sm ${
+                isDark ? "border-border/50" : "border-white/80 bg-white/85 text-foreground hover:bg-white"
+              }`}
               startIcon={
                 <span
                   style={{
@@ -178,7 +190,7 @@ function Hero({
                   style={{
                     color: isDark
                       ? theme.palette.primary.light
-                      : theme.palette.primary.main,
+                      : "#427308", // High-contrast architectural lime green for light theme (>4.5:1 WCAG AA)
                     fontFamily: typography.displayLg.fontFamily,
                     fontSize: typography.displayLg.fontSize,
                     lineHeight: typography.displayLg.lineHeight,
@@ -223,7 +235,7 @@ function Hero({
                 fontWeight: typography.bodyLg.fontWeight,
                 lineHeight: typography.bodyLg.lineHeight,
                 letterSpacing: typography.bodyLg.letterSpacing,
-                color: theme.palette.text.secondary,
+                color: isDark ? theme.palette.text.secondary : "#2D2D44",
                 maxWidth: typography.bodyLg.maxWidth,
                 margin: 0,
                 textAlign: "center",
@@ -267,7 +279,9 @@ function Hero({
               href={secondaryCtaHref}
               onClick={onSecondaryClick}
               startIcon={<PhoneCall className="w-4 h-4 mr-1 text-primary" />}
-              className="font-semibold px-6"
+              className={`font-semibold px-6 ${
+                isDark ? "" : "bg-white/90 hover:bg-white border-white/80 shadow-sm"
+              }`}
             >
               {secondaryCtaText}
             </Button>
