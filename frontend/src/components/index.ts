@@ -15,7 +15,5 @@ export * from './Table'
 export * from './Timeline'
 export * from './ThemeToggle'
 export * from './TypewriterText'
-export * from './GradientWaves'
-export { default as GradientWaves } from './GradientWaves'
 export * from './admin'
 

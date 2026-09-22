@@ -19,6 +19,8 @@ export interface HeroContent {
   eyebrow: string
   headline: string
   headlineHighlight: string
+  headlinePrefix: string
+  animatedTitles: string[]
   subheadline: string
   primaryCta: HeroCta
   secondaryCta: HeroCta
@@ -32,6 +34,14 @@ export const heroContent: HeroContent = {
   eyebrow: 'Karur • Hosur • South India',
   headline: 'Where Dreams Are Visualized',
   headlineHighlight: '& Built With Precision',
+  headlinePrefix: 'Where Dreams Are',
+  animatedTitles: [
+    'Precisely Built',
+    'Sustainably Crafted',
+    'Turnkey Executed',
+    'Timelessly Designed',
+    'Masterfully Shaped',
+  ],
   subheadline:
     'From ancient mythology Morpheus (God of Dreams) to Ink (the tool to visualize): Morphink Architects bridges contemporary design with sustainable earth architecture. Crafting iconic residential, commercial, and landscape spaces with our signature Midas touch.',
   primaryCta: { label: 'Explore Landmark Projects', href: '/impact/success-stories' },
