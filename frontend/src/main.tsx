@@ -5,6 +5,7 @@ import { RouterProvider } from '@tanstack/react-router'
 import { store } from './stores'
 import { AppThemeProvider } from './themes'
 import { router } from './routes'
+import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

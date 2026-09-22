@@ -1,6 +1,11 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { generateSitemapAndRobots } from './scripts/generate-seo.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 function autoSeoPlugin(): Plugin {
   return {
@@ -17,7 +22,12 @@ function autoSeoPlugin(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), autoSeoPlugin()],
+  plugins: [react(), tailwindcss(), autoSeoPlugin()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   server: {
     port: 5173,
     proxy: {
