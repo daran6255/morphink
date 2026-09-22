@@ -44,12 +44,12 @@ export const AboutTeaserSection: React.FC = () => {
     },
   }
 
-  const cardVariants = {
+  const cardVariants: Record<string, any> = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   }
 
@@ -143,7 +143,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: { xs: 'span 12', lg: 'span 8' },
@@ -384,7 +384,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: { xs: 'span 12', lg: 'span 4' },
@@ -493,7 +493,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: { xs: 'span 12', md: 'span 6', lg: 'span 4' },
@@ -577,7 +577,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: { xs: 'span 12', md: 'span 6', lg: 'span 4' },
@@ -686,7 +686,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: { xs: 'span 12', lg: 'span 4' },
@@ -799,7 +799,7 @@ export const AboutTeaserSection: React.FC = () => {
           {/* ============================================================ */}
           <Box
             component={motion.div}
-            variants={cardVariants}
+            {...({ variants: cardVariants } as any)}
             sx={{
               ...cardStyle,
               gridColumn: 'span 12',

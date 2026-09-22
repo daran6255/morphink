@@ -2,6 +2,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import CircularProgress from "@mui/material/CircularProgress"
+import type { SxProps, Theme } from "@mui/material/styles"
 
 import { cn } from "@/lib/utils"
 
@@ -50,7 +51,9 @@ export interface ButtonProps
   rel?: string
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
-  sx?: Record<string, any>
+  sx?: SxProps<Theme>
+  component?: any
+  fullWidth?: boolean
 }
 
 const toneStyles: Record<ButtonTone, { contained?: string; outlined?: string }> = {
@@ -94,6 +97,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       sx,
       style,
+      component,
+      fullWidth = false,
       ...props
     },
     ref,
@@ -110,6 +115,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const computedClassName = cn(
       buttonVariants({ variant, size }),
       toneClass,
+      fullWidth && "w-full",
       className,
     )
 
@@ -145,7 +151,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       )
     }
 
-    if (href) {
+    if (href || component === "a") {
       return (
         <a
           href={href}
