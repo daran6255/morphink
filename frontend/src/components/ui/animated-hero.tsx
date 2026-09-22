@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { useTheme } from "@mui/material/styles";
-import { typography, tokens } from "@/themes";
+import { tokens, FONT_HEADING, FONT_SUBTITLE, FONT_BODY } from "@/themes";
 import { Button } from "@/components/Button";
 
 export interface HeroProps {
@@ -98,21 +98,21 @@ function Hero({
       <div
         style={{
           width: "100%",
-          maxWidth: 960,
+          maxWidth: 1120,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
           gap: theme.spacing(4),
           ...(!isDark && {
-            backgroundColor: "rgba(255, 255, 255, 0.62)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            borderRadius: "28px",
-            border: "1px solid rgba(255, 255, 255, 0.85)",
+            backgroundColor: "rgba(255, 255, 255, 0.72)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            borderRadius: "32px",
+            border: "1px solid rgba(255, 255, 255, 0.90)",
             boxShadow:
-              "0 20px 50px -12px rgba(26, 26, 46, 0.10), 0 1px 3px rgba(26, 26, 46, 0.05)",
-            padding: theme.spacing(5, 3.5),
+              "0 24px 60px -12px rgba(26, 26, 46, 0.12), 0 1px 3px rgba(26, 26, 46, 0.06)",
+            padding: theme.spacing(6, 4),
           }),
         }}
       >
@@ -124,47 +124,79 @@ function Hero({
               size="sm"
               href={launchBadgeHref}
               onClick={onBadgeClick}
-              className={`rounded-full px-5 py-2 text-xs tracking-wider uppercase font-semibold border shadow-sm ${
-                isDark ? "border-border/50" : "border-white/80 bg-white/85 text-foreground hover:bg-white"
+              className={`rounded-full px-5 py-2.5 text-xs sm:text-sm tracking-wider uppercase font-semibold border shadow-md transition-all duration-300 hover:scale-[1.02] ${
+                isDark
+                  ? "border-primary/40 bg-[#1A1A2E]/80 backdrop-blur-md text-white hover:border-primary/70 hover:bg-[#1A1A2E]"
+                  : "border-white/90 bg-white/90 backdrop-blur-md text-slate-800 hover:bg-white"
               }`}
               startIcon={
                 <span
                   style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: tokens.radius.circle,
-                    backgroundColor: theme.palette.primary.main,
-                    display: "inline-block",
+                    position: "relative",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 10,
+                    height: 10,
+                    marginRight: 4,
                   }}
-                />
+                >
+                  <span
+                    style={{
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: tokens.radius.circle,
+                      backgroundColor: theme.palette.primary.main,
+                      opacity: 0.75,
+                      animation: "ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite",
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: "relative",
+                      width: 8,
+                      height: 8,
+                      borderRadius: tokens.radius.circle,
+                      backgroundColor: theme.palette.primary.main,
+                      boxShadow: "0 0 8px rgba(141, 194, 31, 0.8)",
+                    }}
+                  />
+                </span>
               }
-              endIcon={<MoveRight className="w-3.5 h-3.5 text-primary" />}
+              endIcon={<MoveRight className="w-4 h-4 text-primary transition-transform group-hover:translate-x-1" />}
             >
-              {launchBadgeText}
+              <span style={{ fontFamily: FONT_SUBTITLE, letterSpacing: "0.08em" }}>
+                {launchBadgeText}
+              </span>
             </Button>
           </div>
         )}
 
-        {/* Dynamic Heading with Animated Titles from Theme Typography */}
+        {/* Dynamic Heading with Animated Titles — Iconic Morphink Architectural Typography */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            gap: theme.spacing(1.5),
+            gap: theme.spacing(1),
           }}
         >
           <h1
             style={{
-              fontFamily: typography.displayLg.fontFamily,
-              fontSize: typography.displayLg.fontSize,
-              lineHeight: typography.displayLg.lineHeight,
-              letterSpacing: typography.displayLg.letterSpacing,
-              textTransform: typography.displayLg.textTransform,
-              color: theme.palette.text.primary,
+              fontFamily: FONT_HEADING,
+              fontSize: "clamp(2.75rem, 4.5vw, 4.35rem)",
+              fontWeight: 400,
+              lineHeight: 1.1,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              color: isDark ? "#FFFFFF" : "#1A1A2E",
+              textShadow: isDark
+                ? "0 2px 14px rgba(0, 0, 0, 0.8), 0 4px 28px rgba(0, 0, 0, 0.5)"
+                : "0 1px 2px rgba(255, 255, 255, 0.8)",
               margin: 0,
-              maxWidth: 920,
+              maxWidth: 980,
               textAlign: "center",
               display: "flex",
               flexDirection: "column",
@@ -188,21 +220,23 @@ function Hero({
                 <motion.span
                   key={`${titleNumber}-${currentTitle}`}
                   style={{
-                    color: isDark
-                      ? theme.palette.primary.light
-                      : "#427308", // High-contrast architectural lime green for light theme (>4.5:1 WCAG AA)
-                    fontFamily: typography.displayLg.fontFamily,
-                    fontSize: typography.displayLg.fontSize,
-                    lineHeight: typography.displayLg.lineHeight,
-                    letterSpacing: typography.displayLg.letterSpacing,
-                    textTransform: typography.displayLg.textTransform,
+                    fontFamily: FONT_HEADING,
+                    fontSize: "clamp(2.75rem, 4.5vw, 4.35rem)",
+                    fontWeight: 400,
+                    lineHeight: 1.1,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
                     display: "inline-block",
                     textAlign: "center",
+                    color: isDark ? "#A3E635" : "#4D7C0F",
+                    textShadow: isDark
+                      ? "0 0 24px rgba(163, 230, 53, 0.45), 0 2px 10px rgba(0, 0, 0, 0.8)"
+                      : "0 1px 2px rgba(255, 255, 255, 0.6)",
                   }}
                   initial={
                     shouldReduceMotion
                       ? { opacity: 0 }
-                      : { opacity: 0, y: 35 }
+                      : { opacity: 0, y: 30 }
                   }
                   animate={
                     shouldReduceMotion
@@ -212,12 +246,12 @@ function Hero({
                   exit={
                     shouldReduceMotion
                       ? { opacity: 0 }
-                      : { opacity: 0, y: -35 }
+                      : { opacity: 0, y: -30 }
                   }
                   transition={
                     shouldReduceMotion
-                      ? { duration: 0.25 }
-                      : { type: "spring", stiffness: 75, damping: 14 }
+                      ? { duration: 0.22 }
+                      : { type: "spring", stiffness: 90, damping: 15 }
                   }
                 >
                   {currentTitle}
@@ -226,19 +260,21 @@ function Hero({
             </span>
           </h1>
 
-          {/* Subheadline Narrative from Theme Typography */}
+          {/* Subheadline Narrative — Clean, Elegant, High-Legibility */}
           {description && (
             <p
               style={{
-                fontFamily: typography.bodyLg.fontFamily,
-                fontSize: typography.bodyLg.fontSize,
-                fontWeight: typography.bodyLg.fontWeight,
-                lineHeight: typography.bodyLg.lineHeight,
-                letterSpacing: typography.bodyLg.letterSpacing,
-                color: isDark ? theme.palette.text.secondary : "#2D2D44",
-                maxWidth: typography.bodyLg.maxWidth,
-                margin: 0,
+                fontFamily: FONT_BODY,
+                fontSize: "clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem)",
+                fontWeight: 400,
+                lineHeight: 1.7,
+                letterSpacing: "0.01em",
+                color: isDark ? "rgba(255, 255, 255, 0.88)" : "#334155",
+                textShadow: isDark ? "0 2px 10px rgba(0, 0, 0, 0.8)" : "none",
+                maxWidth: 780,
+                margin: "0 auto",
                 textAlign: "center",
+                paddingTop: theme.spacing(1),
               }}
             >
               {description}
@@ -251,10 +287,10 @@ function Hero({
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: theme.spacing(2),
+            gap: theme.spacing(2.5),
             justifyContent: "center",
             alignItems: "center",
-            paddingTop: theme.spacing(1),
+            paddingTop: theme.spacing(1.5),
           }}
         >
           {primaryCtaText && (
@@ -264,8 +300,12 @@ function Hero({
               tone="primary"
               href={primaryCtaHref}
               onClick={onPrimaryClick}
-              endIcon={<MoveRight className="w-4 h-4 ml-1" />}
-              className="font-bold px-8 shadow-md"
+              endIcon={<MoveRight className="w-5 h-5 ml-1.5" />}
+              className="font-bold text-base sm:text-lg px-8 py-4 h-auto rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_30px_-4px_rgba(141,194,31,0.55)]"
+              style={{
+                background: "linear-gradient(135deg, #9BD326 0%, #8DC21F 100%)",
+                color: "#1A1A2E",
+              }}
             >
               {primaryCtaText}
             </Button>
@@ -278,9 +318,11 @@ function Hero({
               tone="secondary"
               href={secondaryCtaHref}
               onClick={onSecondaryClick}
-              startIcon={<PhoneCall className="w-4 h-4 mr-1 text-primary" />}
-              className={`font-semibold px-6 ${
-                isDark ? "" : "bg-white/90 hover:bg-white border-white/80 shadow-sm"
+              startIcon={<PhoneCall className="w-5 h-5 mr-1.5 text-primary" />}
+              className={`font-semibold text-base sm:text-lg px-7 py-4 h-auto rounded-xl border-2 transition-all duration-300 hover:scale-[1.03] ${
+                isDark
+                  ? "bg-[#1A1A2E]/70 hover:bg-[#1A1A2E] border-white/20 hover:border-primary/60 text-white backdrop-blur-md shadow-md"
+                  : "bg-white/95 hover:bg-white border-slate-300 hover:border-primary text-slate-800 shadow-md"
               }`}
             >
               {secondaryCtaText}
@@ -293,3 +335,4 @@ function Hero({
 }
 
 export { Hero };
+

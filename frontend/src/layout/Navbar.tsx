@@ -31,21 +31,21 @@ const HeaderRoot = styled('header', {
   top: 0,
   zIndex: tokens.zIndex.sticky + 10,
   backgroundColor: elevated
-    ? alpha(theme.palette.background.paper, 0.88)
-    : alpha(theme.palette.background.paper, 0.96),
-  backdropFilter: 'blur(16px)',
-  WebkitBackdropFilter: 'blur(16px)',
+    ? alpha(theme.palette.background.paper, theme.palette.mode === 'dark' ? 0.90 : 0.94)
+    : 'transparent',
+  backdropFilter: elevated ? 'blur(16px)' : 'none',
+  WebkitBackdropFilter: elevated ? 'blur(16px)' : 'none',
   borderBottom: `${tokens.borderWidth.thin} solid ${
     elevated
-      ? alpha(theme.palette.accent?.main || palette.brand.lime, 0.3)
-      : alpha(theme.palette.divider, 0.6)
+      ? alpha(theme.palette.divider, 0.6)
+      : 'transparent'
   }`,
   boxShadow: elevated
     ? theme.palette.mode === 'dark'
       ? tokens.dark.shadow.md
       : tokens.shadow.md
     : 'none',
-  transition: `background-color ${tokens.transition.slow}, border-color ${tokens.transition.slow}, box-shadow ${tokens.transition.slow}`,
+  transition: `background-color ${tokens.transition.base}, border-color ${tokens.transition.base}, box-shadow ${tokens.transition.base}, backdrop-filter ${tokens.transition.base}`,
 }))
 
 const Bar = styled(Box)(({ theme }) => ({
@@ -73,17 +73,22 @@ const LogoLink = styled('a')({
 const NavLink = styled('a')(({ theme }) => ({
   color: theme.palette.text.primary,
   textDecoration: 'none',
-  fontFamily: typography.subtitle2.fontFamily,
-  fontWeight: typography.subtitle2.fontWeight,
-  fontSize: typography.subtitle2.fontSize,
-  letterSpacing: typography.subtitle2.letterSpacing,
-  padding: theme.spacing(1, 1.5),
+  fontFamily: typography.subtitle1.fontFamily,
+  fontWeight: 600,
+  fontSize: '1.0625rem',
+  letterSpacing: '0.015em',
+  padding: theme.spacing(1, 1.75),
   borderRadius: tokens.radius.md,
   position: 'relative',
-  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
+  textShadow:
+    theme.palette.mode === 'dark'
+      ? '0 1px 4px rgba(0, 0, 0, 0.55)'
+      : '0 1px 3px rgba(255, 255, 255, 0.75)',
+  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}, transform ${tokens.transition.fast}`,
   '&:hover': {
     color: palette.brand.lime,
-    backgroundColor: alpha(palette.brand.lime, 0.08),
+    backgroundColor: alpha(palette.brand.lime, 0.12),
+    transform: 'translateY(-1px)',
   },
   '&:focus-visible': {
     outline: `${tokens.borderWidth.medium} solid ${palette.brand.lime}`,
@@ -97,27 +102,32 @@ const NavTrigger = styled('button', {
   display: 'inline-flex',
   alignItems: 'center',
   gap: 6,
-  background: open ? alpha(palette.brand.lime, 0.08) : 'none',
+  background: open ? alpha(palette.brand.lime, 0.12) : 'none',
   border: 'none',
   borderRadius: tokens.radius.md,
   cursor: 'pointer',
   color: open ? palette.brand.lime : theme.palette.text.primary,
-  fontFamily: typography.subtitle2.fontFamily,
-  fontWeight: typography.subtitle2.fontWeight,
-  fontSize: typography.subtitle2.fontSize,
-  letterSpacing: typography.subtitle2.letterSpacing,
-  padding: theme.spacing(1, 1.5),
-  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
+  fontFamily: typography.subtitle1.fontFamily,
+  fontWeight: 600,
+  fontSize: '1.0625rem',
+  letterSpacing: '0.015em',
+  padding: theme.spacing(1, 1.75),
+  textShadow:
+    theme.palette.mode === 'dark'
+      ? '0 1px 4px rgba(0, 0, 0, 0.55)'
+      : '0 1px 3px rgba(255, 255, 255, 0.75)',
+  transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}, transform ${tokens.transition.fast}`,
   '&:hover': {
     color: palette.brand.lime,
-    backgroundColor: alpha(palette.brand.lime, 0.08),
+    backgroundColor: alpha(palette.brand.lime, 0.12),
+    transform: 'translateY(-1px)',
   },
   '&:focus-visible': {
     outline: `${tokens.borderWidth.medium} solid ${palette.brand.lime}`,
     outlineOffset: 3,
   },
   '& svg': {
-    fontSize: 18,
+    fontSize: 20,
     transform: open ? 'rotate(180deg)' : 'none',
     transition: `transform ${tokens.transition.base}`,
   },
@@ -130,9 +140,9 @@ const MobileNavLink = styled('a')(({ theme }) => ({
   color: theme.palette.text.primary,
   textDecoration: 'none',
   fontFamily: typography.subtitle1.fontFamily,
-  fontWeight: typography.subtitle1.fontWeight,
-  fontSize: typography.subtitle1.fontSize,
-  padding: theme.spacing(1.5, 1),
+  fontWeight: 600,
+  fontSize: '1.125rem',
+  padding: theme.spacing(1.5, 1.25),
   borderRadius: tokens.radius.md,
   transition: `color ${tokens.transition.fast}, background-color ${tokens.transition.fast}`,
   '&:hover': {
@@ -328,7 +338,7 @@ const MobileNavSection = ({ item, onClose }: { item: NavItem; onClose: () => voi
  */
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const elevated = useIsScrolled()
+  const elevated = useIsScrolled(20)
 
   return (
     <HeaderRoot elevated={elevated}>
@@ -352,11 +362,18 @@ export const Navbar = () => {
             </Box>
             <Box>
               <Typography
-                sx={{
-                  ...typography.h5,
+                sx={(theme) => ({
+                  fontFamily: typography.h4.fontFamily,
+                  fontSize: '1.35rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
                   color: 'text.primary',
-                  lineHeight: 1,
-                }}
+                  lineHeight: 1.1,
+                  textShadow:
+                    theme.palette.mode === 'dark'
+                      ? '0 1px 4px rgba(0, 0, 0, 0.55)'
+                      : '0 1px 3px rgba(255, 255, 255, 0.75)',
+                })}
               >
                 MORPHINK
               </Typography>
@@ -365,8 +382,10 @@ export const Navbar = () => {
                   ...typography.overline,
                   color: palette.brand.lime,
                   display: 'block',
-                  fontSize: '0.625rem',
-                  mt: 0.2,
+                  fontSize: '0.725rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.16em',
+                  mt: 0.25,
                 }}
               >
                 STUDIO ARCHITECTURE
@@ -378,7 +397,7 @@ export const Navbar = () => {
           <Stack
             component="nav"
             direction="row"
-            spacing={1}
+            spacing={1.5}
             aria-label="Primary"
             sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
           >
@@ -394,9 +413,12 @@ export const Navbar = () => {
               tone="accent"
               href={contactNavItem.href}
               sx={(theme) => ({
-                ...typography.buttonSm,
-                px: 3,
-                py: 1.1,
+                fontFamily: typography.button.fontFamily,
+                fontSize: '0.985rem',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                px: 3.5,
+                py: 1.25,
                 borderRadius: tokens.radius.pill,
                 backgroundColor: theme.palette.mode === 'dark' ? palette.brand.limeLight : palette.brand.lime,
                 color: palette.brand.ink,
@@ -411,7 +433,7 @@ export const Navbar = () => {
               })}
             >
               {contactNavItem.label}
-              <ArrowForwardIcon sx={{ fontSize: 16, ml: 0.8 }} />
+              <ArrowForwardIcon sx={{ fontSize: 18, ml: 0.8 }} />
             </Button>
           </Stack>
 

@@ -12,25 +12,28 @@ const bounceCue = keyframes`
 `
 
 // Full-viewport hero shell — height accounts for the sticky header (68px on
-// mobile, 80px from md up per Navbar's Bar styles) so content is never
-// pushed below the fold on load.
+// Full-viewport hero shell extending underneath the transparent navbar at scroll position 0.
 const HeroRoot = styled('section')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  minHeight: 'calc(100vh - 68px)',
-  paddingBlock: theme.spacing(4, 4),
+  minHeight: '100vh',
+  marginTop: -68,
+  paddingTop: 68,
+  paddingBottom: theme.spacing(4),
   overflow: 'hidden',
   backgroundColor: theme.palette.background.default,
   '@supports (height: 100svh)': {
-    minHeight: 'calc(100svh - 68px)',
+    minHeight: '100svh',
   },
   [theme.breakpoints.up('md')]: {
-    minHeight: 'calc(100vh - 80px)',
-    paddingBlock: theme.spacing(6, 6),
+    minHeight: '100vh',
+    marginTop: -80,
+    paddingTop: 80,
+    paddingBottom: theme.spacing(6),
     '@supports (height: 100svh)': {
-      minHeight: 'calc(100svh - 80px)',
+      minHeight: '100svh',
     },
   },
 }))

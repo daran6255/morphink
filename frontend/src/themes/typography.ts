@@ -13,7 +13,7 @@ export const FONT_BODY = "'Inter', sans-serif" as const;
 export const FONT_CODE = "monospace" as const;
 
 export const GOOGLE_FONTS_URL =
-  'https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap' as const;
+  'https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap' as const;
 
 export const typography = {
   displayXl: {
